@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaivert All Games</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS externe -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="logopage.png">
+</head>
+<body>
+    <h1>Jeux faits</h1>
+
+    <!-- Section "Jeux finis" -->
+    <section id="jeux-finis">
+        <h2>Jeux terminés</h2>
+        <div class="jeu" id="jeutlou" data-progress="100%" data-background="TLOUbg.png">
+            <img class= "logo" src="TLOUlogo.png" alt="Jeux 1">
+            <h3>The Last of Us Part I</h3>
+            <button onclick="toggleDetails(1)">Voir les détails</button>
+            <div id="details-jeu1" class="hidden-details">
+                <p>Ville natale</p>
+
+                <p>Zone de quarantaine</p>
+                <h4>Artefacts: 2 sur 7</h4>
+                <h4>Pendentifs des lucioles: 0 sur 3</h4>
+                <h4>Conversations optionnelles: 2 sur 4</h4>
+
+                <p>La périférie</p>
+                <h4>Artefacts: 4 sur 9</h4>
+                    <h4>Pendentifs des lucioles: 2 sur 4</h4>
+                    <h4>Établis: 1 sur 1</h4>
+
+                <p>La ville de Bill</p>
+                <h4>Artefacts: 7 sur 11</h4>
+                <h4>Pendentifs des lucioles: 1 sur 3</h4>
+                <h4>Établis: 1 sur 1</h4>
+
+                <p>Pittsburgh</p>
+                <h4>Artefacts: 7 sur 17</h4>
+                <h4>Pendentifs des lucioles: 0 sur 3</h4>
+                <h4>Établis: 3 sur 3</h4>
+
+                <p>La banlieue</p>
+                <h4>Artefacts: 8 sur 10</h4>
+
+                <p>Le barrage de Tommy</p>
+                <h4>Artefacts: 1 sur 2</h4>
+
+                <p>L'université</p>
+                <h4>Artefacts: 7 sur 9</h4>
+
+                <p>Station en bord de lac</p>
+                <h4>Artefacts: 10 sur 10</h4>
+
+                <p>Dépôt de bus</p>
+                <h4>Artefacts: 4 sur 4</h4>
+
+                <p>Le laboratoire des lucioles</p>
+                <h4>Artefacts: 3 sur 4</h4>
+                <h4>Pendentifs des lucioles: 0 sur 1</h4>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%;"></div>
+            </div>
+        </div>
+        <!-- Ajouter d'autres jeux terminés ici -->
+    </section>
+
+    <!-- Section "Jeux en cours" -->
+    <section id="jeux-en-cours">
+        <h2>Jeux en cours</h2>
+        <div class="jeu" id="jeutotk" data-progress="37.64%" data-background="totkbg.png">
+            <img class= "logo" src="totklogo.png" alt="Jeux 3">
+            <h3>The Legend of Zelda: Tears of the Kingdom</h3>
+            <button onclick="toggleDetails(3)">Voir les détails</button>
+            <div id="details-jeu3" class="hidden-details">
+                <p>Informations supplémentaires sur le jeu en cours.</p>
+                <p>Quêtes principales terminées : 4/10</p>
+                <p>Autres détails du jeu en cours.</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%;"></div>
+            </div>
+        </div>
+        <div class="jeu" id="jeubotw" data-progress="75%" data-background="botwbg.png">
+            <img class= "logo" src="botwlogo.png" alt="Jeux 4">
+            <h3>The Legend of Zelda: Breath of the Wild</h3>
+            <button onclick="toggleDetails(4)">Voir les détails</button>
+            <div id="details-jeu4" class="hidden-details">
+                <p>Informations supplémentaires sur le jeu en cours.</p>
+                <p>Quêtes principales terminées : 6/8</p>
+                <p>Autres détails du jeu en cours.</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+        <!-- Ajouter d'autres jeux en cours ici -->
+    </section>
+
+    <!-- Section "Jeux à faire" -->
+    <section id="jeux-a-faire">
+        <h2>Jeux à faire</h2>
+        <!-- Ajouter d'autres jeux à faire ici -->
+    </section>
+
+    <script>
+        function toggleDetails(gameNumber) {
+            const details = document.getElementById(`details-jeu${gameNumber}`);
+            details.classList.toggle("hidden-details");
+        }
+
+        // JavaScript pour calculer automatiquement le pourcentage de progression
+        const jeuElements = document.querySelectorAll(".jeu");
+
+        jeuElements.forEach((jeuElement) => {
+            const progressBar = jeuElement.querySelector(".progress-bar .progress");
+            const progressValue = jeuElement.getAttribute("data-progress");
+            const background = jeuElement.getAttribute("data-background");
+            progressBar.style.width = progressValue;
+            progressBar.textContent = progressValue;
+            jeuElement.style.backgroundImage = `url(${background})`;
+        });
+    </script>
+</body>
+</html>

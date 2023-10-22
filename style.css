@@ -1,0 +1,182 @@
+/* Style de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 0%, 10%);
+    color: #fff;
+}
+
+body, h1, h2, h3, p, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.5vw; /* Ajuste la taille en fonction de la largeur de la vue */
+    margin: 2vh 0;
+    text-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.5); /* Ajuste l'ombre en fonction de la largeur de la vue */
+}
+
+section {
+    margin: 2vh;
+    
+}
+
+/* Style des jeux */
+.jeu {
+    border: 1px solid #444;
+    padding: 1vw; /* Ajuste la marge intérieure en fonction de la largeur de la vue */
+    margin: 2vh auto; /* Centrer le jeu par rapport à la page en ajoutant des marges automatiques */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
+    box-shadow: 0 0.5vw 0.75vw rgba(0, 0, 0, 0.1); /* Ajuste l'ombre en fonction de la largeur de la vue */
+    max-width: 90%; /* Ajuste la largeur du jeu à 80% de la largeur de la vue */
+    background-size: cover; /* Ajuste la taille de l'image de fond pour couvrir la zone */
+    
+}
+
+
+.logo{
+    max-height: 40vh; /* Limite la hauteur du logo à 10% de la hauteur de la vue */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+h3 {
+    margin: 2vh 0;
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 1);
+    
+}
+
+
+/* Style des barres de progression */
+.progress-bar {
+    width: 100%;
+    height: 0.75vw; /* Ajuste la hauteur en fonction de la largeur de la vue */
+    background-color: #444;
+    margin: 2vh 0;
+    border-radius: 3vw; /* Ajuste le rayon de la bordure en fonction de la largeur de la vue */
+}
+
+.progress {
+    height: 100%;
+    text-align: center;
+    line-height: 0.75vw; /* Ajuste la hauteur de ligne en fonction de la largeur de la vue */
+    border-radius: 0.8vw; /* Ajuste le rayon de la bordure en fonction de la largeur de la vue */
+    animation: loadProgress 2s ease-in-out;
+}
+
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Style des boutons "Voir les détails" */
+button {
+    border: none;
+    padding: 0.5vw 1vw; /* Ajuste la taille en fonction de la largeur de la vue */
+    cursor: pointer;
+    margin: 2vh 0;
+    border-radius: 0.5vw; /* Ajuste le rayon de la bordure en fonction de la largeur de la vue */
+}
+
+
+/* Style des détails cachés */
+.hidden-details {
+    display: none;
+}
+
+.hidden-details p {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Style des sections "Jeux finis", "Jeux en cours" et "Jeux à faire" */
+section h2 {
+    font-size: 1.8vw; /* Ajuste la taille en fonction de la largeur de la vue */
+    text-transform: uppercase;
+    text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5); /* Ajuste l'ombre en fonction de la largeur de la vue */
+}
+
+h4 {
+    font-size: 0.8em; /* Ajustez la taille du sous-titre selon vos préférences */
+    font-weight: bold; /* Rendre le sous-titre en gras si nécessaire */
+    color: #ffffff; /* Couleur du sous-titre (bleu) - personnalisez selon vos préférences */
+    margin: 0; /* Supprime les marges par défaut du navigateur */
+}
+
+/* Style pour TOTK */
+#jeutotk button {
+    background-color: #49D59C;
+    color: #fff;
+}
+#jeutotk .progress {
+    background-color: #49D59C; 
+}
+#jeutotk h3:hover {
+    color: #ffffff; 
+    -webkit-text-stroke: 1px #49D59C;
+    
+}
+#jeutotk button:hover {
+    background-color: #2F8762;
+}
+
+/* Style pour BOTW */
+#jeubotw button {
+    background-color: #B99F65;
+    color: #fff;
+}
+#jeubotw .progress {
+    background-color: #B99F65;
+}
+#jeubotw h3:hover {
+    color: #B99F65;
+    -webkit-text-stroke: 1px #B99F65
+}
+#jeubotw button:hover {
+    background-color: #847048;
+}
+
+/* Style pour BOTW */
+#jeutlou button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeutlou .progress {
+    background-color: #bbbbbb;
+}
+#jeutlou h3:hover {
+    color: #bbbbbb;
+    -webkit-text-stroke: 1px #bbbbbb
+}
+#jeutlou button:hover {
+    background-color: #5d5d5d;
+}
