@@ -161,7 +161,7 @@ p {
     background-color: #847048;
 }
 
-/* Style pour BOTW */
+/* Style pour TLOU */
 #jeutlou button {
     background-color: #ffffff;
     color: #000000;
@@ -175,4 +175,66 @@ p {
 }
 #jeutlou button:hover {
     background-color: #5d5d5d;
+}
+
+/* Style pour TLOUII */
+#jeutlou2 button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeutlou2 .progress {
+    background-color: #bbbbbb;
+}
+#jeutlou2 h3:hover {
+    color: #bbbbbb;
+    -webkit-text-stroke: 1px #bbbbbb
+}
+#jeutlou2 button:hover {
+    background-color: #5d5d5d;
+}
+
+
+/* Style pour ORI TBF */
+#jeuoritbf button {
+    background-color: #F79E3F;
+    color: #000000;
+}
+#jeuoritbf .progress {
+    background-color: #F79E3F;
+}
+#jeuoritbf h3:hover {
+    color: #F79E3F;
+    -webkit-text-stroke: 1px #F79E3F
+}
+#jeuoritbf button:hover {
+    background-color: #DB8A39;
+}
+
+/* Style pour ORI TBF */
+#jeuMC button {
+    background-color: #F79E3F;
+    color: #000000;
+}
+#jeuMC .progress {
+    background-color: #F79E3F;
+}
+#jeuMC h3:hover {
+    color: #39aadb;
+    -webkit-text-stroke: 1px #39aadb
+}
+#jeuMC button:hover {
+    background-color: #39aadb;
+}
+
+/* Style pour ORI TBF */
+#jeuFactorio button {
+    background-color: #E27A22;
+    color: #000000;
+}
+#jeuFactorio .progress {
+    background-color: #E27A22;
+}
+#jeuFactorio h3:hover {
+    color: #E27A22;
+    -webkit-text-stroke: 1px #E27A22
 }

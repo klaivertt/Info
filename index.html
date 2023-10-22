@@ -102,18 +102,13 @@
                 <h4>Porte au surin: 0 sur 1</h4>
 
                 <p>Total: 110 sur 211</p>
-                
+
             </div>
             <div class="progress-bar">
                 <div class="progress" style="width: 100%;"></div>
             </div>
         </div>
-        <!-- Ajouter d'autres jeux terminés ici -->
-    </section>
 
-    <!-- Section "Jeux en cours" -->
-    <section id="jeux-en-cours">
-        <h2>Jeux en cours</h2>
         <div class="jeu" id="jeutotk" data-progress="37.64%" data-background="totkbg.png">
             <img class="logo" src="totklogo.png" alt="Jeux 3">
             <h3>The Legend of Zelda: Tears of the Kingdom</h3>
@@ -127,6 +122,7 @@
                 <div class="progress" style="width: 50%;"></div>
             </div>
         </div>
+
         <div class="jeu" id="jeubotw" data-progress="75%" data-background="botwbg.png">
             <img class="logo" src="botwlogo.png" alt="Jeux 4">
             <h3>The Legend of Zelda: Breath of the Wild</h3>
@@ -140,12 +136,67 @@
                 <div class="progress" style="width: 75%;"></div>
             </div>
         </div>
+
+        <h2>Jeux Sandbox</h2>
+        
+        <div class="jeu" id="jeuMC" data-progress="Completed" data-background="MCbg.png">
+            <img class="logo" src="mclogo.png" alt="Jeux 5">
+            <h3>Minecraft</h3>
+            <button onclick="toggleDetails(5)">Voir les détails</button>
+            <div id="details-jeu5" class="hidden-details">
+                <p>+2000h.</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="jeuFactorio" data-progress="Completed" data-background="factoriobg.png">
+            <img class="logo" src="factoriologo.png" alt="Jeux 6">
+            <h3>Factorio</h3>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%;"></div>
+            </div>
+        </div>
+
+
+        <!-- Ajouter d'autres jeux terminés ici -->
+    </section>
+
+    <!-- Section "Jeux en cours" -->
+    <section id="jeux-en-cours">
+        <h2>Jeux en cours</h2>
+
+        <div class="jeu" id="jeuoritbf" data-progress="8%" data-background="oriTBF.png">
+            <img class="logo" src="oriTBFlogo.png" alt="Jeux 5">
+            <h3>Ori and the Blind Forest</h3>
+            <button onclick="toggleDetails(5)">Voir les détails</button>
+            <div id="details-jeu5" class="hidden-details">
+                <p>détails du jeu en cours.</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
         <!-- Ajouter d'autres jeux en cours ici -->
     </section>
 
     <!-- Section "Jeux à faire" -->
     <section id="jeux-a-faire">
         <h2>Jeux à faire</h2>
+        <div class="jeu" id="jeutlou2" data-progress="0%" data-background="TLOU2bg.png">
+            <img class="logo" src="TLOU2logo.png" alt="Jeux 2">
+            <h3>The Last of Us Part II</h3>
+            <button onclick="toggleDetails(2)">Voir les détails</button>
+            <div id="details-jeu2" class="hidden-details">
+                <p>Jeux a faire</p>
+
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%;"></div>
+            </div>
+        </div>
         <!-- Ajouter d'autres jeux à faire ici -->
     </section>
 
