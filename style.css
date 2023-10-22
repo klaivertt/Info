@@ -238,3 +238,19 @@ p {
     color: #E27A22;
     -webkit-text-stroke: 1px #E27A22
 }
+
+/* Style pour TLOUII */
+#jeutSpiderman button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeutSpiderman .progress {
+    background-color: #ffffff;
+}
+#jeutSpiderman h3:hover {
+    color: #ffffff;
+    -webkit-text-stroke: 1px #ffffff
+}
+#jeutSpiderman button:hover {
+    background-color: #b6b6b6;
+}
