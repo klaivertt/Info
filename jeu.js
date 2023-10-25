@@ -1,3 +1,4 @@
+
 window.addEventListener('scroll', function() {
 const header = document.querySelector('header');
 const nav = document.querySelector('nav');
@@ -22,4 +23,5 @@ footer.classList.remove('scrolled');
 // Lorsque l'utilisateur n'est pas en bas de la page, on ajoute la classe 'scrolled' au footer
 footer.classList.add('scrolled');
 }
+
 });
