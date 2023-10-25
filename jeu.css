@@ -430,3 +430,436 @@ body::-webkit-scrollbar-track {
     background-color: #ff4625;
     opacity: 0.2; /* Ajout de la transparence (70%) */
 }
+=======
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 0%, 10%);
+    color: #fff;
+}
+
+body, h1, h2, h3, p, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #FF4728;
+    color: #fff;
+    text-align: center;
+    padding: 1.5%;
+    z-index: 2; /* Setting a higher z-index to bring it above the main content */
+    transition: padding 0.5s, position 0.5s, top 0.5s, opacity 0.3s; /* Combine transitions for better performance */
+}
+
+header img {
+    max-width: 80%;
+    height: auto;
+}
+
+.logogrand{
+    max-height: 12.5vh; /* Limite la hauteur du logo à 10% de la hauteur de la vue */
+}
+
+header.scrolled {
+    padding: 0.5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 13vh;
+}
+
+header h1 {
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.3s; /* Add a transition for smoother opacity change */
+}
+
+/* Style pour le titre h1 dans le header lorsque décollé */
+header.scrolled h1 {
+    opacity: 0;
+}
+
+nav {
+    background-color: #990000;
+    color: #fff;
+    padding: 1.5%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: padding 0.5s, top 0.5s, position 0.5s, height 0.5s; /* Combine transitions for better performance */
+}
+
+/* Style pour la nav bar lorsque décollée */
+nav.scrolled {
+    padding: 0.5%;
+    position: fixed;
+    top: 14vh;
+    left: 0;
+    right: 0;
+    height: 5vh;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 1.5%;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Styles pour les titres (h1, h2, h3) */
+h1 {
+    text-align: center;
+    font-size: 2.5vw; /* Taille ajustée en fonction de la largeur de la vue */
+    margin: 2vh 0;
+    text-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.5); /* Ombre ajustée en fonction de la largeur de la vue */
+}
+
+h2, h3 {
+    font-size: 1.5vw; /* Taille ajustée en fonction de la largeur de la vue */
+    text-transform: uppercase;
+    text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 1);
+}
+
+/* Styles pour les jeux */
+.jeu {
+    border: 1px solid #444;
+    padding: 1vw; /* Marge intérieure ajustée en fonction de la largeur de la vue */
+    margin: 2vh auto; /* Centrer le jeu par rapport à la page en ajoutant des marges automatiques */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #333;
+    box-shadow: 0 0.5vw 0.75vw rgba(0, 0, 0, 0.1); /* Ombre ajustée en fonction de la largeur de la vue */
+    max-width: 90%; /* Largeur ajustée à 90% de la largeur de la vue */
+    background-size: cover; /* Ajuste la taille de l'image de fond pour couvrir la zone */
+}
+
+.logo {
+    max-height: 40vh; /* Limite la hauteur du logo à 10% de la hauteur de la vue */
+}
+
+
+
+/* Styles pour les images */
+img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Styles pour les barres de progression */
+.progress-bar {
+    width: 100%;
+    height: 1vw; /* Hauteur ajustée en fonction de la largeur de la vue */
+    background-color: #444;
+    margin: 2vh 0;
+    border-radius: 3vw; /* Rayon de la bordure ajusté en fonction de la largeur de la vue */
+}
+
+.progress {
+    height: 100%;
+    text-align: center;
+    line-height: 0.75vw; /* Hauteur de ligne ajustée en fonction de la largeur de la vue */
+    border-radius: 0.8vw; /* Rayon de la bordure ajusté en fonction de la largeur de la vue */
+    animation: loadProgress 2s ease-in-out;
+}
+
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Styles pour les boutons "Voir les détails" */
+button {
+    border: none;
+    padding: 0.5vw 1vw; /* Taille ajustée en fonction de la largeur de la vue */
+    cursor: pointer;
+    margin: 2vh 0;
+    border-radius: 0.5vw; /* Rayon de la bordure ajusté en fonction de la largeur de la vue */
+}
+
+/* Styles pour les détails cachés */
+.hidden-details {
+    display: none;
+}
+
+.hidden-details p {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styles pour les sections "Jeux finis", "Jeux en cours" et "Jeux à faire" */
+section h2 {
+    font-size: 1.8vw; /* Taille ajustée en fonction de la largeur de la vue */
+    text-transform: uppercase;
+    text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5); /* Ombre ajustée en fonction de la largeur de la vue */
+}
+
+h4 {
+    font-size: 1.2vw; /* Taille du sous-titre ajustée en fonction de la largeur de la vue */
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+p {
+    font-size: 1.5vw; /* Taille du sous-titre ajustée en fonction de la largeur de la vue */
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: underline; /* Ajout de l'effet de soulignement */
+}
+
+a {
+    color: #ffffff; /* Couleur personnalisée pour les liens */
+    text-decoration: none; /* Enlève le soulignement des liens */
+}
+
+/* styles pour les jeux */
+/* Style pour TOTK */
+#jeutotk button {
+    background-color: #49D59C;
+    color: #fff;
+}
+#jeutotk .progress {
+    background-color: #49D59C; 
+}
+#jeutotk h3:hover {
+    color: #ffffff; 
+    -webkit-text-stroke: 1px #49D59C;
+    
+}
+#jeutotk button:hover {
+    background-color: #2F8762;
+}
+
+/* Style pour BOTW */
+#jeubotw button {
+    background-color: #B99F65;
+    color: #fff;
+}
+#jeubotw .progress {
+    background-color: #B99F65;
+}
+#jeubotw h3:hover {
+    color: #B99F65;
+    -webkit-text-stroke: 1px #B99F65
+}
+#jeubotw button:hover {
+    background-color: #847048;
+}
+
+/* Style pour TLOU */
+#jeutlou button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeutlou .progress {
+    background-color: #bbbbbb;
+}
+#jeutlou h3:hover {
+    color: #bbbbbb;
+    -webkit-text-stroke: 1px #bbbbbb
+}
+#jeutlou button:hover {
+    background-color: #5d5d5d;
+}
+
+/* Style pour TLOUII */
+#jeutlou2 button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeutlou2 .progress {
+    background-color: #bbbbbb;
+}
+#jeutlou2 h3:hover {
+    color: #bbbbbb;
+    -webkit-text-stroke: 1px #bbbbbb
+}
+#jeutlou2 button:hover {
+    background-color: #5d5d5d;
+}
+
+
+/* Style pour ORI TBF */
+#jeuoritbf button {
+    background-color: #F79E3F;
+    color: #ffffff;
+}
+#jeuoritbf .progress {
+    background-color: #F79E3F;
+}
+#jeuoritbf h3:hover {
+    color: #F79E3F;
+    -webkit-text-stroke: 1px #F79E3F
+}
+#jeuoritbf button:hover {
+    background-color: #DB8A39;
+}
+
+/* Style pour ORI TBF */
+#jeuMC button {
+    background-color: #F79E3F;
+    color: #ffffff;
+}
+#jeuMC .progress {
+    background-color: #F79E3F;
+}
+#jeuMC h3:hover {
+    color: #39aadb;
+    -webkit-text-stroke: 1px #39aadb
+}
+#jeuMC button:hover {
+    background-color: #39aadb;
+}
+
+/* Style pour ORI TBF */
+#jeuFactorio button {
+    background-color: #E27A22;
+    color: #ffffff;
+}
+#jeuFactorio .progress {
+    background-color: #E27A22;
+}
+#jeuFactorio h3:hover {
+    color: #E27A22;
+    -webkit-text-stroke: 1px #E27A22
+}
+
+/* Style pour TLOUII */
+#jeuSpiderman button {
+    background-color: #ffffff;
+    color: #000000;
+}
+#jeuSpiderman .progress {
+    background-color: #ffffff;
+}
+#jeuSpiderman h3:hover {
+    color: #ffffff;
+    -webkit-text-stroke: 1px #ffffff
+}
+#jeutSpiderman button:hover {
+    background-color: #b6b6b6;
+}
+
+#jeupvz button {
+    background-color: #7ED933;
+    color: #000000;
+}
+#jeupvz .progress {
+    background-color: #7ED933;
+}
+#jeupvz h3:hover {
+    color: #7ED933;
+    -webkit-text-stroke: 1px #7ED933
+}
+#jeupvz button:hover {
+    background-color: #6AB22A;
+}
+
+#jeuMCSM button {
+    background-color: #D0A757;
+    color: #000000;
+}
+#jeuMCSM .progress {
+    background-color: #D0A757;
+}
+#jeuMCSM h3:hover {
+    color: #D0A757;
+    -webkit-text-stroke: 1px #D0A757
+}
+#jeuMCSM button:hover {
+    background-color: #624B22;
+}
+
+#jeuEarntodie button {
+    background-color: #EA1E10;
+    color: #000000;
+}
+#jeuEarntodie .progress {
+    background-color: #EA1E10;
+}
+#jeuEarntodie h3:hover {
+    color: #EA1E10;
+    -webkit-text-stroke: 1px #EA1E10
+}
+#jeuEarntodie button:hover {
+    background-color: #AB120A;
+}
+
+/*fin du styles pour les jeux */
+
+footer {
+    background-color: #FF4728;
+    color: #000000;
+    text-align: center;
+    padding: 1.5%;
+    position: relative;
+    z-index: 2;
+    transition: padding 0.5s, position 0.5s, top 0.5s, font-size 0.5s; /* Combine transitions for better performance */
+}
+
+/* Style for the footer when detached */
+footer.scrolled {
+    padding: 1.5%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+    height: 0.7vh;
+
+    opacity: 0.95; /* Ajout de la transparence (70%) */
+    filter: blur(); /* Ajout du flou */
+}
+
+/* Custom Scrollbar for WebKit (Chrome, Safari) */
+body::-webkit-scrollbar {
+    width: 5px;
+    opacity: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #990000;
+    border-radius: 10px;
+    opacity: 0.7; /* Ajout de la transparence (70%) */
+    filter: blur(3px); /* Ajout du flou */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #ff4625;
+    opacity: 0.2; /* Ajout de la transparence (70%) */
+}
