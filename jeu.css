@@ -244,17 +244,62 @@ a {
 }
 
 /* Style pour TLOUII */
-#jeutSpiderman button {
+#jeuSpiderman button {
     background-color: #ffffff;
     color: #000000;
 }
-#jeutSpiderman .progress {
+#jeuSpiderman .progress {
     background-color: #ffffff;
 }
-#jeutSpiderman h3:hover {
+#jeuSpiderman h3:hover {
     color: #ffffff;
     -webkit-text-stroke: 1px #ffffff
 }
 #jeutSpiderman button:hover {
     background-color: #b6b6b6;
+}
+
+#jeupvz button {
+    background-color: #7ED933;
+    color: #000000;
+}
+#jeupvz .progress {
+    background-color: #7ED933;
+}
+#jeupvz h3:hover {
+    color: #7ED933;
+    -webkit-text-stroke: 1px #7ED933
+}
+#jeupvz button:hover {
+    background-color: #6AB22A;
+}
+
+#jeuMCSM button {
+    background-color: #D0A757;
+    color: #000000;
+}
+#jeuMCSM .progress {
+    background-color: #D0A757;
+}
+#jeuMCSM h3:hover {
+    color: #D0A757;
+    -webkit-text-stroke: 1px #D0A757
+}
+#jeuMCSM button:hover {
+    background-color: #624B22;
+}
+
+#jeuEarntodie button {
+    background-color: #EA1E10;
+    color: #000000;
+}
+#jeuEarntodie .progress {
+    background-color: #EA1E10;
+}
+#jeuEarntodie h3:hover {
+    color: #EA1E10;
+    -webkit-text-stroke: 1px #EA1E10
+}
+#jeuEarntodie button:hover {
+    background-color: #AB120A;
 }

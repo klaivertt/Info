@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const backgrounds = ["botwbg.png", "factoriobg.png", "Marvel_Spider-Man_bg.png"];
+    const backgrounds = ["botwbg.png", "factoriobg.png", "Marvel_Spider-Man_bg.png", "ETO2bg.png", "MCbg.png", "TLOU2bg.png", "totkbg.png"];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);
     const selectedBackground = backgrounds[randomIndex];
@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const image = new Image();
         image.src = imageSrc;
         image.crossOrigin = "Anonymous";
+
+        let bgColorBrightness; // Declare bgColorBrightness here
 
         image.onload = function() {
             const canvas = document.createElement("canvas");
@@ -52,6 +54,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     button.style.color = "#000"; // Texte noir pour les couleurs claires
                 } else {
                     button.style.color = "#fff"; // Texte blanc pour les couleurs foncées
+                }
+            });
+
+            // Changer la couleur du texte avec the "color-change" class en fonction de la luminosité
+            const textElements = document.querySelectorAll(".color-change");
+            textElements.forEach(textElement => {
+                
+                // Déterminer la luminosité de la couleur de fond
+                const bgColorBrightness = (averageColor[0] * 299 + averageColor[1] * 587 + averageColor[2] * 114) / 1000;
+
+                // Changer la couleur du texte en noir ou blanc en fonction de la luminosité
+                if (bgColorBrightness > 128) {
+                    textElement.style.color = "#000"; // Texte noir pour les couleurs claires
+                } else {
+                    textElement.style.color = "#fff"; // Texte blanc pour les couleurs foncées
                 }
             });
         };
