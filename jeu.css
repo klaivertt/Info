@@ -508,6 +508,20 @@ a {
     background-color: #333333;
 }
 
+#ratchetclankriftapart button {
+    background-color: #b54a1d;
+    color: #ffffff;
+}
+#ratchetclankriftapart .progress {
+    background-color: #b54a1d;
+}
+#ratchetclankriftapart h3:hover {
+    color: #b54a1d;
+    -webkit-text-stroke: 1px #b54a1d
+}
+#ratchetclankriftapart button:hover {
+    background-color: #485577;
+}
 /*fin du styles pour les jeux */
 
 footer {
