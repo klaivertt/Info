@@ -387,6 +387,127 @@ a {
     background-color: #AB120A;
 }
 
+#jeuEarntodie button {
+    background-color: #EA1E10;
+    color: #000000;
+}
+#jeuEarntodie .progress {
+    background-color: #EA1E10;
+}
+#jeuEarntodie h3:hover {
+    color: #EA1E10;
+    -webkit-text-stroke: 1px #EA1E10
+}
+#jeuEarntodie button:hover {
+    background-color: #66ccff;
+}
+
+#SkylandersSA button {
+    background-color: #66ccff;
+    color: #000000;
+}
+#SkylandersSA .progress {
+    background-color: #66ccff;
+}
+#SkylandersSA h3:hover {
+    color: #66ccff;
+    -webkit-text-stroke: 1px #66ccff
+}
+#SkylandersSA button:hover {
+    background-color: #6699ff;
+}
+
+
+#SkylandersSF button {
+    background-color: #72bb35;
+    color: #000000;
+}
+#SkylandersSF .progress {
+    background-color: #72bb35;
+}
+#SkylandersSF h3:hover {
+    color: #72bb35;
+    -webkit-text-stroke: 1px #72bb35
+}
+#SkylandersSF button:hover {
+    background-color: #fcef02;
+}
+
+#Ageofwar button {
+    background-color: #1e6a25;
+    color: #ffffff;
+}
+#Ageofwar .progress {
+    background-color: #1e6a25;
+}
+#Ageofwar h3:hover {
+    color: #1e6a25;
+    -webkit-text-stroke: 1px #1e6a25
+}
+#Ageofwar button:hover {
+    background-color: #1e6a25;
+}
+
+#stickmanlegacy button {
+    background-color: #ae191b;
+    color: #ffffff;
+}
+#stickmanlegacy .progress {
+    background-color: #ae191b;
+}
+#stickmanlegacy h3:hover {
+    color: #ae191b;
+    -webkit-text-stroke: 1px #ae191b
+}
+#stickmanlegacy button:hover {
+    background-color: #7a171c;
+}
+
+#Ratchetetclankoperationdestruction button {
+    background-color: #b54a1d;
+    color: #ffffff;
+}
+#Ratchetetclankoperationdestruction .progress {
+    background-color: #b54a1d;
+}
+#Ratchetetclankoperationdestruction h3:hover {
+    color: #b54a1d;
+    -webkit-text-stroke: 1px #b54a1d
+}
+#Ratchetetclankoperationdestruction button:hover {
+    background-color: #485577;
+}
+
+#HorizonZeroDawn button {
+    background-color: #37343d;
+    color: #ffffff;
+}
+#HorizonZeroDawn .progress {
+    background-color: #37343d;
+}
+#HorizonZeroDawn h3:hover {
+    color: #37343d;
+    -webkit-text-stroke: 1px #37343d
+}
+#HorizonZeroDawn button:hover {
+    background-color: #333333;
+}
+
+#sotc button {
+    background-color: #37343d;
+    color: #ffffff;
+}
+#sotc .progress {
+    background-color: #37343d;
+}
+#sotc h3:hover {
+    color: #37343d;
+    -webkit-text-stroke: 1px #37343d
+}
+#sotc button:hover {
+    background-color: #333333;
+}
+
 /*fin du styles pour les jeux */
 
 footer {
