@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
     const backgrounds = [
-        "/background/botw.png",
-        "/background/factorio.png",
-        "/background/Marvel_Spider-Man.png",
-        "/background/ETO2.png",
-        "/background/MC.png",
-        "/background/TLOU2.png",
-        "/background/TLOU.png",
-        "/background/totk.png",
-        "/background/sotc.png",
-        "/background/ratchet_et_clank_rift_apart.png",
-        "/background/horizonzerodawn.png",
-        "/background/oriTBF.png",
-        "/background/Ratchet_et_clank_operation_destruction.png"
+        "background/botw.png",
+        "background/factorio.png",
+        "background/Marvel_Spider-Man.png",
+        "background/ETO2.png",
+        "background/MC.png",
+        "background/TLOU2.png",
+        "background/TLOU.png",
+        "background/totk.png",
+        "background/sotc.png",
+        "background/ratchet_et_clank_rift_apart.png",
+        "background/horizonzerodawn.png",
+        "background/oriTBF.png",
+        "background/Ratchet_et_clank_operation_destruction.png"
     ];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);
