@@ -1,5 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const backgrounds = ["botwbg.png", "factoriobg.png", "Marvel_Spider-Man_bg.png", "ETO2bg.png", "MCbg.png", "TLOU2bg.png", "totkbg.png","sotcbg.png"];
+document.addEventListener("DOMContentLoaded", function () {
+    const backgrounds = [
+        "/background/botw.png",
+        "/background/factorio.png",
+        "/background/Marvel_Spider-Man.png",
+        "/background/ETO2.png",
+        "/background/MC.png",
+        "/background/TLOU2.png",
+        "/background/TLOU.png",
+        "/background/totk.png",
+        "/background/sotc.png",
+        "/background/ratchet_et_clank_rift_apart.png",
+        "/background/horizonzerodawn.png",
+        "/background/oriTBF.png",
+        "/background/Ratchet_et_clank_operation_destruction.png"
+    ];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);
     const selectedBackground = backgrounds[randomIndex];
@@ -13,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let bgColorBrightness; // Declare bgColorBrightness here
 
-        image.onload = function() {
+        image.onload = function () {
             const canvas = document.createElement("canvas");
             canvas.width = image.width;
             canvas.height = image.height;
@@ -60,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Changer la couleur du texte avec the "color-change" class en fonction de la luminosité
             const textElements = document.querySelectorAll(".color-change");
             textElements.forEach(textElement => {
-                
+
                 // Déterminer la luminosité de la couleur de fond
                 const bgColorBrightness = (averageColor[0] * 299 + averageColor[1] * 587 + averageColor[2] * 114) / 1000;
 
