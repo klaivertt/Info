@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const backgrounds = ["botwbg.png", "factoriobg.png", "Marvel_Spider-Man_bg.png", "ETO2bg.png", "MCbg.png", "TLOU2bg.png", "totkbg.png"];
+    const backgrounds = ["botwbg.png", "factoriobg.png", "Marvel_Spider-Man_bg.png", "ETO2bg.png", "MCbg.png", "TLOU2bg.png", "totkbg.png","sotcbg.png"];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);
     const selectedBackground = backgrounds[randomIndex];
