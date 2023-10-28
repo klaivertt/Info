@@ -12,7 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         "background/ratchet_et_clank_rift_apart.png",
         "background/horizonzerodawn.png",
         "background/oriTBF.png",
-        "background/Ratchet_et_clank_operation_destruction.png"
+        "background/Ratchet_et_clank_operation_destruction.png",
+        "background/gow.png",
+        "background/gtav.png",
+        "background/killzone3.png",
+        "background/mclegend.png",
+        "background/splatoon2.png",
+        "background/uncharted.png"
     ];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);

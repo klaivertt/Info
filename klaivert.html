@@ -30,6 +30,7 @@
     <!-- Section "Jeux finis" -->
     <section id="jeux-finis">
         <h2>Jeux terminés</h2>
+        
 
         <div class="jeu" id="jeupvz" data-progress="100%" data-background="background/pvz.png">
             <img class="logo" src="games_logo/pvz.png" alt="Jeux 8">
@@ -312,12 +313,117 @@
             </div>
         </div>
 
+        <div class="jeu" id="gtav" data-progress="en cour" data-background="background/gtav.png">
+            <img class="logo" src="games_logo/gtaV.png" alt="Jeux 20">
+            <h3>grand theft auto V</h3>
+            <button onclick="toggleDetails(20)">Voir les détails</button>
+            <div id="details-jeu20" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="gow" data-progress="en cour" data-background="background/gow.png">
+            <img class="logo" src="games_logo/GOW.png" alt="Jeux 21">
+            <h3>God of War</h3>
+            <button onclick="toggleDetails(21)">Voir les détails</button>
+            <div id="details-jeu21" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="splatoon2" data-progress="30%" data-background="background/Splatoon2.png">
+            <img class="logo" src="games_logo/Splatoon2.png" alt="Jeux 22">
+            <h3>Splatoon 2</h3>
+            <button onclick="toggleDetails(22)">Voir les détails</button>
+            <div id="details-jeu22" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="Killzone3" data-progress="33%" data-background="background/killzone3.png">
+            <img class="logo" src="games_logo/Killzone_3_logo.png" alt="Jeux 23">
+            <h3>Kill Zone 3</h3>
+            <button onclick="toggleDetails(23)">Voir les détails</button>
+            <div id="details-jeu23" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="uncharted2" data-progress="40%" data-background="background/uncharted2.png">
+            <img class="logo" src="games_logo/uncharted2.png" alt="Jeux 24">
+            <h3>uncharted 2</h3>
+            <button onclick="toggleDetails(24)">Voir les détails</button>
+            <div id="details-jeu24" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="dead_island" data-progress="40%" data-background="background/deadisland.png">
+            <img class="logo" src="games_logo/dead_island.png" alt="Jeux 26">
+            <h3>Dead Ilsand</h3>
+            <button onclick="toggleDetails(26)">Voir les détails</button>
+            <div id="details-jeu26" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <div class="jeu" id="Minecraftlegend" data-progress="40%" data-background="background/mclegende.png">
+            <img class="logo" src="games_logo/mclegend.png" alt="Jeux 25">
+            <h3>Minecraft legends</h3>
+            <button onclick="toggleDetails(25)">Voir les détails</button>
+            <div id="details-jeu25" class="hidden-details">
+                
+                <p>
+                    
+                </p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+
         <!-- Ajouter d'autres jeux en cours ici -->
     </section>
 
     <!-- Section "Jeux à faire" -->
     <section id="jeux-a-faire">
-        <h2>Jeux à faire</h2>
+        <h2>Jeux à faire></h2>
         <div class="jeu" id="jeutlou2" data-progress="0%" data-background="background/TLOU2.png">
             <img class="logo" src="games_logo/TLOU2.png" alt="Jeux 2">
             <h3>The Last of Us Part II</h3>
@@ -381,6 +487,7 @@
                 progressBar.style.width = progressValue;
                 progressBar.textContent = progressValue;
                 jeuElement.style.backgroundImage = `url(${background})`;
+
         });
     </script>
 </body>
