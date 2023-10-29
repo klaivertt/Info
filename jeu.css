@@ -522,6 +522,111 @@ a {
 #ratchetclankriftapart button:hover {
     background-color: #485577;
 }
+
+#gtav button {
+    background-color: #578520;
+    color: #ffffff;
+}
+#gtav .progress {
+    background-color: #578520;
+}
+#gtav h3:hover {
+    color: #578520;
+    -webkit-text-stroke: 1px #578520
+}
+#gtav button:hover {
+    background-color: #466B1A;
+}
+
+#gow button {
+    background-color: #9D181E;
+    color: #ffffff;
+}
+#gow .progress {
+    background-color: #9D181E;
+}
+#gow h3:hover {
+    color: #9D181E;
+    -webkit-text-stroke: 1px #9D181E
+}
+#gow button:hover {
+    background-color: #84151A;
+}
+
+#splatoon2 button {
+    background-color: #A8ED59;
+    color: #ffffff;
+}
+#splatoon2 .progress {
+    background-color: #A8ED59;
+}
+#splatoon2 h3:hover {
+    color: #A8ED59;
+    -webkit-text-stroke: 1px #A8ED59
+}
+#splatoon2 button:hover {
+    background-color: #FF3772;
+}
+
+#Killzone3 button {
+    background-color: #FFA40A;
+    color: #ffffff;
+}
+#Killzone3 .progress {
+    background-color: #FFA40A;
+}
+#Killzone3 h3:hover {
+    color: #FFA40A;
+    -webkit-text-stroke: 1px #FFA40A
+}
+#Killzone3 button:hover {
+    background-color: #915705;
+}
+
+#uncharted2 button {
+    background-color: #D0481C;
+    color: #ffffff;
+}
+#uncharted2 .progress {
+    background-color: #D0481C;
+}
+#uncharted2 h3:hover {
+    color: #D0481C;
+    -webkit-text-stroke: 1px #D0481C
+}
+#uncharted2 button:hover {
+    background-color: #892E13;   
+}
+
+#dead_island button {
+    background-color: #AD1010;
+    color: #ffffff;
+}
+#dead_island .progress {
+    background-color: #AD1010;
+}
+#dead_island h3:hover {
+    color: #AD1010;
+    -webkit-text-stroke: 1px #AD1010
+}
+#dead_island button:hover {
+    background-color: #6F0E0E;   
+}
+
+#Minecraftlegend button {
+    background-color: #00CFE4;
+    color: #ffffff;
+}
+#Minecraftlegend .progress {
+    background-color: #00CFE4;
+}
+#Minecraftlegend h3:hover {
+    color: #00CFE4;
+    -webkit-text-stroke: 1px #00CFE4
+}
+#Minecraftlegend button:hover {
+    background-color: #1F3FAC;   
+}
 /*fin du styles pour les jeux */
 
 footer {
@@ -798,163 +903,6 @@ a {
 #jeutotk button:hover {
     background-color: #2F8762;
 }
-
-/* Style pour BOTW */
-#jeubotw button {
-    background-color: #B99F65;
-    color: #fff;
-}
-#jeubotw .progress {
-    background-color: #B99F65;
-}
-#jeubotw h3:hover {
-    color: #B99F65;
-    -webkit-text-stroke: 1px #B99F65
-}
-#jeubotw button:hover {
-    background-color: #847048;
-}
-
-/* Style pour TLOU */
-#jeutlou button {
-    background-color: #ffffff;
-    color: #000000;
-}
-#jeutlou .progress {
-    background-color: #bbbbbb;
-}
-#jeutlou h3:hover {
-    color: #bbbbbb;
-    -webkit-text-stroke: 1px #bbbbbb
-}
-#jeutlou button:hover {
-    background-color: #5d5d5d;
-}
-
-/* Style pour TLOUII */
-#jeutlou2 button {
-    background-color: #ffffff;
-    color: #000000;
-}
-#jeutlou2 .progress {
-    background-color: #bbbbbb;
-}
-#jeutlou2 h3:hover {
-    color: #bbbbbb;
-    -webkit-text-stroke: 1px #bbbbbb
-}
-#jeutlou2 button:hover {
-    background-color: #5d5d5d;
-}
-
-
-/* Style pour ORI TBF */
-#jeuoritbf button {
-    background-color: #F79E3F;
-    color: #ffffff;
-}
-#jeuoritbf .progress {
-    background-color: #F79E3F;
-}
-#jeuoritbf h3:hover {
-    color: #F79E3F;
-    -webkit-text-stroke: 1px #F79E3F
-}
-#jeuoritbf button:hover {
-    background-color: #DB8A39;
-}
-
-/* Style pour ORI TBF */
-#jeuMC button {
-    background-color: #F79E3F;
-    color: #ffffff;
-}
-#jeuMC .progress {
-    background-color: #F79E3F;
-}
-#jeuMC h3:hover {
-    color: #39aadb;
-    -webkit-text-stroke: 1px #39aadb
-}
-#jeuMC button:hover {
-    background-color: #39aadb;
-}
-
-/* Style pour ORI TBF */
-#jeuFactorio button {
-    background-color: #E27A22;
-    color: #ffffff;
-}
-#jeuFactorio .progress {
-    background-color: #E27A22;
-}
-#jeuFactorio h3:hover {
-    color: #E27A22;
-    -webkit-text-stroke: 1px #E27A22
-}
-
-/* Style pour TLOUII */
-#jeuSpiderman button {
-    background-color: #ffffff;
-    color: #000000;
-}
-#jeuSpiderman .progress {
-    background-color: #ffffff;
-}
-#jeuSpiderman h3:hover {
-    color: #ffffff;
-    -webkit-text-stroke: 1px #ffffff
-}
-#jeutSpiderman button:hover {
-    background-color: #b6b6b6;
-}
-
-#jeupvz button {
-    background-color: #7ED933;
-    color: #000000;
-}
-#jeupvz .progress {
-    background-color: #7ED933;
-}
-#jeupvz h3:hover {
-    color: #7ED933;
-    -webkit-text-stroke: 1px #7ED933
-}
-#jeupvz button:hover {
-    background-color: #6AB22A;
-}
-
-#jeuMCSM button {
-    background-color: #D0A757;
-    color: #000000;
-}
-#jeuMCSM .progress {
-    background-color: #D0A757;
-}
-#jeuMCSM h3:hover {
-    color: #D0A757;
-    -webkit-text-stroke: 1px #D0A757
-}
-#jeuMCSM button:hover {
-    background-color: #624B22;
-}
-
-#jeuEarntodie button {
-    background-color: #EA1E10;
-    color: #000000;
-}
-#jeuEarntodie .progress {
-    background-color: #EA1E10;
-}
-#jeuEarntodie h3:hover {
-    color: #EA1E10;
-    -webkit-text-stroke: 1px #EA1E10
-}
-#jeuEarntodie button:hover {
-    background-color: #AB120A;
-}
-
-/*fin du styles pour les jeux */
 
 footer {
     background-color: #FF4728;
