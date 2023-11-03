@@ -35,11 +35,8 @@
     <canvas id="yearsChart" width="400" height="200"></canvas>
 
     <h2>Chansons</h2>
-    <div class="group" id="groupA">
+    <div class="group" id="Depeche Mode ">
         <h3>Groupe A</h3>
-    </div>
-    <div class="group" id="groupB">
-        <h3>Groupe B</h3>
     </div>
 
     <footer>
@@ -49,19 +46,27 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const songsData = [
-        { group: 'Groupe A', album: 'Album 1', name: 'Chanson 1', year: '2020', cover: 'album1_cover.jpg' },
-        { group: 'Groupe A', album: 'Album 1', name: 'Chanson 2', year: '2021', cover: 'album1_cover.jpg' },
-        { group: 'Groupe A', album: 'Album 2', name: 'Chanson 1', year: '2019', cover: 'album2_cover.jpg' },
-        { group: 'Groupe B', album: 'Album 3', name: 'Chanson 1', year: '2018', cover: 'album3_cover.jpg' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
+
     ];
 
-    // Create an object to store colors for each group
+
     const groupColors = {
-        'Groupe A': 'rgba(75, 192, 192, 0.2)',
-        'Groupe B': 'rgba(255, 99, 132, 0.2)', // You can define different colors for each group
+        'Depeche Mode ': 'rgba(255, 99, 132, 0.5)', 
     };
 
-    // Create Line Chart
+
     const years = songsData.map(song => song.year);
     const ctx = document.getElementById('yearsChart').getContext('2d');
     const chart = new Chart(ctx, {
