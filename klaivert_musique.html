@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Klaivert</title>
+    <link rel="stylesheet" href="jeu.css"> <!-- Lien vers le fichier CSS externe -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="logopage.png">
+    <script src="jeu.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Utilise la balise <img> pour afficher l'image -->
+        <img class="logogrand" src="logogrand.png">
+        <h1>Klaivert</h1>
+    </header>
+
+    <nav>
+        <!-- Ajoute ici des liens vers différentes sections -->
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="klaivert_jeu.html">Jeux</a></li>
+            <li><a href="klaivert_musique.html">Musique</a></li>
+        </ul>
+    </nav>
+
+
+    <footer>
+    </footer>
+
+    <script>
+            function toggleDetails(gameNumber) {
+                const details = document.getElementById(`details-jeu${gameNumber}`);
+                details.classList.toggle("hidden-details");
+            }
+
+            // JavaScript pour calculer automatiquement le pourcentage de progression
+            const jeuElements = document.querySelectorAll(".jeu");
+
+            jeuElements.forEach((jeuElement) => {
+                const progressBar = jeuElement.querySelector(".progress-bar .progress");
+                const progressValue = jeuElement.getAttribute("data-progress");
+                const background = jeuElement.getAttribute("data-background");
+                progressBar.style.width = progressValue;
+                progressBar.textContent = progressValue;
+                jeuElement.style.backgroundImage = `url(${background})`;
+
+        });
+    </script>
+</body>
+
+</html>
