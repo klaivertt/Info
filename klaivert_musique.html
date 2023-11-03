@@ -39,6 +39,10 @@
         <h3>Depeche Mode</h3>
     </div>
 
+    <div class="group" id="Kenya Grace">
+        <h3>Kenya Grace</h3>
+    </div>
+
     <footer>
     </footer>
 
@@ -46,32 +50,35 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const songsData = [
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode ', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
+        { group: 'Depeche Mode', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
 
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Heaven", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Secret to the End", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "My Little Universe", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Slow", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Broken", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "The Child Inside", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Soft Touch/Raw Nerve", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Should Be Higher", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode ', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Heaven", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Secret to the End", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "My Little Universe", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Slow", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Broken", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "The Child Inside", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Soft Touch/Raw Nerve", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Should Be Higher", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+        { group: 'Depeche Mode', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+
+        
+        { group: 'Kenya Grace', album: 'Strangers (Deep House Remix)', name: "Strangers", year: '2023', cover: 'album/Kenya_Grace_-_Strangers.png' },
     ];
 
 
