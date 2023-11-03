@@ -16,6 +16,21 @@
 </head>
 
 <body>
+    <header>
+        <!-- Utilise la balise <img> pour afficher l'image -->
+        <img class="logogrand" src="logogrand.png">
+        <h1>Klaivert</h1>
+    </header>
+
+    <nav>
+        <!-- Ajoute ici des liens vers différentes sections -->
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="klaivert_jeu.html">Jeux</a></li>
+            <li><a href="klaivert_musique.html">Musique</a></li>
+        </ul>
+    </nav>
+
     <h2>Graphique des Années de Sortie</h2>
     <canvas id="yearsChart" width="400" height="200"></canvas>
 
@@ -27,71 +42,106 @@
         <h3>Groupe B</h3>
     </div>
 
+    <footer>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const songsData = [
-            { group: 'Groupe A', album: 'Album 1', name: 'Chanson 1', year: '2020', cover: 'album1_cover.jpg' },
-            { group: 'Groupe A', album: 'Album 1', name: 'Chanson 2', year: '2021', cover: 'album1_cover.jpg' },
-            { group: 'Groupe A', album: 'Album 2', name: 'Chanson 1', year: '2019', cover: 'album2_cover.jpg' },
-            { group: 'Groupe B', album: 'Album 3', name: 'Chanson 1', year: '2018', cover: 'album3_cover.jpg' },
-        ];
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const songsData = [
+        { group: 'Groupe A', album: 'Album 1', name: 'Chanson 1', year: '2020', cover: 'album1_cover.jpg' },
+        { group: 'Groupe A', album: 'Album 1', name: 'Chanson 2', year: '2021', cover: 'album1_cover.jpg' },
+        { group: 'Groupe A', album: 'Album 2', name: 'Chanson 1', year: '2019', cover: 'album2_cover.jpg' },
+        { group: 'Groupe B', album: 'Album 3', name: 'Chanson 1', year: '2018', cover: 'album3_cover.jpg' },
+    ];
 
-        // Create Line Chart
-        const years = songsData.map(song => song.year);
-        const ctx = document.getElementById('yearsChart').getContext('2d');
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [...new Set(years)],
-                datasets: [{
-                    label: 'Nombre de chansons par année',
-                    data: years.map(year => songsData.filter(song => song.year === year).length),
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
+    // Create an object to store colors for each group
+    const groupColors = {
+        'Groupe A': 'rgba(75, 192, 192, 0.2)',
+        'Groupe B': 'rgba(255, 99, 132, 0.2)', // You can define different colors for each group
+    };
+
+    // Create Line Chart
+    const years = songsData.map(song => song.year);
+    const ctx = document.getElementById('yearsChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [...new Set(years)],
+            datasets: songsData.reduce((datasets, song) => {
+                const datasetIndex = datasets.findIndex(dataset => dataset.label === song.group);
+                if (datasetIndex === -1) {
+                    datasets.push({
+                        label: song.group,
+                        data: years.map(year => songsData.filter(s => s.year === year && s.group === song.group).length),
+                        backgroundColor: groupColors[song.group],
+                        borderColor: groupColors[song.group],
+                        borderWidth: 1,
+                    });
+                }
+                return datasets;
+            }, []),
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (context) {
+                        return `${context.dataset.label}: ${context.parsed.y}`;
+                    },
+                },
+            },
+        },
+    });
 
-        // Populate songs by group and album
-        songsData.forEach(song => {
-            const groupElement = document.getElementById(song.group);
-            const albumElements = groupElement.querySelectorAll('.album');
-            let albumElement;
-            for (let i = 0; i < albumElements.length; i++) {
-                if (albumElements[i].querySelector('h3').textContent === song.album) {
-                    albumElement = albumElements[i];
-                    break;
-                }
-            }
-            if (!albumElement) {
-                albumElement = document.createElement('div');
-                albumElement.className = 'album';
-                const albumTitle = document.createElement('h3');
-                albumTitle.textContent = song.album;
-                albumElement.appendChild(albumTitle);
-                groupElement.appendChild(albumElement);
-            }
+    // Calculate and display the average release year
+    const yearsArray = years.map(Number);
+    const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / yearsArray.length;
+    document.body.insertAdjacentHTML('beforeend', `<p>Moyenne des années de sortie: ${averageYear.toFixed(2)}</p>`);
 
-            const songElement = document.createElement('div');
-            songElement.className = 'song';
-            const coverImage = document.createElement('img');
-            coverImage.className = 'cover';
-            coverImage.src = song.cover;
-            coverImage.alt = `Cover de la chanson ${song.name}`;
-            songElement.appendChild(coverImage);
-            const songInfo = document.createElement('p');
-            songInfo.textContent = `${song.name} (${song.year})`;
-            songElement.appendChild(songInfo);
-            albumElement.appendChild(songElement);
-        });
-    </script>
+    // Populate songs by group and album
+    songsData.forEach(song => {
+        const groupElement = document.getElementById(song.group);
+        const albumElements = groupElement.querySelectorAll('.album');
+        let albumElement;
+        for (let i = 0; i < albumElements.length; i++) {
+            if (albumElements[i].querySelector('h3').textContent === song.album) {
+                albumElement = albumElements[i];
+                break;
+            }
+        }
+        if (!albumElement) {
+            albumElement = document.createElement('div');
+            albumElement.className = 'album';
+            const albumTitle = document.createElement('h3');
+            albumTitle.textContent = song.album;
+            albumElement.appendChild(albumTitle);
+            groupElement.appendChild(albumElement);
+        }
+
+        const songElement = document.createElement('div');
+        songElement.className = 'song';
+        const coverImage = document.createElement('img');
+        coverImage.className = 'cover';
+        coverImage.src = song.cover;
+        coverImage.alt = `Cover de la chanson ${song.name}`;
+        songElement.appendChild(coverImage);
+        const songInfo = document.createElement('p');
+        songInfo.textContent = `${song.name} (${song.year})`;
+        songElement.appendChild(songInfo);
+        albumElement.appendChild(songElement);
+    });
+</script>
+
 </body>
 </html>
