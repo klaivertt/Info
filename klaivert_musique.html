@@ -47,126 +47,128 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const songsData = [
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
-        { group: 'Depeche Mode', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const songsData = [
+            //2013
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Heaven", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Secret to the End", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "My Little Universe", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Slow", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Broken", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "The Child Inside", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Soft Touch/Raw Nerve", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Should Be Higher", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            { group: 'Depeche Mode', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+            //2023
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
+            { group: 'Depeche Mode', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
 
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Heaven", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Secret to the End", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "My Little Universe", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Slow", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Broken", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "The Child Inside", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Soft Touch/Raw Nerve", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Should Be Higher", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-        { group: 'Depeche Mode', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-
-        
-        { group: 'Kenya Grace', album: 'Strangers (Deep House Remix)', name: "Strangers", year: '2023', cover: 'album/Kenya_Grace_-_Strangers.png' },
-    ];
-
-
-    const groupColors = {
-        'Depeche Mode ': 'rgba(255, 99, 132, 0.5)', 
-    };
+            { group: 'Kenya Grace', album: 'Strangers (Deep House Remix)', name: "Strangers", year: '2023', cover: 'album/Kenya_Grace_-_Strangers.png' },
+        ];
 
 
-    const years = songsData.map(song => song.year);
-    const ctx = document.getElementById('yearsChart').getContext('2d');
-    const chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [...new Set(years)],
-            datasets: songsData.reduce((datasets, song) => {
-                const datasetIndex = datasets.findIndex(dataset => dataset.label === song.group);
-                if (datasetIndex === -1) {
-                    datasets.push({
-                        label: song.group,
-                        data: years.map(year => songsData.filter(s => s.year === year && s.group === song.group).length),
-                        backgroundColor: groupColors[song.group],
-                        borderColor: groupColors[song.group],
-                        borderWidth: 1,
-                    });
-                }
-                return datasets;
-            }, []),
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                },
+        const groupColors = {
+            'Depeche Mode ': 'rgba(255, 99, 132, 1)',
+            'Kenya Grace ': 'rgba(25, 99, 132, 1)',
+        };
+
+
+        const years = songsData.map(song => song.year);
+        const ctx = document.getElementById('yearsChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [...new Set(years)],
+                datasets: songsData.reduce((datasets, song) => {
+                    const datasetIndex = datasets.findIndex(dataset => dataset.label === song.group);
+                    if (datasetIndex === -1) {
+                        datasets.push({
+                            label: song.group,
+                            data: years.map(year => songsData.filter(s => s.year === year && s.group === song.group).length),
+                            backgroundColor: groupColors[song.group],
+                            borderColor: groupColors[song.group],
+                            borderWidth: 1,
+                        });
+                    }
+                    return datasets;
+                }, []),
             },
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
                 },
-            },
-            tooltips: {
-                callbacks: {
-                    label: function (context) {
-                        return `${context.dataset.label}: ${context.parsed.y}`;
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (context) {
+                            return `${context.dataset.label}: ${context.parsed.y}`;
+                        },
                     },
                 },
             },
-        },
-    });
+        });
 
-    // Calculate and display the average release year
-    const yearsArray = years.map(Number);
-    const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / yearsArray.length;
-    document.body.insertAdjacentHTML('beforeend', `<p>Moyenne des années de sortie: ${averageYear.toFixed(2)}</p>`);
+        // Calculate and display the average release year
+        const yearsArray = years.map(Number);
+        const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / yearsArray.length;
+        document.body.insertAdjacentHTML('beforeend', `<p>Moyenne des années de sortie: ${averageYear.toFixed(2)}</p>`);
 
-    // Populate songs by group and album
-    songsData.forEach(song => {
-        const groupElement = document.getElementById(song.group);
-        const albumElements = groupElement.querySelectorAll('.album');
-        let albumElement;
-        for (let i = 0; i < albumElements.length; i++) {
-            if (albumElements[i].querySelector('h3').textContent === song.album) {
-                albumElement = albumElements[i];
-                break;
+        // Populate songs by group and album
+        songsData.forEach(song => {
+            const groupElement = document.getElementById(song.group);
+            const albumElements = groupElement.querySelectorAll('.album');
+            let albumElement;
+            for (let i = 0; i < albumElements.length; i++) {
+                if (albumElements[i].querySelector('h3').textContent === song.album) {
+                    albumElement = albumElements[i];
+                    break;
+                }
             }
-        }
-        if (!albumElement) {
-            albumElement = document.createElement('div');
-            albumElement.className = 'album';
-            const albumTitle = document.createElement('h3');
-            albumTitle.textContent = song.album;
-            albumElement.appendChild(albumTitle);
-            groupElement.appendChild(albumElement);
-        }
+            if (!albumElement) {
+                albumElement = document.createElement('div');
+                albumElement.className = 'album';
+                const albumTitle = document.createElement('h3');
+                albumTitle.textContent = song.album;
+                albumElement.appendChild(albumTitle);
+                groupElement.appendChild(albumElement);
+            }
 
-        const songElement = document.createElement('div');
-        songElement.className = 'song';
-        const coverImage = document.createElement('img');
-        coverImage.className = 'cover';
-        coverImage.src = song.cover;
-        coverImage.alt = `Cover de la chanson ${song.name}`;
-        songElement.appendChild(coverImage);
-        const songInfo = document.createElement('p');
-        songInfo.textContent = `${song.name} (${song.year})`;
-        songElement.appendChild(songInfo);
-        albumElement.appendChild(songElement);
-    });
-</script>
+            const songElement = document.createElement('div');
+            songElement.className = 'song';
+            const coverImage = document.createElement('img');
+            coverImage.className = 'cover';
+            coverImage.src = song.cover;
+            coverImage.alt = `Cover de la chanson ${song.name}`;
+            songElement.appendChild(coverImage);
+            const songInfo = document.createElement('p');
+            songInfo.textContent = `${song.name} (${song.year})`;
+            songElement.appendChild(songInfo);
+            albumElement.appendChild(songElement);
+        });
+    </script>
 
 </body>
+
 </html>
