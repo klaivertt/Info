@@ -9,51 +9,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info Klaivert</title>
-    <link rel="stylesheet" href="jeu.css"> <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="music.css"> <!-- Lien vers le fichier CSS externe -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="icon" href="logopage.png">
     <script src="scroll.js"></script>
 </head>
 
 <body>
-    <header>
-        <!-- Utilise la balise <img> pour afficher l'image -->
-        <img class="logogrand" src="logogrand.png">
-        <h1>Klaivert</h1>
-    </header>
+    <h2>Graphique des Années de Sortie</h2>
+    <canvas id="yearsChart" width="400" height="200"></canvas>
 
-    <nav>
-        <!-- Ajoute ici des liens vers différentes sections -->
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="klaivert_jeu.html">Jeux</a></li>
-            <li><a href="klaivert_musique.html">Musique</a></li>
-        </ul>
-    </nav>
+    <h2>Chansons</h2>
+    <div class="group" id="groupA">
+        <h3>Groupe A</h3>
+    </div>
+    <div class="group" id="groupB">
+        <h3>Groupe B</h3>
+    </div>
 
-
-    <footer>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-            function toggleDetails(gameNumber) {
-                const details = document.getElementById(`details-jeu${gameNumber}`);
-                details.classList.toggle("hidden-details");
+        const songsData = [
+            { group: 'Groupe A', album: 'Album 1', name: 'Chanson 1', year: '2020', cover: 'album1_cover.jpg' },
+            { group: 'Groupe A', album: 'Album 1', name: 'Chanson 2', year: '2021', cover: 'album1_cover.jpg' },
+            { group: 'Groupe A', album: 'Album 2', name: 'Chanson 1', year: '2019', cover: 'album2_cover.jpg' },
+            { group: 'Groupe B', album: 'Album 3', name: 'Chanson 1', year: '2018', cover: 'album3_cover.jpg' },
+        ];
+
+        // Create Line Chart
+        const years = songsData.map(song => song.year);
+        const ctx = document.getElementById('yearsChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [...new Set(years)],
+                datasets: [{
+                    label: 'Nombre de chansons par année',
+                    data: years.map(year => songsData.filter(song => song.year === year).length),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Populate songs by group and album
+        songsData.forEach(song => {
+            const groupElement = document.getElementById(song.group);
+            const albumElements = groupElement.querySelectorAll('.album');
+            let albumElement;
+            for (let i = 0; i < albumElements.length; i++) {
+                if (albumElements[i].querySelector('h3').textContent === song.album) {
+                    albumElement = albumElements[i];
+                    break;
+                }
+            }
+            if (!albumElement) {
+                albumElement = document.createElement('div');
+                albumElement.className = 'album';
+                const albumTitle = document.createElement('h3');
+                albumTitle.textContent = song.album;
+                albumElement.appendChild(albumTitle);
+                groupElement.appendChild(albumElement);
             }
 
-            // JavaScript pour calculer automatiquement le pourcentage de progression
-            const jeuElements = document.querySelectorAll(".jeu");
-
-            jeuElements.forEach((jeuElement) => {
-                const progressBar = jeuElement.querySelector(".progress-bar .progress");
-                const progressValue = jeuElement.getAttribute("data-progress");
-                const background = jeuElement.getAttribute("data-background");
-                progressBar.style.width = progressValue;
-                progressBar.textContent = progressValue;
-                jeuElement.style.backgroundImage = `url(${background})`;
-
+            const songElement = document.createElement('div');
+            songElement.className = 'song';
+            const coverImage = document.createElement('img');
+            coverImage.className = 'cover';
+            coverImage.src = song.cover;
+            coverImage.alt = `Cover de la chanson ${song.name}`;
+            songElement.appendChild(coverImage);
+            const songInfo = document.createElement('p');
+            songInfo.textContent = `${song.name} (${song.year})`;
+            songElement.appendChild(songInfo);
+            albumElement.appendChild(songElement);
         });
     </script>
 </body>
-
 </html>

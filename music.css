@@ -89,6 +89,28 @@ nav a:hover {
 }
 
 
+.group {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.album {
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+.song {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.cover {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+
 /* Styles pour les titres (h1, h2, h3) */
 h1 {
     text-align: center;
