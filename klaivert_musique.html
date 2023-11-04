@@ -11,6 +11,7 @@
     <title>Info Klaivert</title>
     <link rel="stylesheet" href="music.css"> <!-- Lien vers le fichier CSS externe -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="logopage.png">
     <script src="scroll.js"></script>
 </head>
@@ -31,7 +32,7 @@
         </ul>
     </nav>
     <h1>Musique ecouter par Klaivert</h>
-      
+
         <h2>Graphique des Années de Sortie</h2>
         <canvas id="yearsChart" width="400" height="200"></canvas>
         <div id="averageYearDiv" class="average-year"></div>
@@ -43,26 +44,48 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const songsData = [
+                    //1965
+                    { group: 'Charles Aznavour', album: 'Best of 40 Chansons', name: "La Bohème", year: '1965', cover: 'album/Best of 40 Chansons' },
+
                     //1975
                     { group: 'Queen', album: 'A night at the Opera', name: "Bohemian Rhapsody", year: '1975', cover: 'album/Queen-A-night-at-the-Opera.png' },
                     { group: 'AC/DC', album: 'High Voltage', name: "T.N.T.", year: '1975', cover: 'album/ACDC-HIGH-VOLTAGE-1.png' },
+
                     //1977
                     { group: 'Queen', album: 'News of the World', name: "We Will Rock You", year: '1977', cover: 'album/Queen-A-night-at-the-Opera.png' },
                     { group: 'Queen', album: 'News of the World', name: "We Are the Champions", year: '1977', cover: 'album/Queen-A-night-at-the-Opera.png' },
+
                     //1980
                     { group: 'AC/DC', album: 'Back in Black', name: "Back in Black", year: '1980', cover: 'album/ACDC_Back_in_Black_cover.png' },
                     { group: 'Depeche Mode', album: 'Speak and Spell', name: "Just Can't Get Enough", year: '1981', cover: 'album/Speak and Spell.png' },
+
+                    //1984
+
                     { group: 'Depeche Mode', album: 'Some Great Reward', name: "People Are People", year: '1984', cover: 'album/Depeche_Mode_-_Some_Great_Reward.png' },
+                    { group: 'Tears for Fears', album: 'Songs from the Big Chair', name: "Shout", year: '1984', cover: 'album/TEARS-FOR-FEARS-SONGS-FROM-THE-BIG-CHAIR.png' },
+
                     { group: 'Depeche Mode', album: 'Violator', name: "Personal Jesus ", year: '1989', cover: 'album/violator.png' },
+
                     //1990
                     { group: 'Depeche Mode', album: 'Violator', name: "Enjoy the Silence", year: '1990', cover: 'album/violator.png' },
+
                     //2007
                     { group: 'Mika', album: 'Life in Cartoon Motion', name: "Relax, Take It Easy", year: '2007', cover: 'album/Life in Cartoon Motion.png' },
+
+                    //2011
+                    { group: 'Coldplay', album: 'Mylo Xyloto', name: "Paradise", year: '2011', cover: 'album/Mylo Xyloto.png' },
+
+                    //2012
+                    { group: 'Muse', album: 'The 2nd Law', name: "Madness", year: '2012', cover: 'album/The 2nd Law.png' },
+
                     //2013
                     { group: 'Daft Punk', album: 'Random Access Memories', name: "Get Lucky", year: '2013', cover: 'album/Random Access Memories.png' },
+
+                    { group: 'Capital Cities', album: 'In a Tidal Wave of Mystery', name: "Safe and Sound", year: '2013', cover: 'album/In a Tidal Wave of Mystery.png' },
 
                     { group: 'Depeche Mode', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
                     { group: 'Depeche Mode', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
@@ -77,11 +100,20 @@
                     { group: 'Depeche Mode', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
                     { group: 'Depeche Mode', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
                     { group: 'Depeche Mode', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
+                    //2014
+                    { group: 'Walk the Moon', album: 'Talking Is Hard', name: "Shut Up and Dance", year: '2014', cover: 'album/Walk_the_Moon-Talking_Is_Hard.png' },
+                    { group: 'Royal Blood', album: 'Royal Blood', name: "Figure It Out", year: '2014', cover: 'album/Royal Blood.png' },
+                    { group: 'Omi', album: 'Me 4 U', name: "Cheerleader", year: '2014', cover: 'album/OMI_-_Me_4_U.png' },
+
                     //2016
                     { group: 'Depeche Mode', album: 'Spirit', name: "Where's the Revolution", year: '2016', cover: 'album/Spirit.png' },
                     { group: 'Depeche Mode', album: 'Spirit', name: "Going Backwards", year: '2016', cover: 'album/Spirit.png' },
                     { group: 'Depeche Mode', album: 'Spirit', name: "Scum", year: '2016', cover: 'album/Spirit.png' },
 
+                    //2018
+                    { group: 'MGMT', album: 'Little Dark Age', name: "Little Dark Age", year: '2018', cover: 'album/MGMT_-_Little_Dark_Age.png' },
+
+                    //2020
                     { group: 'Dua Lipa', album: 'Levitating', name: "Levitating", year: '2020', cover: 'album/Levitating.png' },
 
                     //2023
@@ -99,17 +131,31 @@
                     { group: 'Depeche Mode', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
 
                     { group: 'Kenya Grace', album: 'Strangers (Deep House Remix)', name: "Strangers", year: '2023', cover: 'album/Kenya_Grace_-_Strangers.png' },
+
+                    { group: 'Fifty Fifty', album: 'The Beginning', name: "Cupid", year: '2023', cover: 'album/The Beginning.png' },
+
                 ];
 
                 const groupColors = {
                     'Queen': 'rgba(25, 99, 32, 0.8)',
-                    'Kenya Grace': 'rgba(25, 99, 132, 0.8)',
-                    'Depeche Mode': 'rgba(255, 99, 132, 0.8)',
+                    'Kenya Grace': 'rgba(25, 99, 132, 0.5)',
+                    'Depeche Mode': 'rgba(255, 99, 50, 0.8)',
                     'Daft Punk': 'rgba(111, 111, 132, 0.8)',
                     'AC/DC': 'rgba(255, 0, 0, 0.8)',
-                    'Mika': 'rgba(255, 255, 0, 0.8)',
-                    'Dua Lipa': 'rgba(185, 30, 255, 0.8)',
+                    'Mika': 'rgba(255, 255, 0, 0.5)',
+                    'Dua Lipa': 'rgba(185, 30, 255, 0.4)',
+                    'Coldplay': 'rgba(99, 99, 255, 0.4)',
+                    'Muse': 'rgba(1, 99, 255, 0.8)',
+                    'Fifty Fifty': 'rgba(68, 50, 90, 0.4)',
+                    'Tears for Fears': 'rgba(200, 50, 90, 0.8)',
+                    'Walk the Moon': 'rgba(20, 50, 90, 0.4)',
+                    'MGMT': 'rgba(20, 550, 90, 0.4)',
+                    'Omi': 'rgba(270, 150, 150, 0.2)',
+                    'Capital Cities': 'rgba(20, 150, 150, 0.2)',
+                    'Charles Aznavour': 'rgba(255, 215, 0, 0.4)',
+                    'Royal Blood': 'rgba(123, 45, 67, 0.4)',
                 };
+
 
                 // Organiser les chansons par groupe
                 const groupedSongs = {};
@@ -139,6 +185,26 @@
 
                         const albumTitle = document.createElement("h3");
                         albumTitle.textContent = albumName;
+
+                        // Créez des icônes "+" et "-" pour le déroulement et le repliement
+                        const expandIcon = document.createElement("i");
+                        expandIcon.className = "fas fa-plus";
+                        expandIcon.style.cursor = "pointer";
+                        expandIcon.style.marginRight = "1hv"; /* Ajoutez un espace à droite des icônes */
+                        expandIcon.style.float = "left"; /* Alignez les icônes à gauche */
+                        expandIcon.style.alignItems = "left";
+
+                        expandIcon.addEventListener("click", () => {
+                            albumContent.style.display = albumContent.style.display === "block" ? "none" : "block";
+                            // Mettez à jour l'icône en conséquence
+                            if (albumContent.style.display === "block") {
+                                expandIcon.className = "fas fa-minus";
+                            } else {
+                                expandIcon.className = "fas fa-plus";
+                            }
+                        });
+
+                        albumTitle.appendChild(expandIcon);
                         albumElement.appendChild(albumTitle);
 
                         const albumContent = document.createElement("div");
@@ -162,26 +228,12 @@
                                 albumContent.appendChild(songElement);
                             }
                         });
-                        // Gestion de l'expansion/réduction des albums
-                        const albumTitles = document.querySelectorAll(".album-title");
 
-                        albumTitles.forEach(albumTitle => {
-                            albumTitle.addEventListener("click", () => {
-                                const albumContent = albumTitle.nextElementSibling;
-                                if (albumContent.style.display === "block") {
-                                    albumContent.style.display = "none";
-                                } else {
-                                    albumContent.style.display = "block";
-                                }
-                            });
-                        });
+                        // Initialment, cachez l'album
+                        albumContent.style.display = "none";
+
                         albumElement.appendChild(albumContent);
                         groupElement.appendChild(albumElement);
-
-                        // Gestion de l'expansion/réduction des albums
-                        albumTitle.addEventListener("click", () => {
-                            albumContent.style.display = albumContent.style.display === "block" ? "none" : "block";
-                        });
                     });
                 }
 

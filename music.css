@@ -317,6 +317,13 @@ nav a:hover {
     margin-right: 10px;
 }
 
+/* Style pour les icônes "+" et "-" */
+.album-title i {
+    margin-right: 5px; /* Ajoutez un espace à droite des icônes */
+    float: left; /* Alignez les icônes à gauche */
+    align-items: left;
+}
+
 
 /* Styles pour les titres (h1, h2, h3) */
 h1 {
