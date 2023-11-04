@@ -34,6 +34,7 @@
     <h1>Musique ecouter par Klaivert</h>
 
         <h2>Graphique des Années de Sortie</h2>
+        <button id="toggleChartTypeButton">Toggle Chart Type</button>
         <canvas id="yearsChart" width="400" height="200"></canvas>
         <div id="averageYearDiv" class="average-year"></div>
         <div class="group">
@@ -48,8 +49,11 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const songsData = [
+                    //1946
+                    { group: 'Édith Piaf', album: 'Chansons françaises (100 tubes) [Remasterisées]', name: "La vie en rose", year: '1946', cover: 'album/Chansons françaises (100 tubes) [Remasterisées].webp' },
+
                     //1965
-                    { group: 'Charles Aznavour', album: 'Best of 40 Chansons', name: "La Bohème", year: '1965', cover: 'album/Best of 40 Chansons' },
+                    { group: 'Charles Aznavour', album: 'Best of 40 Chansons', name: "La Bohème", year: '1965', cover: 'album/Best of 40 Chansons.png' },
 
                     //1975
                     { group: 'Queen', album: 'A night at the Opera', name: "Bohemian Rhapsody", year: '1975', cover: 'album/Queen-A-night-at-the-Opera.png' },
@@ -72,6 +76,13 @@
 
                     //1990
                     { group: 'Depeche Mode', album: 'Violator', name: "Enjoy the Silence", year: '1990', cover: 'album/violator.png' },
+
+                    //1999
+                    { group: 'Red Hot Chili Peppers', album: 'Californication', name: "Californication", year: '1999', cover: 'album/Californication.png' },
+
+                    //2003
+                    { group: 'Red Hot Chili Peppers', album: 'By the Way', name: "Can't Stop", year: '2003', cover: 'album/RED HOT CHILI PEPPERS - BY THE WAY.png' },
+                    { group: 'Run-DMC', album: 'The Greatest Hits', name: "It's Tricky", year: '2003', cover: 'album/The Greatest Hits.webp' },
 
                     //2007
                     { group: 'Mika', album: 'Life in Cartoon Motion', name: "Relax, Take It Easy", year: '2007', cover: 'album/Life in Cartoon Motion.png' },
@@ -134,6 +145,7 @@
 
                     { group: 'Fifty Fifty', album: 'The Beginning', name: "Cupid", year: '2023', cover: 'album/The Beginning.png' },
 
+                    { group: 'Apel8', album: 'Heat', name: "Heat", year: '2023', cover: 'album/Heat (feat. Dro Kenji).png' },
                 ];
 
                 const groupColors = {
@@ -154,6 +166,10 @@
                     'Capital Cities': 'rgba(20, 150, 150, 0.2)',
                     'Charles Aznavour': 'rgba(255, 215, 0, 0.4)',
                     'Royal Blood': 'rgba(123, 45, 67, 0.4)',
+                    'Red Hot Chili Peppers': 'rgba(125, 30, 90, 0.8)',
+                    'Apel8': 'rgba(125, 60, 690, 0.4)',
+                    'Run-DMC': 'rgba(15, 60, 90, 0.4)',
+                    'Édith Piaf': 'rgba(15, 60, 690, 0.4)',
                 };
 
 
@@ -289,6 +305,16 @@
 
                 // Affichez la moyenne dans la div
                 averageYearDiv.insertAdjacentHTML('afterbegin', `<p>Moyenne des années de sortie: ${averageYear.toFixed(2)}</p>`);
+
+                const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
+                toggleChartTypeButton.addEventListener('click', () => {
+                    if (chart.config.type === 'line') {
+                        chart.config.type = 'bar';
+                    } else if (chart.config.type === 'bar') {
+                        chart.config.type = 'line';
+                    }
+                    chart.update(); // Met à jour le graphique avec le nouveau type
+                });
             });
         </script>
 
