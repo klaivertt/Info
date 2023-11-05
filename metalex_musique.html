@@ -1,153 +1,172 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Klaivert</title>
-    <link rel="stylesheet" href="music2.css"> <!-- Lien vers le fichier CSS externe -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="logopage.png">
-    <script src="scroll.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Klaivert</title>
+  <link rel="stylesheet" href="music2.css"> <!-- Lien vers le fichier CSS externe -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="logopage.png">
+  <script src="scroll.js"></script>
 </head>
 
 <body>
-    <header>
-        <!-- Utilise la balise <img> pour afficher l'image -->
-        <img class="logogrand" src="logogrand.png">
-        <h1>Klaivert</h1>
-    </header>
+  <header>
+    <!-- Utilise la balise <img> pour afficher l'image -->
+    <img class="logogrand" src="logogrand.png">
+    <h1>Klaivert</h1>
+  </header>
 
-    <nav>
-        <!-- Ajoute ici des liens vers différentes sections -->
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="klaivert_jeu.html">Jeux</a></li>
-            <li><a href="klaivert_musique.html">Musique</a></li>
-        </ul>
-    </nav>
-    <h1>Musique ecouter par Klaivert</h>
+  <nav>
+    <!-- Ajoute ici des liens vers différentes sections -->
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="klaivert_jeu.html">Jeux</a></li>
+      <li><a href="klaivert_musique.html">Musique</a></li>
+    </ul>
+  </nav>
+  <h1>Musique ecouter par Klaivert</h>
 
-        <h2>Graphique des Années de Sortie</h2>
-        <div id="albumsContainer"><
-            <h3>Chansons</h3>
-        </div>
-        
+    <h2>Graphique des Années de Sortie</h2>
+    <div id="albumsContainer">
+      <h3>Chansons</h3>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="custom-tooltip-plugin.js"></script>
-        <script>
-            // Données des albums et chansons
-            var albumsData = [
-              {
-                "album": "Chansons françaises (100 tubes) [Remasterisées]",
-                "artistes": ["Édith Piaf"],
-                "songs": [
-                  { "name": "La vie en rose", "year": "1946", "cover": "album/Chansons françaises (100 tubes) [Remasterisées].webp" }
-                ]
-              },
-              {
-                "album": "Best of 40 Chansons",
-                "artistes": ["Charles Aznavour"],
-                "songs": [
-                  { "name": "La Bohème", "year": "1965", "cover": "album/Best of 40 Chansons.png" }
-                ]
-              },
-              {
-                "album": "A night at the Opera",
-                "artistes": ["Queen"],
-                "songs": [
-                  { "name": "Bohemian Rhapsody", "year": "1975", "cover": "album/Queen-A-night-at-the-Opera.png" }
-                ]
-              },
-              {
-                "album": "High Voltage",
-                "artistes": ["AC/DC"],
-                "songs": [
-                  { "name": "T.N.T.", "year": "1975", "cover": "album/ACDC-HIGH-VOLTAGE-1.png" }
-                ]
-              },
-              {
-                "album": "News of the World",
-                "artistes": ["Queen"],
-                "songs": [
-                  { "name": "We Will Rock You", "year": "1977", "cover": "album/News-of-the-world.png" },
-                  { "name": "We Are the Champions", "year": "1977", "cover": "album/News-of-the-world.png" }
-                  ]
-              },
-            ];
-          
-            // Fonction pour générer le contenu HTML des albums et chansons
-            function generateAlbumsHTML() {
-              var albumsContainer = document.getElementById("albumsContainer");
-          
-              albumsData.forEach(function (album) {
-                var albumDiv = document.createElement("div");
-                albumDiv.classList.add("album");
-          
-                // Couverture de l'album
-                var coverImage = document.createElement("img");
-                coverImage.src = album.songs[0].cover;
-                albumDiv.appendChild(coverImage);
-          
-                // Titre de l'album
-                var albumTitle = document.createElement("h3");
-                albumTitle.textContent = album.album;
-                albumDiv.appendChild(albumTitle);
-          
-                // Artistes
-                var artists = album.artistes.length > 1 ? "Various Artists" : album.artistes.join(", ");
-                var artistDiv = document.createElement("div");
-                artistDiv.textContent = "Artistes: " + artists;
-                albumDiv.appendChild(artistDiv);
-          
-                // Dates de sortie
-                var releaseYears = album.songs.map(function (song) {
-                  return song.year;
-                });
-          
-                var releaseYearDiv = document.createElement("div");
-                if (releaseYears.length === 1) {
-                  releaseYearDiv.textContent = "Année de sortie: " + releaseYears[0];
-                } else {
-                  releaseYearDiv.textContent = "Années de sortie: " + releaseYears.join(" - ");
-                }
-                albumDiv.appendChild(releaseYearDiv);
-          
-                // Bouton pour déplier les chansons
-                var toggleButton = document.createElement("button");
-                toggleButton.textContent = "Déplier";
-                toggleButton.addEventListener("click", function () {
-                  albumDiv.classList.toggle("expanded");
-                  toggleButton.textContent = albumDiv.classList.contains("expanded") ? "Replier" : "Déplier";
-                });
-                albumDiv.appendChild(toggleButton);
-          
-                // Liste des chansons associées à l'album
-                var songsList = document.createElement("ul");
-                songsList.classList.add("songs");
-                album.songs.forEach(function (song) {
-                  var songItem = document.createElement("li");
-                  songItem.textContent = song.name;
-                  songsList.appendChild(songItem);
-          
-                  // Artistes de la chanson
-                  var songArtists = document.createElement("div");
-                  songArtists.textContent = "Artistes: " + album.artistes.join(", ");
-                  songItem.appendChild(songArtists);
-                });
-                albumDiv.appendChild(songsList);
-          
-                albumsContainer.appendChild(albumDiv);
-              });
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Données des albums et chansons
+      var albumsData = [
+        {
+          "album": "Chansons françaises (100 tubes) [Remasterisées]",
+          "songs": [
+            {
+              "name": "La vie en rose",
+              "year": "1946",
+              "cover": "album/Chansons françaises (100 tubes) [Remasterisées].webp",
+              "artistes": ["Édith Piaf"]
             }
-          
-            // Appeler la fonction pour générer le contenu des albums
-            generateAlbumsHTML();
-          </script>
+          ]
+        },
+        {
+          "album": "Best of 40 Chansons",
+          "songs": [
+            {
+              "name": "La Bohème",
+              "year": "1965",
+              "cover": "album/Best of 40 Chansons.png",
+              "artistes": ["Charles Aznavour"]
+            }
+          ]
+        },
+        {
+          "album": "A night at the Opera",
+          "songs": [
+            {
+              "name": "Bohemian Rhapsody",
+              "year": "1975",
+              "cover": "album/Queen-A-night-at-the-Opera.png",
+              "artistes": ["Queen"]
+            }
+          ]
+        },
+        {
+          "album": "High Voltage",
+          "songs": [
+            {
+              "name": "T.N.T.",
+              "year": "1975",
+              "cover": "album/ACDC-HIGH-VOLTAGE-1.png",
+              "artistes": ["AC/DC"]
+            }
+          ]
+        },
+        {
+          "album": "News of the World",
+          "songs": [
+            {
+              "name": "We Will Rock You",
+              "year": "1977",
+              "cover": "album/News-of-the-world.png",
+              "artistes": ["Queen"]
+            },
+            {
+              "name": "We Are the Champions",
+              "year": "1977",
+              "cover": "album/News-of-the-world.png",
+              "artistes": ["Queen"]
+            }
+          ]
+        },
+      ];
 
-        <footer>
-        </footer>
+      // Fonction pour générer le contenu HTML des albums et chansons
+      function generateAlbumsHTML() {
+        var albumsContainer = document.getElementById("albumsContainer");
+
+        albumsData.forEach(function (album) {
+          var albumDiv = document.createElement("div");
+          albumDiv.classList.add("album");
+
+          // Couverture de l'album
+          var coverImage = document.createElement("img");
+          coverImage.src = album.songs[0].cover;
+          albumDiv.appendChild(coverImage);
+
+          // Conteneur des informations de l'album
+          var albumInfoDiv = document.createElement("div");
+          albumInfoDiv.classList.add("album-info");
+
+          // Titre de l'album
+          var albumTitle = document.createElement("h3");
+          albumTitle.textContent = album.album;
+          albumInfoDiv.appendChild(albumTitle);
+
+          // Bouton pour déplier les chansons
+          var toggleButton = document.createElement("button");
+          toggleButton.textContent = "Déplier";
+          toggleButton.addEventListener("click", function () {
+            albumDiv.classList.toggle("expanded");
+            toggleButton.textContent = albumDiv.classList.contains("expanded") ? "Replier" : "Déplier";
+          });
+          albumInfoDiv.appendChild(toggleButton);
+
+          // Liste des chansons associées à l'album
+          var songsList = document.createElement("ul");
+          songsList.classList.add("songs");
+          album.songs.forEach(function (song) {
+            var songItem = document.createElement("li");
+
+            // Afficher le titre de la chanson
+            var songTitle = document.createElement("span");
+            songTitle.textContent = song.name;
+            songItem.appendChild(songTitle);
+
+            // Afficher les artistes correspondants à la chanson en gras
+            var songArtistsDiv = document.createElement("span");
+            var artistText = document.createTextNode("Artiste: " + song.artistes.join(", "));
+            var boldElement = document.createElement("strong");
+            boldElement.appendChild(artistText);
+            songArtistsDiv.appendChild(boldElement);
+            songItem.appendChild(songArtistsDiv);
+
+            songsList.appendChild(songItem);
+          });
+
+          albumInfoDiv.appendChild(songsList);
+          albumDiv.appendChild(albumInfoDiv);
+          albumsContainer.appendChild(albumDiv);
+        });
+      }
+
+      // Appeler la fonction pour générer le contenu des albums
+      generateAlbumsHTML();
+    </script>
+
+    <footer>
+    </footer>
 </body>
 
 </html>

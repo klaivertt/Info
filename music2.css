@@ -222,5 +222,7 @@ body::-webkit-scrollbar-track {
     float: left;
     margin-right: 20px; /* Espace entre la couverture et le titre/année */
 }
-
+.album-info .songs li span {
+    margin-right: 10px; /* Ajustez la marge selon vos préférences */
+  }
 
