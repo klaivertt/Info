@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,8 +15,8 @@ header {
     color: #fff;
     text-align: center;
     padding: 1.5%;
-    z-index: 2; /* Setting a higher z-index to bring it above the main content */
-    transition: padding 0.5s, position 0.5s, top 0.5s, opacity 0.3s; /* Combine transitions for better performance */
+    z-index: 2;
+    transition: padding 0.5s, position 0.5s, top 0.5s, opacity 0.3s;
 }
 
 header img {
@@ -25,8 +24,8 @@ header img {
     height: auto;
 }
 
-.logogrand{
-    max-height: 12.5vh; /* Limite la hauteur du logo à 10% de la hauteur de la vue */
+.logogrand {
+    max-height: 12.5vh;
 }
 
 header.scrolled {
@@ -41,10 +40,9 @@ header.scrolled {
 header h1 {
     margin: 0;
     opacity: 1;
-    transition: opacity 0.3s; /* Add a transition for smoother opacity change */
+    transition: opacity 0.3s;
 }
 
-/* Style pour le titre h1 dans le header lorsque décollé */
 header.scrolled h1 {
     opacity: 0;
 }
@@ -56,10 +54,9 @@ nav {
     text-align: center;
     position: relative;
     z-index: 2;
-    transition: padding 0.5s, top 0.5s, position 0.5s, height 0.5s; /* Combine transitions for better performance */
+    transition: padding 0.5s, top 0.5s, position 0.5s, height 0.5s;
 }
 
-/* Style pour la nav bar lorsque décollée */
 nav.scrolled {
     padding: 0.5%;
     position: fixed;
@@ -89,238 +86,33 @@ nav a:hover {
     text-decoration: underline;
 }
 
-
 .group {
     margin-top: 20px;
     border: 1px solid #ccc;
     padding: 10px;
 }
+
 .album {
     margin-top: 10px;
     border: 1px solid #eee;
     padding: 10px;
 }
+
 .song {
     display: flex;
     align-items: center;
     margin-top: 5px;
 }
-.cover {
-    max-width: 50px;
-    max-height: 50px;
-    margin-right: 10px;
-}
 
-.album-content {
-    display: none; /* Par défaut, cache le contenu de l'album */
-}
-
-.album-title {
-    cursor: pointer; /* Change le curseur en main pour montrer que c'est cliquable */
-}
-
-/* Style supplémentaire pour améliorer l'apparence */
-.album-title:hover {
-    text-decoration: underline;
-}
-
-.album-title::after {
-    content: " [+]";
-}
-
-.album-content {
-    margin-left: 20px; /* Indentation du contenu de l'album */
-}
-
-.song {
-    margin: 5px 0;
-}
-
-#averageYearDiv {
-    height: 4vh; /* Ajustez la hauteur comme souhaité */
-    text-align: center; /* Centrez le texte horizontalement */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#yearsChart {
-    text-decoration: underline; /* Souligner le texte */
-    height: calc(100% - 5vh); /* Ajuste la hauteur du graphique en fonction de la hauteur de la div de la moyenne */
-}
-
-
-/* Styles pour les titres (h1, h2, h3) */
-h1 {
-    text-align: center;
-    font-size: 2.5vw; /* Taille ajustée en fonction de la largeur de la vue */
-    margin: 2vh 0;
-    text-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.5); /* Ombre ajustée en fonction de la largeur de la vue */
-}
-
-h2, h3 {
-    font-size: 1.5vw; /* Taille ajustée en fonction de la largeur de la vue */
-    text-transform: uppercase;
-    text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 1);
-}
-
-footer {
-    background-color: #FF4728;
-    color: #000000;
-    text-align: center;
-    padding: 1.5%;
-    position: relative;
-    z-index: 2;
-    transition: padding 0.5s, position 0.5s, top 0.5s, font-size 0.5s; /* Combine transitions for better performance */
-}
-
-/* Style for the footer when detached */
-footer.scrolled {
-    padding: 1.5%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    font-size: 1rem;
-    height: 0.7vh;
-
-    opacity: 0.95; /* Ajout de la transparence (70%) */
-    filter: blur(); /* Ajout du flou */
-}
-
-/* Custom Scrollbar for WebKit (Chrome, Safari) */
-body::-webkit-scrollbar {
-    width: 5px;
-    opacity: 0;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #990000;
-    border-radius: 10px;
-    opacity: 0.7; /* Ajout de la transparence (70%) */
-    filter: blur(3px); /* Ajout du flou */
-}
-
-body::-webkit-scrollbar-track {
-    background-color: #ff4625;
-    opacity: 0.2; /* Ajout de la transparence (70%) */
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: hsl(0, 0%, 10%);
-    color: #fff;
-}
-
-body, h1, h2, h3, p, button {
-    font-family: 'Roboto', sans-serif;
-}
-
-header {
-    background-color: #FF4728;
-    color: #fff;
-    text-align: center;
-    padding: 1.5%;
-    z-index: 2; /* Setting a higher z-index to bring it above the main content */
-    transition: padding 0.5s, position 0.5s, top 0.5s, opacity 0.3s; /* Combine transitions for better performance */
-}
-
-header img {
-    max-width: 80%;
-    height: auto;
-}
-
-.logogrand{
-    max-height: 12.5vh; /* Limite la hauteur du logo à 10% de la hauteur de la vue */
-}
-
-header.scrolled {
-    padding: 0.5%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 13vh;
-}
-
-header h1 {
-    margin: 0;
-    opacity: 1;
-    transition: opacity 0.3s; /* Add a transition for smoother opacity change */
-}
-
-/* Style pour le titre h1 dans le header lorsque décollé */
-header.scrolled h1 {
-    opacity: 0;
-}
-
-nav {
-    background-color: #990000;
-    color: #fff;
-    padding: 1.5%;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    transition: padding 0.5s, top 0.5s, position 0.5s, height 0.5s; /* Combine transitions for better performance */
-}
-
-/* Style pour la nav bar lorsque décollée */
-nav.scrolled {
-    padding: 0.5%;
-    position: fixed;
-    top: 14vh;
-    left: 0;
-    right: 0;
-    height: 5vh;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    display: inline;
-    margin-right: 1.5%;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-
-.group {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-.album {
-    margin-top: 10px;
-    border: 1px solid #eee;
-    padding: 10px;
-}
-.song {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
 .cover {
     max-width: 15vh;
     max-height: 15vh;
     margin-right: 10px;
 }
 
-/* Style pour les icônes "+" et "-" */
 .album-title i {
-    margin-right: 5px; /* Ajoutez un espace à droite des icônes */
-    float: left; /* Alignez les icônes à gauche */
+    margin-right: 5px;
+    float: left;
     align-items: left;
 }
 
@@ -361,6 +153,7 @@ nav a:hover {
     display: block;
     margin: 5px auto;
 }
+
 #custom-tooltip {
     display: none;
     position: absolute;
@@ -371,18 +164,15 @@ nav a:hover {
     z-index: 999;
 }
 
-
-
-/* Styles pour les titres (h1, h2, h3) */
 h1 {
     text-align: center;
-    font-size: 2.5vw; /* Taille ajustée en fonction de la largeur de la vue */
+    font-size: 2.5vw;
     margin: 2vh 0;
-    text-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.5); /* Ombre ajustée en fonction de la largeur de la vue */
+    text-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.5);
 }
 
 h2, h3 {
-    font-size: 1.5vw; /* Taille ajustée en fonction de la largeur de la vue */
+    font-size: 1.5vw;
     text-transform: uppercase;
     text-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 1);
 }
@@ -394,10 +184,9 @@ footer {
     padding: 1.5%;
     position: relative;
     z-index: 2;
-    transition: padding 0.5s, position 0.5s, top 0.5s, font-size 0.5s; /* Combine transitions for better performance */
+    transition: padding 0.5s, position 0.5s, top 0.5s, font-size 0.5s;
 }
 
-/* Style for the footer when detached */
 footer.scrolled {
     padding: 1.5%;
     position: fixed;
@@ -406,12 +195,10 @@ footer.scrolled {
     right: 0;
     font-size: 1rem;
     height: 0.7vh;
-
-    opacity: 0.95; /* Ajout de la transparence (70%) */
-    filter: blur(); /* Ajout du flou */
+    opacity: 0.95;
+    filter: blur();
 }
 
-/* Custom Scrollbar for WebKit (Chrome, Safari) */
 body::-webkit-scrollbar {
     width: 5px;
     opacity: 0;
@@ -420,11 +207,11 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
     background-color: #990000;
     border-radius: 10px;
-    opacity: 0.7; /* Ajout de la transparence (70%) */
-    filter: blur(3px); /* Ajout du flou */
+    opacity: 0.7;
+    filter: blur(3px);
 }
 
 body::-webkit-scrollbar-track {
     background-color: #ff4625;
-    opacity: 0.2; /* Ajout de la transparence (70%) */
+    opacity: 0.2;
 }
