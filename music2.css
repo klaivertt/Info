@@ -145,20 +145,22 @@ body::-webkit-scrollbar-track {
     transition: opacity 0.3s;
 }
 
-
 .album {
     background-color: #333;
     margin: 20px;
     padding: 10px;
     border: 1px solid #555;
     border-radius: 5px;
+    display: flex; /* Utilisez flexbox pour contrôler la mise en page de l'album */
+    align-items: center; /* Alignez le contenu verticalement */
 }
 
 .album img {
-    max-width: 100%;
+    max-width: 20vh;
     height: auto;
     border: 1px solid #555;
     border-radius: 5px;
+    max-height: 100%; /* Assurez-vous que la couverture ne dépasse pas le conteneur */
 }
 
 .album h3 {
@@ -166,123 +168,23 @@ body::-webkit-scrollbar-track {
     margin: 10px 0;
 }
 
-.album .songs {
-    list-style-type: none;
-    padding: 0;
+.album-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Espace entre la couverture et les détails de l'album */
 }
 
-.album .songs li {
-    font-size: 1rem;
-    margin: 5px 0;
-}
-
-.album button {
-    background-color: #ff4625;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.album button:hover {
-    background-color: #990000;
-    color: #000;
-}
-
-.album.expanded .songs {
-    display: block;
-}
-
-.album .songs {
-    display: none;
-}
-
-.album-cover {
-    max-width: 150px; /* Ajustez la taille de la couverture en conséquence */
-    float: left;
-    margin-right: 20px; /* Espace entre la couverture et le titre/année */
-}
-
-/* Styles pour le titre de l'album */
-.album-title {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-/* Styles pour l'année de l'album */
-.album-year {
+.album-artists, .album-year {
     font-size: 1rem;
     color: #777; /* Couleur de l'année (personnalisable) */
-}
-
-/* Répétez ces styles pour d'autres éléments au besoin */
-
-/* Styles pour le bouton de dépliage */
-.toggle-button {
-    background-color: var(--nav-bg-color);
-    color: var(--link-color);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.toggle-button:hover {
-    background-color: var(--header-bg-color);
-    color: var(--text-color);
-}
-
-.album-cover {
-    max-width: 100%;
-    height: auto;
-    float: left;
-    margin-right: 20px; /* Espace entre la couverture et le titre/année */
-}
-.album {
-    /* Autres styles de la div "album" */
-
-    /* Définissez la largeur et la hauteur maximales pour la couverture */
-    max-width: 100%; /* La couverture ne dépassera pas la largeur de la div */
-    max-height: 100%; /* La couverture ne dépassera pas la hauteur de la div */
-}
-
-.cover-img {
-    /* Définissez la taille de la couverture d'album */
-    width: 100%; /* Remplit la largeur de son contenant (la div "album") */
-    height: auto; /* Ajuste la hauteur proportionnellement à la largeur */
-}
-
-.album {
-    background-color: #333;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    display: flex; /* Use flexbox to control album layout */
-    align-items: center; /* Vertically align content */
-}
-
-.album img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #555;
-    border-radius: 5px;
-    max-height: 100%; /* Ensure the cover doesn't exceed the container */
-}
-
-.album h3 {
-    font-size: 1.5rem;
-    margin: 10px 0;
+    margin-top: 5px;
 }
 
 .album .songs {
     list-style-type: none;
     padding: 0;
+    margin-top: 10px; /* Ajoutez de la marge pour séparer les chansons du titre/année */
+    order: 2; /* Changez l'ordre pour afficher les chansons sous le titre/année */
 }
 
 .album .songs li {
@@ -315,8 +217,10 @@ body::-webkit-scrollbar-track {
 }
 
 .album-cover {
-    max-width: 100px; /* Adjust the size of the album cover */
+    max-width: 20vh; /* Ajustez la taille de la couverture de l'album */
     height: auto;
     float: left;
-    margin-right: 20px; /* Space between the cover and the title/year */
+    margin-right: 20px; /* Espace entre la couverture et le titre/année */
 }
+
+
