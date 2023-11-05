@@ -35,13 +35,14 @@
 
         <h2>Graphique des Années de Sortie</h2>
         <div class="chart-container">
-        <button id="toggleChartTypeButton">Toggle Chart Type</button>
-        <canvas id="yearsChart" width="400" height="200"></canvas>
-        <div id="averageYearDiv" class="average-year"></div>
-        <div id="totalsong" class="totalsong">
-            
+            <button id="toggleChartTypeButton">Toggle Chart Type</button>
+            <button id="deselectArtistsButton">Artists</button>
+            <canvas id="yearsChart" width="400" height="200"></canvas>
+            <div id="averageYearDiv" class="average-year"></div>
+            <div id="totalsong" class="totalsong">
+
+            </div>
         </div>
-    </div>
         <div class="group">
             <h3>Chansons</h3>
         </div>
@@ -134,7 +135,7 @@
                     { group: 'Omi', album: 'Me 4 U', name: "Cheerleader", year: '2014', cover: 'album/OMI_-_Me_4_U.png' },
                     //2015
                     { group: 'Jakubi', album: 'Jakubi - Single', name: "cant-afford-it-all", year: '2015', cover: 'album/Jakubi - Single.webp' },
-                    
+
 
                     //2016
                     { group: 'Depeche Mode', album: 'Spirit', name: "Where's the Revolution", year: '2016', cover: 'album/Spirit.png' },
@@ -147,7 +148,7 @@
                     { group: 'MGMT', album: 'Little Dark Age', name: "Little Dark Age", year: '2018', cover: 'album/MGMT_-_Little_Dark_Age.png' },
                     //2019
                     { group: 'Au/Ra', album: 'Dance in the Dark - Single', name: "Dance in the DarK", year: '2019', cover: 'album/Dance in the Dark - Single.webp' },
-                    
+
                     //2020
                     { group: 'Dua Lipa', album: 'Levitating', name: "Levitating", year: '2020', cover: 'album/Levitating.png' },
                     //2022
@@ -175,38 +176,38 @@
                 ];
 
                 const groupColors = {
-    'Queen': 'rgba(255, 0, 0, 0.8)', // Rouge
-    'Kenya Grace': 'rgba(0, 128, 255, 0.8)', // Bleu
-    'Depeche Mode': 'rgba(255, 255, 0, 0.8)', // Jaune
-    'Daft Punk': 'rgba(0, 204, 153, 0.8)', // Turquoise
-    'AC/DC': 'rgba(153, 0, 0, 0.8)', // Rouge foncé
-    'Mika': 'rgba(255, 128, 0, 0.8)', // Orange
-    'Dua Lipa': 'rgba(128, 0, 255, 0.8)', // Violet
-    'Coldplay': 'rgba(0, 204, 0, 0.8)', // Vert
-    'Muse': 'rgba(255, 51, 51, 0.8)', // Rouge vif
-    'Fifty Fifty': 'rgba(0, 102, 255, 0.8)', // Bleu vif
-    'Tears for Fears': 'rgba(0, 77, 64, 0.8)', // Vert foncé
-    'Walk the Moon': 'rgba(51, 51, 102, 0.8)', // Bleu foncé
-    'MGMT': 'rgba(255, 102, 0, 0.8)', // Orange foncé
-    'Omi': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
-    'Capital Cities': 'rgba(0, 179, 179, 0.8)', // Turquoise foncé
-    'Charles Aznavour': 'rgba(230, 230, 0, 0.8)', // Jaune vif
-    'Royal Blood': 'rgba(128, 0, 0, 0.8)', // Rouge foncé
-    'Red Hot Chili Peppers': 'rgba(204, 0, 102, 0.8)', // Rose
-    'Apel8': 'rgba(255, 102, 0, 0.8)', // Orange vif
-    'Run-DMC': 'rgba(0, 102, 0, 0.8)', // Vert foncé
-    'Édith Piaf': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
-    'The Cure': 'rgba(179, 17, 255, 0.8)', // Violet vif
-    'Jacques Higelin': 'rgba(255, 51, 128, 0.8)', // Rose vif
-    'JVKE': 'rgba(0, 255, 179, 0.8)', // Turquoise vif
-    "Mozart l'Opéra Rock": 'rgba(77, 179, 255, 0.8)', // Bleu clair
-    "Stromae": 'rgba(102, 179, 77, 0.8)', // Vert clair
-    "Michael Bublé": 'rgba(255, 179, 102, 0.8)', // Orange clair
-    "Christopher Tin": 'rgba(179, 255, 77, 0.8)', // Jaune clair
-    "Jeremy Soule": 'rgba(153, 128, 179, 0.8)', // Violet clair
-    "Au/Ra": 'rgba(255, 128, 179, 0.8)', // Rose clair
-    "Jakubi": 'rgba(128, 179, 255, 0.8)', // Bleu clair
-};
+                    'Queen': 'rgba(255, 0, 0, 0.8)', // Rouge
+                    'Kenya Grace': 'rgba(0, 128, 255, 0.8)', // Bleu
+                    'Depeche Mode': 'rgba(255, 255, 0, 0.8)', // Jaune
+                    'Daft Punk': 'rgba(0, 204, 153, 0.8)', // Turquoise
+                    'AC/DC': 'rgba(153, 0, 0, 0.8)', // Rouge foncé
+                    'Mika': 'rgba(255, 128, 0, 0.8)', // Orange
+                    'Dua Lipa': 'rgba(128, 0, 255, 0.8)', // Violet
+                    'Coldplay': 'rgba(0, 204, 0, 0.8)', // Vert
+                    'Muse': 'rgba(255, 51, 51, 0.8)', // Rouge vif
+                    'Fifty Fifty': 'rgba(0, 102, 255, 0.8)', // Bleu vif
+                    'Tears for Fears': 'rgba(0, 77, 64, 0.8)', // Vert foncé
+                    'Walk the Moon': 'rgba(51, 51, 102, 0.8)', // Bleu foncé
+                    'MGMT': 'rgba(255, 102, 0, 0.8)', // Orange foncé
+                    'Omi': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
+                    'Capital Cities': 'rgba(0, 179, 179, 0.8)', // Turquoise foncé
+                    'Charles Aznavour': 'rgba(230, 230, 0, 0.8)', // Jaune vif
+                    'Royal Blood': 'rgba(128, 0, 0, 0.8)', // Rouge foncé
+                    'Red Hot Chili Peppers': 'rgba(204, 0, 102, 0.8)', // Rose
+                    'Apel8': 'rgba(255, 102, 0, 0.8)', // Orange vif
+                    'Run-DMC': 'rgba(0, 102, 0, 0.8)', // Vert foncé
+                    'Édith Piaf': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
+                    'The Cure': 'rgba(179, 17, 255, 0.8)', // Violet vif
+                    'Jacques Higelin': 'rgba(255, 51, 128, 0.8)', // Rose vif
+                    'JVKE': 'rgba(0, 255, 179, 0.8)', // Turquoise vif
+                    "Mozart l'Opéra Rock": 'rgba(77, 179, 255, 0.8)', // Bleu clair
+                    "Stromae": 'rgba(102, 179, 77, 0.8)', // Vert clair
+                    "Michael Bublé": 'rgba(255, 179, 102, 0.8)', // Orange clair
+                    "Christopher Tin": 'rgba(179, 255, 77, 0.8)', // Jaune clair
+                    "Jeremy Soule": 'rgba(153, 128, 179, 0.8)', // Violet clair
+                    "Au/Ra": 'rgba(255, 128, 179, 0.8)', // Rose clair
+                    "Jakubi": 'rgba(128, 179, 255, 0.8)', // Bleu clair
+                };
 
 
                 // Organiser les chansons par groupe
@@ -363,35 +364,86 @@
                         },
                     },
                 });
-                 // Calcul du nombre total de musiques
-        const totalSongs = songsData.length;
 
-// Calcul du nombre total d'artistes
-const artists = [...new Set(songsData.map(song => song.group))];
-const totalArtists = artists.length;
+                function calculateTotalSongsByYear() {
+                    const totalSongsData = {
+                        label: 'Nombre total de chansons par année',
+                        data: [], // Cette liste stockera le nombre total de chansons pour chaque année
+                        backgroundColor: [], // Tableau de couleurs de remplissage pour chaque barre
+                        borderColor: 'rgba(255, 99, 132, 0.8)', // Couleur de la ligne des barres
+                        borderWidth: 3, // Largeur de la ligne des barres
+                    };
 
-// Calcul de la moyenne des années de sortie
-const yearsArray = songsData.map(song => parseInt(song.year, 10));
-const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
+                    // Créez un tableau de couleurs pour le remplissage des barres (une couleur par année)
+                    uniqueYears.forEach(() => {
+                        totalSongsData.backgroundColor.push('rgba(255, 99, 132, 0.6)'); // Couleur de remplissage (plus foncée)
+                    });
 
-// Sélectionnez les divs pour afficher les informations
-const averageYearDiv = document.getElementById("averageYearDiv");
-const totalSongDiv = document.getElementById("totalsong");
+                    uniqueYears.forEach(year => {
+                        const totalSongs = Object.values(groupedSongs).reduce((count, songs) => {
+                            return count + songs.filter(song => song.year === year).length;
+                        }, 0);
 
-// Créez des éléments de paragraphe pour afficher les informations
-const averageYearParagraph = document.createElement("p");
-averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
+                        totalSongsData.data.push(totalSongs);
+                    });
 
-const totalSongParagraph = document.createElement("p");
-totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
+                    return totalSongsData;
+                }
+                // Créez l'ensemble de données pour le nombre total de chansons par année
+                const totalSongsDataset = calculateTotalSongsByYear();
 
-const totalArtistParagraph = document.createElement("p");
-totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
+                // Ajoutez l'ensemble de données au graphique
+                datasets.push(totalSongsDataset);
 
-// Ajoutez les paragraphes aux divs correspondantes
-averageYearDiv.appendChild(averageYearParagraph);
-totalSongDiv.appendChild(totalSongParagraph);
-totalSongDiv.appendChild(totalArtistParagraph);
+                // Mettez à jour le graphique
+                chart.update();
+                // Calcul du nombre total de musiques
+                const totalSongs = songsData.length;
+
+                // Calcul du nombre total d'artistes
+                const artists = [...new Set(songsData.map(song => song.group))];
+                const totalArtists = artists.length;
+
+                // Calcul de la moyenne des années de sortie
+                const yearsArray = songsData.map(song => parseInt(song.year, 10));
+                const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
+
+                // Sélectionnez les divs pour afficher les informations
+                const averageYearDiv = document.getElementById("averageYearDiv");
+                const totalSongDiv = document.getElementById("totalsong");
+
+                // Créez des éléments de paragraphe pour afficher les informations
+                const averageYearParagraph = document.createElement("p");
+                averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
+
+                const totalSongParagraph = document.createElement("p");
+                totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
+
+                const totalArtistParagraph = document.createElement("p");
+                totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
+
+                // Ajoutez les paragraphes aux divs correspondantes
+                averageYearDiv.appendChild(averageYearParagraph);
+                totalSongDiv.appendChild(totalSongParagraph);
+                totalSongDiv.appendChild(totalArtistParagraph);
+
+                let artistsDeselected = false; // Variable pour suivre l'état des artistes (sélectionnés ou déselectionnés)
+
+    // Ajoutez un gestionnaire d'événements pour le bouton "Décocher les artistes"
+    const deselectArtistsButton = document.getElementById('deselectArtistsButton');
+    deselectArtistsButton.addEventListener('click', () => {
+        // Basculer entre la sélection et la déselection des artistes
+        artistsDeselected = !artistsDeselected;
+
+        // Parcourez les datasets du graphique
+        datasets.forEach(dataset => {
+            if (dataset.label !== "Nombre total de chansons par année") {
+                dataset.hidden = artistsDeselected; // Sélectionnez ou décochez le dataset en fonction de l'état
+            }
+        });
+
+        chart.update(); // Mettez à jour le graphique pour refléter les changements
+    });
 
                 const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
                 toggleChartTypeButton.addEventListener('click', () => {
