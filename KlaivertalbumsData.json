@@ -1,0 +1,38 @@
+[
+    {
+        "album": "Chansons françaises (100 tubes) [Remasterisées]",
+        "artistes": ["Édith Piaf"],
+        "songs": [
+            { "name": "La vie en rose", "year": "1946", "cover": "album/Chansons françaises (100 tubes) [Remasterisées].webp" }
+        ]
+    },
+    {
+        "album": "Best of 40 Chansons",
+        "artistes": ["Charles Aznavour"],
+        "songs": [
+            { "name": "La Bohème", "year": "1965", "cover": "album/Best of 40 Chansons.png" }
+        ]
+    },
+    {
+        "album": "A night at the Opera",
+        "artistes": ["Queen"],
+        "songs": [
+            { "name": "Bohemian Rhapsody", "year": "1975", "cover": "album/Queen-A-night-at-the-Opera.png" }
+        ]
+    },
+    {
+        "album": "High Voltage",
+        "artistes": ["AC/DC"],
+        "songs": [
+            { "name": "T.N.T.", "year": "1975", "cover": "album/ACDC-HIGH-VOLTAGE-1.png" }
+        }
+    },
+    {
+        "album": "News of the World",
+        "artistes": ["Queen"],
+        "songs": [
+            { "name": "We Will Rock You", "year": "1977", "cover": "album/News-of-the-world.png" },
+            { "name": "We Are the Champions", "year": "1977", "cover": "album/News-of-the-world.png" }
+        }
+    }
+]

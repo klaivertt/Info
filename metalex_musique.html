@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Klaivert</title>
+    <link rel="stylesheet" href="music.css"> <!-- Lien vers le fichier CSS externe -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="logopage.png">
+    <script src="scroll.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Utilise la balise <img> pour afficher l'image -->
+        <img class="logogrand" src="logogrand.png">
+        <h1>Klaivert</h1>
+    </header>
+
+    <nav>
+        <!-- Ajoute ici des liens vers différentes sections -->
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="klaivert_jeu.html">Jeux</a></li>
+            <li><a href="klaivert_musique.html">Musique</a></li>
+        </ul>
+    </nav>
+    <h1>Musique ecouter par Klaivert</h>
+
+        <h2>Graphique des Années de Sortie</h2>
+        <div class="chart-container">
+            <button id="toggleChartTypeButton">Toggle Chart Type</button>
+            <button id="deselectArtistsButton">Artists</button>
+            <canvas id="yearsChart" width="400" height="200"></canvas>
+            <div id="averageYearDiv" class="average-year"></div>
+            <div id="totalsong" class="totalsong">
+
+            </div>
+        </div>
+        <div class="group">
+            <h3>Chansons</h3>
+        </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="custom-tooltip-plugin.js"></script>
+        <script>
+            
+        </script>
+
+        <footer>
+        </footer>
+</body>
+
+</html>
