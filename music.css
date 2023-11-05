@@ -312,8 +312,8 @@ nav a:hover {
     margin-top: 5px;
 }
 .cover {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 15vh;
+    max-height: 15vh;
     margin-right: 10px;
 }
 
@@ -341,6 +341,37 @@ nav a:hover {
     background-color: #990000;
     transform: scale(1.1);
 }
+
+.tooltip-info {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    display: none;
+}
+
+.tooltip-title {
+    font-weight: bold;
+}
+
+.tooltip-cover {
+    width: 2.5vh;
+    height: 2.5vh;
+    display: block;
+    margin: 5px auto;
+}
+#custom-tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+
 
 /* Styles pour les titres (h1, h2, h3) */
 h1 {
