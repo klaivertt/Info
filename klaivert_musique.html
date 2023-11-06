@@ -37,438 +37,1192 @@
         <div class="chart-container">
             <button id="toggleChartTypeButton">Toggle Chart Type</button>
             <button id="deselectArtistsButton">Artists</button>
-            <canvas id="yearsChart" width="400" height="200"></canvas>
+            <canvas id="yearsChart" width="300" height="150"></canvas>
             <div id="averageYearDiv" class="average-year"></div>
             <div id="totalsong" class="totalsong">
 
             </div>
         </div>
-        <div class="group">
+        <div id="albumsContainer">
             <h3>Chansons</h3>
         </div>
 
 
-
-
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="custom-tooltip-plugin.js"></script>
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const songsData = [
-                    //1946
-                    { group: 'Édith Piaf', album: 'Chansons françaises (100 tubes) [Remasterisées]', name: "La vie en rose", year: '1946', cover: 'album/Chansons françaises (100 tubes) [Remasterisées].webp' },
+            // Données des albums et chansons
+            var albumsData = [
+                //1946
+                {
+                    "album": "Chansons françaises (100 tubes) [Remasterisées]",
+                    "songs": [
+                        {
+                            "name": "La vie en rose",
+                            "year": "1946",
+                            "cover": "album/Chansons françaises (100 tubes) [Remasterisées].webp",
+                            "artistes": ["Édith Piaf"]
+                        }
+                    ]
+                },
 
-                    //1965
-                    { group: 'Charles Aznavour', album: 'Best of 40 Chansons', name: "La Bohème", year: '1965', cover: 'album/Best of 40 Chansons.png' },
+                //1965
+                {
+                    "album": "Best of 40 Chansons",
+                    "songs": [
+                        {
+                            "name": "La Bohème",
+                            "year": "1965",
+                            "cover": "album/Best of 40 Chansons.png",
+                            "artistes": ["Charles Aznavour"]
+                        }
+                    ]
+                },
 
-                    //1975
-                    { group: 'Queen', album: 'A night at the Opera', name: "Bohemian Rhapsody", year: '1975', cover: 'album/Queen-A-night-at-the-Opera.png' },
-                    { group: 'AC/DC', album: 'High Voltage', name: "T.N.T.", year: '1975', cover: 'album/ACDC-HIGH-VOLTAGE-1.png' },
+                //1975
+                {
+                    "album": "A night at the Opera",
+                    "songs": [
+                        {
+                            "name": "Bohemian Rhapsody",
+                            "year": "1975",
+                            "cover": "album/Queen-A-night-at-the-Opera.png",
+                            "artistes": ["Queen"]
+                        }
+                    ]
+                },
+                {
+                    "album": "High Voltage",
+                    "songs": [
+                        {
+                            "name": "T.N.T.",
+                            "year": "1975",
+                            "cover": "album/ACDC-HIGH-VOLTAGE-1.png",
+                            "artistes": ["AC/DC"]
+                        }
+                    ]
+                },
 
-                    //1977
-                    { group: 'Queen', album: 'News of the World', name: "We Will Rock You", year: '1977', cover: 'album/News-of-the-world.png' },
-                    { group: 'Queen', album: 'News of the World', name: "We Are the Champions", year: '1977', cover: 'album/News-of-the-world.png' },
+                //1977
+                {
+                    "album": "News of the World",
+                    "songs": [
+                        {
+                            "name": "We Will Rock You",
+                            "year": "1977",
+                            "cover": "album/News-of-the-world.png",
+                            "artistes": ["Queen"]
+                        },
+                    ]
+                },
+                {
+                    "album": "News of the World",
+                    "songs": [
+                        {
+                            "name": "We Are the Champions",
+                            "year": "1977",
+                            "cover": "album/News-of-the-world.png",
+                            "artistes": ["Queen"]
+                        },
+                    ]
+                },
+                //1979
+                {
+                    "album": "Tombé du ciel",
+                    "songs": [
+                        {
+                            "name": "Tombé du ciel",
+                            "year": "1979",
+                            "cover": "album/Tombé du ciel.webp",
+                            "artistes": ["Jacques Higelin"]
+                        },
+                    ]
+                },
 
-                    //1979
-                    { group: 'Jacques Higelin', album: 'Tombé du ciel', name: "Tombé du ciel", year: '1979', cover: 'album/Tombé du ciel.webp' },
+                //1980
+                {
+                    "album": "Back in Black",
+                    "songs": [
+                        {
+                            "name": "Back in Black",
+                            "year": "1980",
+                            "cover": "album/ACDC_Back_in_Black_cover.png",
+                            "artistes": ["AC/DC"]
+                        },
+                    ]
+                },
 
-                    //1980
-                    { group: 'AC/DC', album: 'Back in Black', name: "Back in Black", year: '1980', cover: 'album/ACDC_Back_in_Black_cover.png' },
-                    { group: 'Depeche Mode', album: 'Speak and Spell', name: "Just Can't Get Enough", year: '1981', cover: 'album/Speak and Spell.png' },
+                //1981
+                {
+                    "album": "Speak and Spell",
+                    "songs": [
+                        {
+                            "name": "Just Can't Get Enough",
+                            "year": "1981",
+                            "cover": "album/Speak and Spell.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
 
-                    //1984
+                //1984
+                {
+                    "album": "Some Great Reward",
+                    "songs": [
+                        {
+                            "name": "People Are People",
+                            "year": "1984",
+                            "cover": "album/Depeche_Mode_-_Some_Great_Reward.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
 
-                    { group: 'Depeche Mode', album: 'Some Great Reward', name: "People Are People", year: '1984', cover: 'album/Depeche_Mode_-_Some_Great_Reward.png' },
-                    { group: 'Tears for Fears', album: 'Songs from the Big Chair', name: "Shout", year: '1984', cover: 'album/TEARS-FOR-FEARS-SONGS-FROM-THE-BIG-CHAIR.png' },
+                {
+                    "album": "Songs from the Big Chair",
+                    "songs": [
+                        {
+                            "name": "Shout",
+                            "year": "1984",
+                            "cover": "album/TEARS-FOR-FEARS-SONGS-FROM-THE-BIG-CHAIR.png",
+                            "artistes": ["Tears for Fears"]
+                        },
+                    ]
+                },
 
-                    //1989
-                    { group: 'The Cure', album: 'Greatest Hits', name: "Lullaby", year: '1989', cover: 'album/The Cure- Greatest Hits.webp.png' },
-                    { group: 'Depeche Mode', album: 'Violator', name: "Personal Jesus ", year: '1989', cover: 'album/violator.png' },
+                //1989
+                {
+                    "album": "Greatest Hits",
+                    "songs": [
+                        {
+                            "name": "Lullaby",
+                            "year": "1989",
+                            "cover": "album/The Cure- Greatest Hits.webp",
+                            "artistes": ["The Cure"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Violator",
+                    "songs": [
+                        {
+                            "name": "Personal Jesus",
+                            "year": "1989",
+                            "cover": "album/violator.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
 
-                    //1990
-                    { group: 'Depeche Mode', album: 'Violator', name: "Enjoy the Silence", year: '1990', cover: 'album/violator.png' },
+                //1990
+                {
+                    "album": "Violator",
+                    "songs": [
+                        {
+                            "name": "Enjoy the Silence",
+                            "year": "1990",
+                            "cover": "album/violator.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
 
-                    //1999
-                    { group: 'Red Hot Chili Peppers', album: 'Californication', name: "Californication", year: '1999', cover: 'album/Californication.png' },
+                //1999
+                {
+                    "album": "Californication",
+                    "songs": [
+                        {
+                            "name": "Californication",
+                            "year": "1999",
+                            "cover": "album/Californication.png",
+                            "artistes": ["Red Hot Chili Peppers"]
+                        },
+                    ]
+                },
 
-                    //2003
-                    { group: 'Red Hot Chili Peppers', album: 'By the Way', name: "Can't Stop", year: '2003', cover: 'album/RED HOT CHILI PEPPERS - BY THE WAY.png' },
-                    { group: 'Run-DMC', album: 'The Greatest Hits', name: "It's Tricky", year: '2003', cover: 'album/The Greatest Hits.webp' },
-                    //2005
-                    { group: 'Michael Bublé', album: "It's Time (Deluxe Version)", name: "Feeling Good", year: '2005', cover: "album/It's Time (Deluxe Version).webp" },
-                    { group: 'Michael Bublé', album: "It's Time (Deluxe Version)", name: "Home", year: '2005', cover: "album/It's Time (Deluxe Version).webp" },
+                //2003
+                {
+                    "album": "By the Way",
+                    "songs": [
+                        {
+                            "name": "Can't Stop",
+                            "year": "2003",
+                            "cover": "album/RED HOT CHILI PEPPERS - BY THE WAY.png",
+                            "artistes": ["Red Hot Chili Peppers"]
+                        },
+                    ]
+                },
+                {
+                    "album": "The Greatest Hits",
+                    "songs": [
+                        {
+                            "name": "It's Tricky",
+                            "year": "2003",
+                            "cover": "album/The Greatest Hits.webp",
+                            "artistes": ["Run-DMC"]
+                        },
+                    ]
+                },
 
-                    //2007
-                    { group: 'Mika', album: 'Life in Cartoon Motion', name: "Relax, Take It Easy", year: '2007', cover: 'album/Life in Cartoon Motion.png' },
-                    //2009
-                    { group: "Mozart l'Opéra Rock", album: "Mozart l'Opéra Rock", name: "L'assasymphonie", year: '2009', cover: 'album/Mozart l Opéra Rock.webp' },
+                 //2005
+                {
+                    "album": "It's Time (Deluxe Version)",
+                    "songs": [
+                        {
+                            "name": "Feeling Good",
+                            "year": "2005",
+                            "cover": "album/It's Time (Deluxe Version).webp",
+                            "artistes": ["Michael Bublé"]
+                        },
+                    ]
+                },
+                {
+                    "album": "It's Time (Deluxe Version)",
+                    "songs": [
+                        {
+                            "name": "Home",
+                            "year": "2005",
+                            "cover": "album/It's Time (Deluxe Version).webp",
+                            "artistes": ["Michael Bublé"]
+                        },
+                    ]
+                },
+                //2007
+                
+                {
+                    "album": "Life in Cartoon Motion",
+                    "songs": [
+                        {
+                            "name": "Relax, Take It Easy",
+                            "year": "2007",
+                            "cover": "album/Life in Cartoon Motion.png",
+                            "artistes": ["Mika"]
+                        },
+                    ]
+                },
 
-                    //2011
-                    { group: 'Coldplay', album: 'Mylo Xyloto', name: "Paradise", year: '2011', cover: 'album/Mylo Xyloto.png' },
-                    { group: 'Jeremy Soule', album: 'The Elder Scrolls V: Skyrim (Original Game Soundtrack)', name: "Dragonborn", year: '2011', cover: 'album/The Elder Scrolls V: Skyrim (Original Game Soundtrack).webp' },
+                //2009
+                {
+                    "album": "Mozart l'Opéra Rock",
+                    "songs": [
+                        {
+                            "name": "L'assasymphonie",
+                            "year": "2009",
+                            "cover": "album/Mozart l Opéra Rock.webp",
+                            "artistes": ["Mozart l'Opéra Rock"]
+                        },
+                    ]
+                },
 
-                    //2012
-                    { group: 'Muse', album: 'The 2nd Law', name: "Madness", year: '2012', cover: 'album/The 2nd Law.png' },
+                //2011
+                {
+                    "album": "Mylo Xyloto",
+                    "songs": [
+                        {
+                            "name": "Paradise",
+                            "year": "2011",
+                            "cover": "album/Mylo Xyloto.png",
+                            "artistes": ["Coldplay"]
+                        },
+                    ]
+                },
+                {
+                    "album": "The Elder Scrolls V: Skyrim (Original Game Soundtrack)",
+                    "songs": [
+                        {
+                            "name": "Dragonborn",
+                            "year": "2011",
+                            "cover": "album/The Elder Scrolls V Skyrim (Original Game Soundtrack).webp",
+                            "artistes": ["Jeremy Soule"]
+                        },
+                    ]
+                },
 
-                    //2013
-                    { group: 'Daft Punk', album: 'Random Access Memories', name: "Get Lucky", year: '2013', cover: 'album/Random Access Memories.png' },
-                    { group: 'Stromae', album: 'Racine carrée', name: "Carmen", year: '2013', cover: 'album/Racine carrée.webp' },
+                //2012
+                {
+                    "album": "The 2nd Law",
+                    "songs": [
+                        {
+                            "name": "Madness",
+                            "year": "2012",
+                            "cover": "album/The 2nd Law.png",
+                            "artistes": ["Muse"]
+                        },
+                    ]
+                },
 
-                    { group: 'Capital Cities', album: 'In a Tidal Wave of Mystery', name: "Safe and Sound", year: '2013', cover: 'album/In a Tidal Wave of Mystery.png' },
+                //2013
+                {
+                    "album": "Random Access Memories",
+                    "songs": [
+                        {
+                            "name": "Get Lucky",
+                            "year": "2013",
+                            "cover": "album/Random Access Memories.png",
+                            "artistes": ["Daft Punk"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Racine carrée",
+                    "songs": [
+                        {
+                            "name": "Carmen",
+                            "year": "2013",
+                            "cover": "album/Racine carrée.webp",
+                            "artistes": ["Stromae"]
+                        },
+                    ]
+                },
+                {
+                    "album": "In a Tidal Wave of Mystery",
+                    "songs": [
+                        {
+                            "name": "Safe and Sound",
+                            "year": "2013",
+                            "cover": "album/In a Tidal Wave of Mystery.png",
+                            "artistes": ["Capital Cities"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Welcome to My World",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Angel",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Heaven",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Secret to the End",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "My Little Universe",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Slow",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Broken",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "The Child Inside",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Soft Touch/Raw Nerve",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Should Be Higher",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Alone",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Soothe My Soul",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Delta Machine",
+                    "songs": [
+                        {
+                            "name": "Goodbye",
+                            "year": "2013",
+                            "cover": "album/Depeche-Mode-Delta-Machine1.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
 
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Welcome to My World", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Angel", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Heaven", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Secret to the End", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "My Little Universe", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Slow", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Broken", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "The Child Inside", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Soft Touch/Raw Nerve", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Should Be Higher", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Alone", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Soothe My Soul", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    { group: 'Depeche Mode', album: 'Delta Machine', name: "Goodbye", year: '2013', cover: 'album/Depeche-Mode-Delta-Machine1.png' },
-                    //2014
-                    { group: 'Walk the Moon', album: 'Talking Is Hard', name: "Shut Up and Dance", year: '2014', cover: 'album/Walk_the_Moon-Talking_Is_Hard.png' },
-                    { group: 'Royal Blood', album: 'Royal Blood', name: "Figure It Out", year: '2014', cover: 'album/Royal Blood.png' },
-                    { group: 'Omi', album: 'Me 4 U', name: "Cheerleader", year: '2014', cover: 'album/OMI_-_Me_4_U.png' },
-                    //2015
-                    { group: 'Jakubi', album: 'Jakubi - Single', name: "cant afford it all", year: '2015', cover: 'album/Jakubi - Single.webp' },
-                    { group: 'Jakubi', album: 'Couch Potato - Single', name: "Couch Potato", year: '2015', cover: 'album/Couch Potato.webp' },
+                //2014
+                {
+                    "album": "Talking Is Hard",
+                    "songs": [
+                        {
+                            "name": "Shut Up and Dance",
+                            "year": "2014",
+                            "cover": "album/Walk_the_Moon-Talking_Is_Hard.png",
+                            "artistes": ["Walk the Moon"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Royal Blood",
+                    "songs": [
+                        {
+                            "name": "Figure It Out",
+                            "year": "2014",
+                            "cover": "album/Royal Blood.png",
+                            "artistes": ["Royal Blood"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Me 4 U",
+                    "songs": [
+                        {
+                            "name": "Cheerleader",
+                            "year": "2014",
+                            "cover": "album/OMI_-_Me_4_U.png",
+                            "artistes": ["Omi"]
+                        },
+                    ]
+                },
+                //2015
+                {
+                    "album": "Jakubi - Single",
+                    "songs": [
+                        {
+                            "name": "cant afford it all",
+                            "year": "2015",
+                            "cover": "album/Jakubi - Single.webp",
+                            "artistes": ["Jakubi"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Couch Potato - Single",
+                    "songs": [
+                        {
+                            "name": "Couch Potato",
+                            "year": "2015",
+                            "cover": "album/Couch Potato.webp",
+                            "artistes": ["Jakubi"]
+                        },
+                    ]
+                },
 
-                    //2016
-                    { group: 'Depeche Mode', album: 'Spirit', name: "Where's the Revolution", year: '2016', cover: 'album/Spirit.png' },
-                    { group: 'Depeche Mode', album: 'Spirit', name: "Going Backwards", year: '2016', cover: 'album/Spirit.png' },
-                    { group: 'Depeche Mode', album: 'Spirit', name: "Scum", year: '2016', cover: 'album/Spirit.png' },
+                //2016
+                {
+                    "album": "Spirit",
+                    "songs": [
+                        {
+                            "name": "Where's the Revolution",
+                            "year": "2016",
+                            "cover": "album/Spirit.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Spirit",
+                    "songs": [
+                        {
+                            "name": "Going Backwards",
+                            "year": "2016",
+                            "cover": "album/Spirit.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Spirit",
+                    "songs": [
+                        {
+                            "name": "Scum",
+                            "year": "2016",
+                            "cover": "album/Spirit.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Sogno di volare: Civilization VI Main Theme (Original Game Soundtrack)",
+                    "songs": [
+                        {
+                            "name": "sogno di volare (the dream of flight)",
+                            "year": "2016",
+                            "cover": "album/Sogno di volare Civilization VI Main Theme (Original Game Soundtrack).webp",
+                            "artistes": ["Christopher Tin"]
+                        },
+                    ]
+                },
+                //2017
+                
+                {
+                    "album": "Coco (Bande Originale du Film)",
+                    "songs": [
+                        {
+                            "name": "Un Poco loco",
+                            "year": "2017",
+                            "cover": "album/Coco (Bande Originale du Film).webp",
+                            "artistes": ["Andrea Santamaria","Damien Ferrette"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Little Dark Age",
+                    "songs": [
+                        {
+                            "name": "Little Dark Age",
+                            "year": "2018",
+                            "cover": "album/MGMT_-_Little_Dark_Age.png",
+                            "artistes": ["MGMT"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Little Dark Age",
+                    "songs": [
+                        {
+                            "name": "Little Dark Age",
+                            "year": "2018",
+                            "cover": "album/MGMT_-_Little_Dark_Age.png",
+                            "artistes": ["MGMT"]
+                        },
+                    ]
+                },
+                //2019
+                {
+                    "album": "Dance in the Dark - Single",
+                    "songs": [
+                        {
+                            "name": "Dance in the Dark",
+                            "year": "2019",
+                            "cover": "album/Dance in the Dark - Single.webp",
+                            "artistes": ["Au/Ra"]
+                        },
+                    ]
+                },
+                 //2020
+                {
+                    "album": "Levitating",
+                    "songs": [
+                        {
+                            "name": "Levitating",
+                            "year": "2020",
+                            "cover": "album/Levitating.png",
+                            "artistes": ["Dua Lipa"]
+                        },
+                    ]
+                },
+                //2021
+                {
+                    "album": "Parallel Parking - Single",
+                    "songs": [
+                        {
+                            "name": "Parallel Parking",
+                            "year": "2021",
+                            "cover": "album/Parallel Parking - Single.webp",
+                            "artistes": ["Arden Jones"]
+                        },
+                    ]
+                },
+                //2022
+                {
+                    "album": "this is what ____ feels like (Vol. 1-4)",
+                    "songs": [
+                        {
+                            "name": "golden hour",
+                            "year": "2022",
+                            "cover": "album/this is what ____ feels like (Vol. 1-4).webp",
+                            "artistes": ["JVKE"]
+                        },
+                    ]
+                },
+                {
+                    "album": "last day on earth - Single",
+                    "songs": [
+                        {
+                            "name": "last day on earth",
+                            "year": "2022",
+                            "cover": "album/last day on earth - Single.webp",
+                            "artistes": ["Tai Verdes"]
+                        },
+                    ]
+                },
+                
+                {
+                    "album": "The Perfect Girl (Instrumental) - Single",
+                    "songs": [
+                        {
+                            "name": "The Perfect Girl (Instrumental)",
+                            "year": "2022",
+                            "cover": "album/The Perfect Girl (Instrumental) - Single.webp",
+                            "artistes": ["Mareux"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Psychopath - Single",
+                    "songs": [
+                        {
+                            "name": "Psychopath",
+                            "year": "2022",
+                            "cover": "album/Psychopath - Single.webp",
+                            "artistes": ["FOVOS"]
+                        },
+                    ]
+                },
+                //2023
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "My Cosmos Is Mine",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Wagging Tongue",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Ghosts Again",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Don't Say You Love Me",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "My Favourite Stranger",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Soul with Me",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Caroline's Monkey",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Before We Drown",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "People Are Good",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Always You",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Never Let Me Go",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Memento Mori",
+                    "songs": [
+                        {
+                            "name": "Speak to Me",
+                            "year": "2023",
+                            "cover": "album/Memento-Mori.png",
+                            "artistes": ["Depeche Mode"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Strangers (Deep House Remix)",
+                    "songs": [
+                        {
+                            "name": "Strangers",
+                            "year": "2023",
+                            "cover": "album/Kenya_Grace_-_Strangers.png",
+                            "artistes": ["Kenya Grace"]
+                        },
+                    ]
+                },
+                
+                {
+                    "album": "The Beginning",
+                    "songs": [
+                        {
+                            "name": "Cupid",
+                            "year": "2023",
+                            "cover": "album/The Beginning.png",
+                            "artistes": ["Fifty Fifty"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Heat (feat. Dro Kenji) - Single",
+                    "songs": [
+                        {
+                            "name": "Heat",
+                            "year": "2023",
+                            "cover": "album/Heat (feat. Dro Kenji).png",
+                            "artistes": ["Apel8","Dro Kenji"]
+                        },
+                    ]
+                },
+            ];
 
-                    { group: 'Christopher Tin', album: 'Bande original', name: "Sogno di volare: Civilization VI Main Theme (Original Game Soundtrack)", year: '2016', cover: 'album/Sogno di volare: Civilization VI Main Theme (Original Game Soundtrack).webp' },
-                    //2017
-                    { artiste1: "Andrea Santamaria", album: 'Coco (Bande Originale du Film)', name: "Un Poco loco", year: '2017', cover: 'album/Coco (Bande Originale du Film).webp' },
-                    
-                    //2018
-                    { group: 'MGMT', album: 'Little Dark Age', name: "Little Dark Age", year: '2018', cover: 'album/MGMT_-_Little_Dark_Age.png' },
-                    //2019
-                    { group: 'Au/Ra', album: 'Dance in the Dark - Single', name: "Dance in the DarK", year: '2019', cover: 'album/Dance in the Dark - Single.webp' },
+            const artistesColors = {
+                'Queen': 'rgba(234, 51, 146, 0.8)',
+    'Kenya Grace': 'rgba(176, 128, 11, 0.8)',
+    'Depeche Mode': 'rgba(255, 255, 1, 0.8)',
+    'Daft Punk': 'rgba(99, 75, 206, 0.8)',
+    'AC/DC': 'rgba(245, 31, 155, 0.8)',
+    'Mika': 'rgba(17, 73, 204, 0.8)',
+    'Dua Lipa': 'rgba(49, 12, 84, 0.8)',
+    'Coldplay': 'rgba(112, 45, 153, 0.8)',
+    'Muse': 'rgba(190, 163, 189, 0.8)',
+    'Fifty Fifty': 'rgba(225, 61, 128, 0.8)',
+    'Tears for Fears': 'rgba(50, 176, 141, 0.8)',
+    'Walk the Moon': 'rgba(8, 177, 76, 0.8)',
+    'MGMT': 'rgba(90, 97, 14, 0.8)',
+    'Omi': 'rgba(205, 109, 76, 0.8)',
+    'Capital Cities': 'rgba(236, 19, 57, 0.8)',
+    'Charles Aznavour': 'rgba(126, 115, 204, 0.8)',
+    'Royal Blood': 'rgba(8, 166, 235, 0.8)',
+    'Red Hot Chili Peppers': 'rgba(117, 115, 95, 0.8)',
+    'Apel8': 'rgba(24, 235, 53, 0.8)',
+    'Run-DMC': 'rgba(197, 95, 159, 0.8)',
+    'Édith Piaf': 'rgba(193, 230, 86, 0.8)',
+    'The Cure': 'rgba(37, 24, 110, 0.8)',
+    'Jacques Higelin': 'rgba(150, 85, 112, 0.8)',
+    'JVKE': 'rgba(97, 161, 194, 0.8)',
+    "Mozart l'Opéra Rock": 'rgba(137, 11, 150, 0.8)',
+    "Stromae": 'rgba(62, 212, 145, 0.8)',
+    "Michael Bublé": 'rgba(117, 39, 212, 0.8)',
+    "Christopher Tin": 'rgba(46, 171, 162, 0.8)',
+    "Jeremy Soule": 'rgba(207, 131, 52, 0.8)',
+    "Au/Ra": 'rgba(224, 74, 163, 0.8)',
+    "Jakubi": 'rgba(55, 53, 66, 0.8)',
+    "Arden Jones": 'rgba(54, 96, 101, 0.8)',
+    "Tai Verdes": 'rgba(100, 163, 97, 0.8)',
+    "Mareux": 'rgba(91, 133, 166, 0.8)',
+    "FOVOS": 'rgba(207, 81, 46, 0.8)',
+    "Andrea Santamaria": 'rgba(42, 200, 177, 0.8)',
+    "Damien Ferrette": 'rgba(53, 143, 83, 0.8)',
+    "Dro Kenji": 'rgba(157, 80, 155, 0.8)'
+};
 
-                    //2020
-                    { group: 'Dua Lipa', album: 'Levitating', name: "Levitating", year: '2020', cover: 'album/Levitating.png' },
-                    //2021
-                    { group: 'Arden Jones', album: 'Parallel Parking - Single', name: "Parallel Parking", year: '2021', cover: 'album/Parallel Parking - Single.webp' },
-                    //
-                    //2022
-                    { group: 'JVKE', album: 'this is what ____ feels like (Vol. 1-4)', name: "golden hour", year: '2022', cover: 'album/this is what ____ feels like (Vol. 1-4).webp' },
-                    { group: 'Tai Verdes', album: 'last day on earth - Single', name: "last day on earth ", year: '2022', cover: 'last day on earth - Single.webp' },
-                    { group: 'Mareux', album: 'The Perfect Girl (Instrumental) - Single', name: "The Perfect Girl (Instrumental) ", year: '2022', cover: 'The Perfect Girl (Instrumental) - Single.webp' },
-                    { group: 'FOVOS', album: 'Psychopath - Single', name: "The Perfect Girl (Instrumental) ", year: '2022', cover: 'Psychopath - Single.webp' },
+            // Fonction pour générer le contenu HTML des albums et chansons
+            function generateAlbumsHTML() {
+                var albumsContainer = document.getElementById("albumsContainer");
+                var albumsMap = new Map(); // Utiliser une Map pour suivre les albums déjà créés
 
-                    //2023
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "My Cosmos Is Mine", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Wagging Tongue", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Ghosts Again", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Don't Say You Love Me", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "My Favourite Stranger", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Soul with Me", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Caroline's Monkey", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Before We Drown", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "People Are Good", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Always You", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Never Let Me Go", year: '2023', cover: 'album/Memento-Mori.png' },
-                    { group: 'Depeche Mode', album: 'Memento Mori', name: "Speak to Me", year: '2023', cover: 'album/Memento-Mori.png' },
+                albumsData.forEach(function (albumData) {
+                    var albumName = albumData.album;
 
-                    { group: 'Kenya Grace', album: 'Strangers (Deep House Remix)', name: "Strangers", year: '2023', cover: 'album/Kenya_Grace_-_Strangers.png' },
+                    // Vérifier si l'album existe déjà dans la Map
+                    if (!albumsMap.has(albumName)) {
+                        var albumDiv = document.createElement("div");
+                        albumDiv.classList.add("album");
 
-                    { group: 'Fifty Fifty', album: 'The Beginning', name: "Cupid", year: '2023', cover: 'album/The Beginning.png' },
+                        // Couverture de l'album
+                        var coverImage = document.createElement("img");
+                        coverImage.src = albumData.songs[0].cover;
+                        albumDiv.appendChild(coverImage);
 
-                    { group: 'Apel8', album: 'Heat', name: "Heat", year: '2023', cover: 'album/Heat (feat. Dro Kenji).png' },
-                ];
+                        // Conteneur des informations de l'album
+                        var albumInfoDiv = document.createElement("div");
+                        albumInfoDiv.classList.add("album-info");
 
-                const groupColors = {
-                    'Queen': 'rgba(255, 0, 0, 0.8)', // Rouge
-                    'Kenya Grace': 'rgba(0, 128, 255, 0.8)', // Bleu
-                    'Depeche Mode': 'rgba(255, 255, 0, 0.8)', // Jaune
-                    'Daft Punk': 'rgba(0, 204, 153, 0.8)', // Turquoise
-                    'AC/DC': 'rgba(153, 0, 0, 0.8)', // Rouge foncé
-                    'Mika': 'rgba(255, 128, 0, 0.8)', // Orange
-                    'Dua Lipa': 'rgba(128, 0, 255, 0.8)', // Violet
-                    'Coldplay': 'rgba(0, 204, 0, 0.8)', // Vert
-                    'Muse': 'rgba(255, 51, 51, 0.8)', // Rouge vif
-                    'Fifty Fifty': 'rgba(0, 102, 255, 0.8)', // Bleu vif
-                    'Tears for Fears': 'rgba(0, 77, 64, 0.8)', // Vert foncé
-                    'Walk the Moon': 'rgba(51, 51, 102, 0.8)', // Bleu foncé
-                    'MGMT': 'rgba(255, 102, 0, 0.8)', // Orange foncé
-                    'Omi': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
-                    'Capital Cities': 'rgba(0, 179, 179, 0.8)', // Turquoise foncé
-                    'Charles Aznavour': 'rgba(230, 230, 0, 0.8)', // Jaune vif
-                    'Royal Blood': 'rgba(128, 0, 0, 0.8)', // Rouge foncé
-                    'Red Hot Chili Peppers': 'rgba(204, 0, 102, 0.8)', // Rose
-                    'Apel8': 'rgba(255, 102, 0, 0.8)', // Orange vif
-                    'Run-DMC': 'rgba(0, 102, 0, 0.8)', // Vert foncé
-                    'Édith Piaf': 'rgba(0, 102, 204, 0.8)', // Bleu foncé
-                    'The Cure': 'rgba(179, 17, 255, 0.8)', // Violet vif
-                    'Jacques Higelin': 'rgba(255, 51, 128, 0.8)', // Rose vif
-                    'JVKE': 'rgba(0, 255, 179, 0.8)', // Turquoise vif
-                    "Mozart l'Opéra Rock": 'rgba(77, 179, 255, 0.8)', // Bleu clair
-                    "Stromae": 'rgba(102, 179, 77, 0.8)', // Vert clair
-                    "Michael Bublé": 'rgba(255, 179, 102, 0.8)', // Orange clair
-                    "Christopher Tin": 'rgba(179, 255, 77, 0.8)', // Jaune clair
-                    "Jeremy Soule": 'rgba(153, 128, 179, 0.8)', // Violet clair
-                    "Au/Ra": 'rgba(255, 128, 179, 0.8)', // Rose clair
-                    "Jakubi": 'rgba(128, 179, 255, 0.8)', // Bleu clair
-                    "Arden Jones": 'rgba(128, 179, 255, 0.8)', // Bleu clair
-                    "Tai Verdes": 'rgba(128, 179, 255, 0.8)', // Bleu clair
-                    "Mareux": 'rgba(128, 179, 255, 0.8)', // Bleu clair
-                    "FOVOS": 'rgba(128, 179, 255, 0.8)', // Bleu clair
+                        // Titre de l'album
+                        var albumTitle = document.createElement("h3");
+                        albumTitle.textContent = albumName;
+                        albumInfoDiv.appendChild(albumTitle);
+
+                        // Bouton pour déplier les chansons
+                        var toggleButton = document.createElement("button");
+                        toggleButton.textContent = "Déplier";
+                        toggleButton.addEventListener("click", function () {
+                            albumDiv.classList.toggle("expanded");
+                            toggleButton.textContent = albumDiv.classList.contains("expanded") ? "Replier" : "Déplier";
+                        });
+                        albumInfoDiv.appendChild(toggleButton);
+
+                        // Liste des chansons associées à l'album
+                        var songsList = document.createElement("ul");
+                        songsList.classList.add("songs");
+
+                        // Boucle pour ajouter les chansons à l'album
+                        albumsData.forEach(function (songData) {
+                            if (songData.album === albumName) {
+                                var songItem = document.createElement("li");
+
+                                // Afficher le titre de la chanson
+                                var songTitle = document.createElement("span");
+                                songTitle.textContent = songData.songs[0].name;
+                                songItem.appendChild(songTitle);
+
+                                // Afficher les artistes correspondants à la chanson en gras
+                                var songArtistsDiv = document.createElement("span");
+                                var artistText = document.createTextNode("| Artiste: " + songData.songs[0].artistes.join(", "));
+                                var boldElement = document.createElement("strong");
+                                boldElement.appendChild(artistText);
+                                songArtistsDiv.appendChild(boldElement);
+                                songItem.appendChild(songArtistsDiv);
+
+                                // Afficher l'année de sortie de la chanson
+                                var releaseYearDiv = document.createElement("span");
+                                var releaseYearText = document.createTextNode(" | ");
+                                var yearLabel = document.createElement("i");
+                                yearLabel.textContent = "Année de sortie ";
+                                var yearNumber = document.createElement("u"); // Balise pour le soulignement du chiffre de l'année
+                                yearNumber.textContent = songData.songs[0].year;
+
+                                releaseYearDiv.appendChild(releaseYearText);
+                                releaseYearDiv.appendChild(yearLabel);
+                                releaseYearDiv.appendChild(document.createTextNode(":"));
+                                releaseYearDiv.appendChild(yearNumber);
+                                songItem.appendChild(releaseYearDiv);
+
+
+                                songsList.appendChild(songItem);
+                            }
+                        });
+
+                        albumInfoDiv.appendChild(songsList);
+                        albumDiv.appendChild(albumInfoDiv);
+                        albumsContainer.appendChild(albumDiv);
+
+                        // Ajouter l'album à la Map pour indiquer qu'il a été créé
+                        albumsMap.set(albumName, true);
+                    }
+                });
+            }
+
+            // Appeler la fonction pour générer le contenu des albums
+            generateAlbumsHTML();
+
+
+            // Création du graphique des années de sortie
+            const songsData = albumsData.reduce((songs, album) => songs.concat(album.songs), []);
+            const years = songsData.map(song => song.year);
+            const uniqueYears = [...new Set(years)];
+            const ctx = document.getElementById('yearsChart').getContext('2d');
+
+            const groupedSongs = songsData.reduce((groups, song) => {
+                groups[song.artistes[0]] = groups[song.artistes[0]] || [];
+                groups[song.artistes[0]].push(song);
+                return groups;
+            }, {});
+
+            const datasets = Object.keys(groupedSongs).map(artist => {
+                return {
+                    label: artist,
+                    data: uniqueYears.map(year => groupedSongs[artist].filter(song => song.year === year).length),
+                    backgroundColor: artistesColors[artist],
+                    borderColor: artistesColors[artist],
+                    borderWidth: 1,
+                };
+            });
+
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: uniqueYears,
+                    datasets: datasets,
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (context) {
+                                const artist = context.dataset.label;
+                                const year = context.parsed.x;
+                                const count = context.parsed.y;
+
+                                // Trouver la chanson correspondante pour cette année
+                                const songForYear = groupedSongs[artist].find(song => song.year === year);
+
+                                if (songForYear) {
+                                    // Récupérez les informations de la chanson
+                                    const album = songForYear.album;
+                                    const name = songForYear.name;
+                                    const cover = songForYear.cover;
+
+                                    // Affichez le titre de la chanson dans le tooltip
+                                    const tooltipTitle = document.getElementById('tooltip-title');
+                                    tooltipTitle.textContent = `${name} (${album})`;
+
+                                    // Affichez la couverture de l'album dans le tooltip
+                                    const tooltipCover = document.getElementById('tooltip-cover');
+                                    tooltipCover.src = cover;
+
+                                    // Affichez le tooltip-info
+                                    const tooltipInfo = document.getElementById('tooltip-info');
+                                    tooltipInfo.style.display = 'block';
+
+                                    return `${artist}: ${count}`;
+                                } else {
+                                    // Cachez le tooltip-info s'il n'y a pas de chanson correspondante
+                                    const tooltipInfo = document.getElementById('tooltip-info');
+                                    tooltipInfo.style.display = 'none';
+
+                                    return `${artist}: ${count}`;
+                                }
+                            },
+                        },
+                    },
+                },
+            });
+
+            function calculateTotalSongsByYear() {
+                const totalSongsData = {
+                    label: 'Nombre total de chansons par année',
+                    data: [], // Cette liste stockera le nombre total de chansons pour chaque année
+                    backgroundColor: [], // Tableau de couleurs de remplissage pour chaque barre
+                    borderColor: 'rgba(255, 70, 37, 0.8)', // Couleur de la ligne des barres
+                    borderWidth: 3, // Largeur de la ligne des barres
                 };
 
-
-                // Organiser les chansons par groupe
-                const groupedSongs = {};
-                songsData.forEach(song => {
-                    if (!groupedSongs[song.group]) {
-                        groupedSongs[song.group] = [];
-                    }
-                    groupedSongs[song.group].push(song);
+                // Créez un tableau de couleurs pour le remplissage des barres (une couleur par année)
+                uniqueYears.forEach(() => {
+                    totalSongsData.backgroundColor.push('rgba(99 , 0, 0, 0.6)'); // Couleur de remplissage (plus foncée)
                 });
 
-                const container = document.querySelector(".group");
+                uniqueYears.forEach(year => {
+                    const totalSongs = Object.values(groupedSongs).reduce((count, songs) => {
+                        return count + songs.filter(song => song.year === year).length;
+                    }, 0);
 
-                for (const group in groupedSongs) {
-                    const groupElement = document.createElement("div");
-                    groupElement.id = group;
-                    groupElement.className = "group-container";
-                    container.appendChild(groupElement);
-
-                    const groupTitle = document.createElement("h2");
-                    groupTitle.textContent = group;
-                    groupElement.appendChild(groupTitle);
-
-                    const groupAlbums = [...new Set(groupedSongs[group].map(song => song.album))];
-                    groupAlbums.forEach(albumName => {
-                        const albumElement = document.createElement("div");
-                        albumElement.className = "album";
-
-                        const albumTitle = document.createElement("h3");
-                        albumTitle.textContent = albumName;
-
-                        // Créez des icônes "+" et "-" pour le déroulement et le repliement
-                        const expandIcon = document.createElement("i");
-                        expandIcon.className = "fas fa-plus";
-                        expandIcon.style.cursor = "pointer";
-                        expandIcon.style.marginRight = "1hv"; /* Ajoutez un espace à droite des icônes */
-                        expandIcon.style.float = "left"; /* Alignez les icônes à gauche */
-                        expandIcon.style.alignItems = "left";
-
-                        expandIcon.addEventListener("click", () => {
-                            albumContent.style.display = albumContent.style.display === "block" ? "none" : "block";
-                            // Mettez à jour l'icône en conséquence
-                            if (albumContent.style.display === "block") {
-                                expandIcon.className = "fas fa-minus";
-                            } else {
-                                expandIcon.className = "fas fa-plus";
-                            }
-                        });
-
-                        albumTitle.appendChild(expandIcon);
-                        albumElement.appendChild(albumTitle);
-
-                        const albumContent = document.createElement("div");
-                        albumContent.className = "album-content";
-
-                        groupedSongs[group].forEach(song => {
-                            if (song.album === albumName) {
-                                const songElement = document.createElement("div");
-                                songElement.className = "song";
-
-                                const coverImage = document.createElement("img");
-                                coverImage.className = "cover";
-                                coverImage.src = song.cover;
-                                coverImage.alt = `Cover de la chanson ${song.name}`;
-                                songElement.appendChild(coverImage);
-
-                                const songInfo = document.createElement("p");
-                                songInfo.textContent = `${song.name} (${song.year})`;
-                                songElement.appendChild(songInfo);
-
-                                albumContent.appendChild(songElement);
-                            }
-                        });
-
-                        // Initialment, cachez l'album
-                        albumContent.style.display = "none";
-
-                        albumElement.appendChild(albumContent);
-                        groupElement.appendChild(albumElement);
-                    });
-                }
-
-                // Création du graphique des années de sortie
-                const years = songsData.map(song => song.year);
-                const uniqueYears = [...new Set(years)];
-                const ctx = document.getElementById('yearsChart').getContext('2d');
-
-                const datasets = Object.keys(groupedSongs).map(group => {
-                    return {
-                        label: group,
-                        data: uniqueYears.map(year => groupedSongs[group].filter(song => song.year === year).length),
-                        backgroundColor: groupColors[group],
-                        borderColor: groupColors[group],
-                        borderWidth: 1,
-                    };
+                    totalSongsData.data.push(totalSongs);
                 });
 
-                const chart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: uniqueYears,
-                        datasets: datasets,
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top',
-                            },
-                        },
-                        tooltips: {
-                            callbacks: {
-                                label: function (context) {
-                                    const dataset = context.dataset.label;
-                                    const year = context.parsed.x;
-                                    const count = context.parsed.y;
-
-                                    // Trouver la chanson correspondante pour cette année
-                                    const songForYear = groupedSongs[dataset].find(song => song.year === year);
-
-                                    if (songForYear) {
-                                        // Récupérez les informations de la chanson
-                                        const album = songForYear.album;
-                                        const name = songForYear.name;
-                                        const cover = songForYear.cover;
-
-                                        // Affichez le titre de la chanson dans le tooltip
-                                        const tooltipTitle = document.getElementById('tooltip-title');
-                                        tooltipTitle.textContent = `${name} (${album})`;
-
-                                        // Affichez la couverture de l'album dans le tooltip
-                                        const tooltipCover = document.getElementById('tooltip-cover');
-                                        tooltipCover.src = cover;
-
-                                        // Affichez le tooltip-info
-                                        const tooltipInfo = document.getElementById('tooltip-info');
-                                        tooltipInfo.style.display = 'block';
-
-                                        return `${dataset}: ${count}`;
-                                    } else {
-                                        // Cachez le tooltip-info s'il n'y a pas de chanson correspondante
-                                        const tooltipInfo = document.getElementById('tooltip-info');
-                                        tooltipInfo.style.display = 'none';
-
-                                        return `${dataset}: ${count}`;
-                                    }
-                                },
-                            },
-                        },
-                    },
-                });
-
-                function calculateTotalSongsByYear() {
-                    const totalSongsData = {
-                        label: 'Nombre total de chansons par année',
-                        data: [], // Cette liste stockera le nombre total de chansons pour chaque année
-                        backgroundColor: [], // Tableau de couleurs de remplissage pour chaque barre
-                        borderColor: 'rgba(255, 99, 132, 0.8)', // Couleur de la ligne des barres
-                        borderWidth: 3, // Largeur de la ligne des barres
-                    };
-
-                    // Créez un tableau de couleurs pour le remplissage des barres (une couleur par année)
-                    uniqueYears.forEach(() => {
-                        totalSongsData.backgroundColor.push('rgba(255, 99, 132, 0.6)'); // Couleur de remplissage (plus foncée)
-                    });
-
-                    uniqueYears.forEach(year => {
-                        const totalSongs = Object.values(groupedSongs).reduce((count, songs) => {
-                            return count + songs.filter(song => song.year === year).length;
-                        }, 0);
-
-                        totalSongsData.data.push(totalSongs);
-                    });
-
-                    return totalSongsData;
-                }
-                // Créez l'ensemble de données pour le nombre total de chansons par année
-                const totalSongsDataset = calculateTotalSongsByYear();
-
-                // Ajoutez l'ensemble de données au graphique
-                datasets.push(totalSongsDataset);
-
-                // Mettez à jour le graphique
-                chart.update();
-                // Calcul du nombre total de musiques
-                const totalSongs = songsData.length;
-
-                // Calcul du nombre total d'artistes
-                const artists = [...new Set(songsData.map(song => song.group))];
-                const totalArtists = artists.length;
-
-                // Calcul de la moyenne des années de sortie
-                const yearsArray = songsData.map(song => parseInt(song.year, 10));
-                const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
-
-                // Sélectionnez les divs pour afficher les informations
-                const averageYearDiv = document.getElementById("averageYearDiv");
-                const totalSongDiv = document.getElementById("totalsong");
-
-                // Créez des éléments de paragraphe pour afficher les informations
-                const averageYearParagraph = document.createElement("p");
-                averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
-
-                const totalSongParagraph = document.createElement("p");
-                totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
-
-                const totalArtistParagraph = document.createElement("p");
-                totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
-
-                // Ajoutez les paragraphes aux divs correspondantes
-                averageYearDiv.appendChild(averageYearParagraph);
-                totalSongDiv.appendChild(totalSongParagraph);
-                totalSongDiv.appendChild(totalArtistParagraph);
-
-                let artistsDeselected = false; // Variable pour suivre l'état des artistes (sélectionnés ou déselectionnés)
-
-    // Ajoutez un gestionnaire d'événements pour le bouton "Décocher les artistes"
-    const deselectArtistsButton = document.getElementById('deselectArtistsButton');
-    deselectArtistsButton.addEventListener('click', () => {
-        // Basculer entre la sélection et la déselection des artistes
-        artistsDeselected = !artistsDeselected;
-
-        // Parcourez les datasets du graphique
-        datasets.forEach(dataset => {
-            if (dataset.label !== "Nombre total de chansons par année") {
-                dataset.hidden = artistsDeselected; // Sélectionnez ou décochez le dataset en fonction de l'état
+                return totalSongsData;
             }
-        });
+            // Créez l'ensemble de données pour le nombre total de chansons par année
+            const totalSongsDataset = calculateTotalSongsByYear();
 
-        chart.update(); // Mettez à jour le graphique pour refléter les changements
-    });
+            // Ajoutez l'ensemble de données au graphique
+            datasets.push(totalSongsDataset);
 
-                const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
-                toggleChartTypeButton.addEventListener('click', () => {
-                    if (chart.config.type === 'line') {
-                        chart.config.type = 'bar';
-                    } else if (chart.config.type === 'bar') {
-                        chart.config.type = 'line';
+            // Mettez à jour le graphique
+            chart.update();
+
+            // Calcul du nombre total de musiques
+            const totalSongs = songsData.length;
+
+            // Calcul du nombre total d'artistes
+            const artists = Object.keys(groupedSongs);
+            const totalArtists = artists.length;
+
+            // Calcul de la moyenne des années de sortie
+            const yearsArray = songsData.map(song => parseInt(song.year, 10));
+            const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
+
+            // Sélectionnez les divs pour afficher les informations
+            const averageYearDiv = document.getElementById("averageYearDiv");
+            const totalSongDiv = document.getElementById("totalsong");
+
+            // Créez des éléments de paragraphe pour afficher les informations
+            const averageYearParagraph = document.createElement("p");
+            averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
+
+            const totalSongParagraph = document.createElement("p");
+            totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
+
+            const totalArtistParagraph = document.createElement("p");
+            totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
+
+            // Ajoutez les paragraphes aux divs correspondantes
+            averageYearDiv.appendChild(averageYearParagraph);
+            totalSongDiv.appendChild(totalSongParagraph);
+            totalSongDiv.appendChild(totalArtistParagraph);
+
+            let artistsDeselected = false; // Variable pour suivre l'état des artistes (sélectionnés ou déselectionnés)
+
+            // Ajoutez un gestionnaire d'événements pour le bouton "Décocher les artistes"
+            const deselectArtistsButton = document.getElementById('deselectArtistsButton');
+            deselectArtistsButton.addEventListener('click', () => {
+                // Basculer entre la sélection et la déselection des artistes
+                artistsDeselected = !artistsDeselected;
+
+                // Parcourez les datasets du graphique
+                datasets.forEach(dataset => {
+                    if (dataset.label !== "Nombre total de chansons par année") {
+                        dataset.hidden = artistsDeselected; // Sélectionnez ou décochez le dataset en fonction de l'état
                     }
-                    chart.update(); // Met à jour le graphique avec le nouveau type
                 });
-            });
-        </script>
 
+                chart.update(); // Mettez à jour le graphique pour refléter les changements
+            });
+
+            const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
+            toggleChartTypeButton.addEventListener('click', () => {
+                if (chart.config.type === 'line') {
+                    chart.config.type = 'bar';
+                } else if (chart.config.type === 'bar') {
+                    chart.config.type = 'line';
+                }
+                chart.update(); // Met à jour le graphique avec le nouveau type
+            });
+
+        </script>
         <footer>
         </footer>
 </body>

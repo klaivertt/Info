@@ -86,35 +86,87 @@ nav a:hover {
     text-decoration: underline;
 }
 
-.group {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
 .album {
-    margin-top: 10px;
-    border: 1px solid #eee;
+    background-color: #333;
+    margin: 20px;
     padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    display: flex; /* Utilisez flexbox pour contrôler la mise en page de l'album */
+    align-items: center; /* Alignez le contenu verticalement */
 }
 
-.song {
+.album img {
+    max-width: 20vh;
+    height: auto;
+    border: 1px solid #555;
+    border-radius: 5px;
+    max-height: 100%; /* Assurez-vous que la couverture ne dépasse pas le conteneur */
+}
+
+.album h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.album-details {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-left: 20px; /* Espace entre la couverture et les détails de l'album */
+}
+
+.album-artists, .album-year {
+    font-size: 1rem;
+    color: #777; /* Couleur de l'année (personnalisable) */
     margin-top: 5px;
 }
 
-.cover {
-    max-width: 15vh;
-    max-height: 15vh;
-    margin-right: 10px;
+.album .songs {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px; /* Ajoutez de la marge pour séparer les chansons du titre/année */
+    order: 2; /* Changez l'ordre pour afficher les chansons sous le titre/année */
 }
 
-.album-title i {
-    margin-right: 5px;
-    float: left;
-    align-items: left;
+.album .songs li {
+    font-size: 1rem;
+    margin: 5px 0;
 }
+
+.album button {
+    background-color: #ff4625;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.album button:hover {
+    background-color: #990000;
+    color: #000;
+}
+
+.album.expanded .songs {
+    display: block;
+}
+
+.album .songs {
+    display: none;
+}
+
+.album-cover {
+    max-width: 20vh; /* Ajustez la taille de la couverture de l'album */
+    height: auto;
+    float: left;
+    margin-right: 20px; /* Espace entre la couverture et le titre/année */
+}
+.album-info .songs li span {
+    margin-right: 10px; /* Ajustez la marge selon vos préférences */
+  }
+
 
 #toggleChartTypeButton {
     background-color: #FF4728;
@@ -152,36 +204,12 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-.tooltip-info {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 4px;
-    padding: 5px;
-    position: absolute;
-    display: none;
+#yearsChart {
+    max-width: 99.5%;
+    max-height: 99.5%;
+    width: auto;
+    height: auto;
 }
-
-.tooltip-title {
-    font-weight: bold;
-}
-
-.tooltip-cover {
-    width: 2.5vh;
-    height: 2.5vh;
-    display: block;
-    margin: 5px auto;
-}
-
-#custom-tooltip {
-    display: none;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 999;
-}
-
 h1 {
     text-align: center;
     font-size: 2.5vw;
