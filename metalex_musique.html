@@ -16,7 +16,7 @@
   <header>
     <!-- Utilise la balise <img> pour afficher l'image -->
     <img class="logogrand" src="logogrand.png">
-    <h1>Klaivert</h1>
+    <h1>Métalex</h1>
   </header>
 
   <nav>
@@ -29,19 +29,24 @@
   </nav>
   <h1>Musique ecouter par Métalex</h>
 
-    <h2>Graphique des Années de Sortie</h2>
-    <div class="chart-container">
-      <button id="toggleChartTypeButton">Toggle Chart Type</button>
-      <button id="deselectArtistsButton">Artists</button>
-      <canvas id="yearsChart" width="400" height="200"></canvas>
-      <div id="averageYearDiv" class="average-year"></div>
-      <div id="totalsong" class="totalsong">
+    <div id="totalsong" class="totalsong">
+
+      <div class="chart-container">
+
+          <div id="averageYearDiv" class="average-year"></div>
+          <h2>Graphique des Années de Sortie</h2>
+          <button id="toggleChartTypeButton">Toggle Chart Type</button>
+          <button id="deselectArtistsButton">Artists</button>
+          <button id="resetZoomButton">Reset Zoom</button>
+          <div id="chartContainer">
+              <canvas id="yearsChart"></canvas>
+          </div>
 
       </div>
-    </div>
-    <div id="albumsContainer">
+  </div>
+  <div id="albumsContainer">
       <h3>Chansons</h3>
-    </div>
+  </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -123,270 +128,342 @@
         'Édith Piaf': 'rgba(0, 204, 153, 0.8)', // Turquoise
       };
 
-      // Fonction pour générer le contenu HTML des albums et chansons
-      function generateAlbumsHTML() {
-        var albumsContainer = document.getElementById("albumsContainer");
-        var albumsMap = new Map(); // Utiliser une Map pour suivre les albums déjà créés
+     // Fonction pour générer le contenu HTML des albums et chansons
+     function generateAlbumsHTML() {
+                var albumsContainer = document.getElementById("albumsContainer");
+                var albumsMap = new Map(); // Utiliser une Map pour suivre les albums déjà créés
 
-        albumsData.forEach(function (albumData) {
-          var albumName = albumData.album;
+                albumsData.forEach(function (albumData) {
+                    var albumName = albumData.album;
 
-          // Vérifier si l'album existe déjà dans la Map
-          if (!albumsMap.has(albumName)) {
-            var albumDiv = document.createElement("div");
-            albumDiv.classList.add("album");
+                    // Vérifier si l'album existe déjà dans la Map
+                    if (!albumsMap.has(albumName)) {
+                        var albumDiv = document.createElement("div");
+                        albumDiv.classList.add("album");
 
-            // Couverture de l'album
-            var coverImage = document.createElement("img");
-            coverImage.src = albumData.songs[0].cover;
-            albumDiv.appendChild(coverImage);
+                        // Couverture de l'album
+                        var coverImage = document.createElement("img");
+                        coverImage.src = albumData.songs[0].cover;
+                        albumDiv.appendChild(coverImage);
 
-            // Conteneur des informations de l'album
-            var albumInfoDiv = document.createElement("div");
-            albumInfoDiv.classList.add("album-info");
+                        // Conteneur des informations de l'album
+                        var albumInfoDiv = document.createElement("div");
+                        albumInfoDiv.classList.add("album-info");
 
-            // Titre de l'album
-            var albumTitle = document.createElement("h3");
-            albumTitle.textContent = albumName;
-            albumInfoDiv.appendChild(albumTitle);
+                        // Titre de l'album
+                        var albumTitle = document.createElement("h3");
+                        albumTitle.textContent = albumName;
+                        albumInfoDiv.appendChild(albumTitle);
 
-            // Bouton pour déplier les chansons
-            var toggleButton = document.createElement("button");
-            toggleButton.textContent = "Déplier";
-            toggleButton.addEventListener("click", function () {
-              albumDiv.classList.toggle("expanded");
-              toggleButton.textContent = albumDiv.classList.contains("expanded") ? "Replier" : "Déplier";
+                        // Bouton pour déplier les chansons
+                        var toggleButton = document.createElement("button");
+                        toggleButton.textContent = "Déplier";
+                        toggleButton.addEventListener("click", function () {
+                            albumDiv.classList.toggle("expanded");
+                            toggleButton.textContent = albumDiv.classList.contains("expanded") ? "Replier" : "Déplier";
+                        });
+                        albumInfoDiv.appendChild(toggleButton);
+
+                        // Liste des chansons associées à l'album
+                        var songsList = document.createElement("ul");
+                        songsList.classList.add("songs");
+
+                        // Boucle pour ajouter les chansons à l'album
+                        albumsData.forEach(function (songData) {
+                            if (songData.album === albumName) {
+                                var songItem = document.createElement("li");
+
+                                // Afficher le titre de la chanson
+                                var songTitle = document.createElement("span");
+                                songTitle.textContent = songData.songs[0].name;
+                                songItem.appendChild(songTitle);
+
+                                // Afficher les artistes correspondants à la chanson en gras
+                                var songArtistsDiv = document.createElement("span");
+                                var artistText = document.createTextNode("| Artiste: " + songData.songs[0].artistes.join(", "));
+                                var boldElement = document.createElement("strong");
+                                boldElement.appendChild(artistText);
+                                songArtistsDiv.appendChild(boldElement);
+                                songItem.appendChild(songArtistsDiv);
+
+                                // Afficher l'année de sortie de la chanson
+                                var releaseYearDiv = document.createElement("span");
+                                var releaseYearText = document.createTextNode(" | ");
+                                var yearLabel = document.createElement("i");
+                                yearLabel.textContent = "Année de sortie ";
+                                var yearNumber = document.createElement("u"); // Balise pour le soulignement du chiffre de l'année
+                                yearNumber.textContent = songData.songs[0].year;
+
+                                releaseYearDiv.appendChild(releaseYearText);
+                                releaseYearDiv.appendChild(yearLabel);
+                                releaseYearDiv.appendChild(document.createTextNode(":"));
+                                releaseYearDiv.appendChild(yearNumber);
+                                songItem.appendChild(releaseYearDiv);
+
+
+                                songsList.appendChild(songItem);
+                            }
+                        });
+
+                        albumInfoDiv.appendChild(songsList);
+                        albumDiv.appendChild(albumInfoDiv);
+                        albumsContainer.appendChild(albumDiv);
+
+                        // Ajouter l'album à la Map pour indiquer qu'il a été créé
+                        albumsMap.set(albumName, true);
+                    }
+                });
+            }
+
+            // Appeler la fonction pour générer le contenu des albums
+            generateAlbumsHTML();
+
+
+            // Création du graphique des années de sortie
+            const songsData = albumsData.reduce((songs, album) => songs.concat(album.songs), []);
+            const years = songsData.map(song => song.year);
+            const uniqueYears = [...new Set(years)];
+            const ctx = document.getElementById('yearsChart').getContext('2d');
+
+            const groupedSongs = songsData.reduce((groups, song) => {
+                groups[song.artistes[0]] = groups[song.artistes[0]] || [];
+                groups[song.artistes[0]].push(song);
+                return groups;
+            }, {});
+
+            const datasets = Object.keys(groupedSongs).map(artist => {
+                return {
+                    label: artist,
+                    data: uniqueYears.map(year => groupedSongs[artist].filter(song => song.year === year).length),
+                    backgroundColor: artistesColors[artist],
+                    borderColor: artistesColors[artist],
+                    borderWidth: 1,
+                };
             });
-            albumInfoDiv.appendChild(toggleButton);
 
-            // Liste des chansons associées à l'album
-            var songsList = document.createElement("ul");
-            songsList.classList.add("songs");
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: uniqueYears,
+                    datasets: datasets,
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        },
+                        zoom: {
+                            zoom: {
+                                wheel: {
+                                    enabled: true,
+                                },
+                                pinch: {
+                                    enabled: true,
+                                },
+                                mode: 'xy',
+                                limits: {
+                                    x: { min: 'original', max: 'original' }, // Restreint le zoom sur l'axe X
+                                    y: { min: 'original', max: 'original' }, // Restreint le zoom sur l'axe Y
+                                },
+                            },
+                        },
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (context) {
+                                const artist = context.dataset.label;
+                                const year = context.parsed.x;
+                                const count = context.parsed.y;
 
-            // Boucle pour ajouter les chansons à l'album
-            albumsData.forEach(function (songData) {
-              if (songData.album === albumName) {
-                var songItem = document.createElement("li");
+                                // Trouver la chanson correspondante pour cette année
+                                const songForYear = groupedSongs[artist].find(song => song.year === year);
 
-                // Afficher le titre de la chanson
-                var songTitle = document.createElement("span");
-                songTitle.textContent = songData.songs[0].name;
-                songItem.appendChild(songTitle);
+                                if (songForYear) {
+                                    // Récupérez les informations de la chanson
+                                    const album = songForYear.album;
+                                    const name = songForYear.name;
+                                    const cover = songForYear.cover;
 
-                // Afficher les artistes correspondants à la chanson en gras
-                var songArtistsDiv = document.createElement("span");
-                var artistText = document.createTextNode("| Artiste: " + songData.songs[0].artistes.join(", "));
-                var boldElement = document.createElement("strong");
-                boldElement.appendChild(artistText);
-                songArtistsDiv.appendChild(boldElement);
-                songItem.appendChild(songArtistsDiv);
+                                    // Affichez le titre de la chanson dans le tooltip
+                                    const tooltipTitle = document.getElementById('tooltip-title');
+                                    tooltipTitle.textContent = `${name} (${album})`;
 
-                // Afficher l'année de sortie de la chanson
-                var releaseYearDiv = document.createElement("span");
-                var releaseYearText = document.createTextNode(" | ");
-                var yearLabel = document.createElement("i");
-                yearLabel.textContent = "Année de sortie ";
-                var yearNumber = document.createElement("u"); // Balise pour le soulignement du chiffre de l'année
-                yearNumber.textContent = songData.songs[0].year;
+                                    // Affichez la couverture de l'album dans le tooltip
+                                    const tooltipCover = document.getElementById('tooltip-cover');
+                                    tooltipCover.src = cover;
 
-                releaseYearDiv.appendChild(releaseYearText);
-                releaseYearDiv.appendChild(yearLabel);
-                releaseYearDiv.appendChild(document.createTextNode(":"));
-                releaseYearDiv.appendChild(yearNumber);
-                songItem.appendChild(releaseYearDiv);
+                                    // Affichez le tooltip-info
+                                    const tooltipInfo = document.getElementById('tooltip-info');
+                                    tooltipInfo.style.display = 'block';
 
+                                    return `${artist}: ${count}`;
+                                } else {
+                                    // Cachez le tooltip-info s'il n'y a pas de chanson correspondante
+                                    const tooltipInfo = document.getElementById('tooltip-info');
+                                    tooltipInfo.style.display = 'none';
 
-                songsList.appendChild(songItem);
-              }
+                                    return `${artist}: ${count}`;
+                                }
+                            },
+                        },
+                    },
+                },
             });
 
-            albumInfoDiv.appendChild(songsList);
-            albumDiv.appendChild(albumInfoDiv);
-            albumsContainer.appendChild(albumDiv);
+            function calculateTotalSongsByYear() {
+                const totalSongsData = {
+                    label: 'Nombre total de chansons par année',
+                    data: [], // Cette liste stockera le nombre total de chansons pour chaque année
+                    backgroundColor: [], // Tableau de couleurs de remplissage pour chaque barre
+                    borderColor: 'rgba(255, 70, 37, 0.8)', // Couleur de la ligne des barres
+                    borderWidth: 3, // Largeur de la ligne des barres
+                };
 
-            // Ajouter l'album à la Map pour indiquer qu'il a été créé
-            albumsMap.set(albumName, true);
-          }
-        });
-      }
+                // Créez un tableau de couleurs pour le remplissage des barres (une couleur par année)
+                uniqueYears.forEach(() => {
+                    totalSongsData.backgroundColor.push('rgba(99 , 0, 0, 0.6)'); // Couleur de remplissage (plus foncée)
+                });
 
-      // Appeler la fonction pour générer le contenu des albums
-      generateAlbumsHTML();
+                uniqueYears.forEach(year => {
+                    const totalSongs = Object.values(groupedSongs).reduce((count, songs) => {
+                        return count + songs.filter(song => song.year === year).length;
+                    }, 0);
 
-      // Création du graphique des années de sortie
-      const songsData = albumsData.reduce((songs, album) => songs.concat(album.songs), []);
-      const years = songsData.map(song => song.year);
-      const uniqueYears = [...new Set(years)];
-      const ctx = document.getElementById('yearsChart').getContext('2d');
+                    totalSongsData.data.push(totalSongs);
+                });
 
-      const groupedSongs = songsData.reduce((groups, song) => {
-        groups[song.artistes[0]] = groups[song.artistes[0]] || [];
-        groups[song.artistes[0]].push(song);
-        return groups;
-      }, {});
+                return totalSongsData;
+            }
+            // Créez l'ensemble de données pour le nombre total de chansons par année
+            const totalSongsDataset = calculateTotalSongsByYear();
 
-      const datasets = Object.keys(groupedSongs).map(artist => {
-        return {
-          label: artist,
-          data: uniqueYears.map(year => groupedSongs[artist].filter(song => song.year === year).length),
-          backgroundColor: artistesColors[artist],
-          borderColor: artistesColors[artist],
-          borderWidth: 1,
-        };
-      });
+            // Ajoutez l'ensemble de données au graphique
+            datasets.push(totalSongsDataset);
 
-      const chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: uniqueYears,
-          datasets: datasets,
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top',
-            },
-          },
-          tooltips: {
-            callbacks: {
-              label: function (context) {
-                const artist = context.dataset.label;
-                const year = context.parsed.x;
-                const count = context.parsed.y;
+            // Mettez à jour le graphique
+            chart.update();
 
-                // Trouver la chanson correspondante pour cette année
-                const songForYear = groupedSongs[artist].find(song => song.year === year);
+            // Calcul du nombre total de musiques
+            const totalSongs = songsData.length;
 
-                if (songForYear) {
-                  // Récupérez les informations de la chanson
-                  const album = songForYear.album;
-                  const name = songForYear.name;
-                  const cover = songForYear.cover;
+            // Calcul du nombre total d'artistes
+            const artists = Object.keys(groupedSongs);
+            const totalArtists = artists.length;
 
-                  // Affichez le titre de la chanson dans le tooltip
-                  const tooltipTitle = document.getElementById('tooltip-title');
-                  tooltipTitle.textContent = `${name} (${album})`;
+            // Calcul de la moyenne des années de sortie
+            const yearsArray = songsData.map(song => parseInt(song.year, 10));
+            const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
 
-                  // Affichez la couverture de l'album dans le tooltip
-                  const tooltipCover = document.getElementById('tooltip-cover');
-                  tooltipCover.src = cover;
+            // Sélectionnez les divs pour afficher les informations
+            const averageYearDiv = document.getElementById("averageYearDiv");
+            const totalSongDiv = document.getElementById("totalsong");
 
-                  // Affichez le tooltip-info
-                  const tooltipInfo = document.getElementById('tooltip-info');
-                  tooltipInfo.style.display = 'block';
+            // Créez des éléments de paragraphe pour afficher les informations
+            const averageYearParagraph = document.createElement("p");
+            averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
 
-                  return `${artist}: ${count}`;
-                } else {
-                  // Cachez le tooltip-info s'il n'y a pas de chanson correspondante
-                  const tooltipInfo = document.getElementById('tooltip-info');
-                  tooltipInfo.style.display = 'none';
+            const totalSongParagraph = document.createElement("p");
+            totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
 
-                  return `${artist}: ${count}`;
+            const totalArtistParagraph = document.createElement("p");
+            totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
+
+            // Ajoutez les paragraphes aux divs correspondantes
+            averageYearDiv.appendChild(averageYearParagraph);
+            totalSongDiv.appendChild(totalSongParagraph);
+            totalSongDiv.appendChild(totalArtistParagraph);
+
+            let artistsDeselected = false; // Variable pour suivre l'état des artistes (sélectionnés ou déselectionnés)
+
+            // Ajoutez un gestionnaire d'événements pour le bouton "Décocher les artistes"
+            const deselectArtistsButton = document.getElementById('deselectArtistsButton');
+            deselectArtistsButton.addEventListener('click', () => {
+                // Basculer entre la sélection et la déselection des artistes
+                artistsDeselected = !artistsDeselected;
+
+                // Parcourez les datasets du graphique
+                datasets.forEach(dataset => {
+                    if (dataset.label !== "Nombre total de chansons par année") {
+                        dataset.hidden = artistsDeselected; // Sélectionnez ou décochez le dataset en fonction de l'état
+                    }
+                });
+
+                chart.update(); // Mettez à jour le graphique pour refléter les changements
+            });
+
+            const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
+            toggleChartTypeButton.addEventListener('click', () => {
+                if (chart.config.type === 'line') {
+                    chart.config.type = 'bar';
+                } else if (chart.config.type === 'bar') {
+                    chart.config.type = 'line';
                 }
-              },
-            },
-          },
-        },
-      });
+                chart.update(); // Met à jour le graphique avec le nouveau type
+            });
+            const resetZoomButton = document.getElementById('resetZoomButton');
 
-      function calculateTotalSongsByYear() {
-        const totalSongsData = {
-          label: 'Nombre total de chansons par année',
-          data: [], // Cette liste stockera le nombre total de chansons pour chaque année
-          backgroundColor: [], // Tableau de couleurs de remplissage pour chaque barre
-          borderColor: 'rgba(255, 70, 37, 0.8)', // Couleur de la ligne des barres
-          borderWidth: 3, // Largeur de la ligne des barres
-        };
+            resetZoomButton.addEventListener('click', resetZoom);
 
-        // Créez un tableau de couleurs pour le remplissage des barres (une couleur par année)
-        uniqueYears.forEach(() => {
-          totalSongsData.backgroundColor.push('rgba(99 , 0, 0, 0.6)'); // Couleur de remplissage (plus foncée)
+            function resetZoom() {
+                chart.resetZoom();
+            }
+
+           // Ajouter un gestionnaire d'événements pour la navigation du graphique en maintenant le doigt (pour les écrans tactiles) ou en cliquant avec le bouton gauche de la souris
+const chartContainer = document.getElementById('chartContainer');
+let isDragging = false;
+let prevX = 0;
+
+const startNavigation = (e) => {
+    isDragging = true;
+    prevX = getEventX(e);
+};
+
+const performNavigation = (e) => {
+    if (isDragging) {
+        const currentX = getEventX(e);
+        const deltaX = currentX - prevX;
+        prevX = currentX;
+
+        // Déplacer le graphique horizontalement en fonction du déplacement du doigt/souris
+        chart.pan({
+            enabled: true,
+            mode: 'x',
+            speed: 5,
+            onPanComplete: () => {},
         });
+    }
+};
 
-        uniqueYears.forEach(year => {
-          const totalSongs = Object.values(groupedSongs).reduce((count, songs) => {
-            return count + songs.filter(song => song.year === year).length;
-          }, 0);
+const stopNavigation = () => {
+    isDragging = false;
+};
 
-          totalSongsData.data.push(totalSongs);
-        });
+// Utilitaire pour obtenir la position X de l'événement (gestion des écrans tactiles et des clics de souris)
+const getEventX = (e) => {
+    if (e.touches && e.touches[0]) {
+        return e.touches[0].clientX; // Pour les écrans tactiles
+    } else if (e.clientX) {
+        return e.clientX; // Pour les clics de souris
+    }
+    return 0;
+};
 
-        return totalSongsData;
-      }
-      // Créez l'ensemble de données pour le nombre total de chansons par année
-      const totalSongsDataset = calculateTotalSongsByYear();
+// Gestion des événements tactiles pour les écrans tactiles
+chartContainer.addEventListener('touchstart', startNavigation);
+document.addEventListener('touchmove', performNavigation);
+document.addEventListener('touchend', stopNavigation);
 
-      // Ajoutez l'ensemble de données au graphique
-      datasets.push(totalSongsDataset);
-
-      // Mettez à jour le graphique
-      chart.update();
-
-      // Calcul du nombre total de musiques
-      const totalSongs = songsData.length;
-
-      // Calcul du nombre total d'artistes
-      const artists = Object.keys(groupedSongs);
-      const totalArtists = artists.length;
-
-      // Calcul de la moyenne des années de sortie
-      const yearsArray = songsData.map(song => parseInt(song.year, 10));
-      const averageYear = yearsArray.reduce((acc, current) => acc + current, 0) / totalSongs;
-
-      // Sélectionnez les divs pour afficher les informations
-      const averageYearDiv = document.getElementById("averageYearDiv");
-      const totalSongDiv = document.getElementById("totalsong");
-
-      // Créez des éléments de paragraphe pour afficher les informations
-      const averageYearParagraph = document.createElement("p");
-      averageYearParagraph.textContent = `Moyenne des années de sortie: ${averageYear.toFixed(2)}`;
-
-      const totalSongParagraph = document.createElement("p");
-      totalSongParagraph.textContent = `Nombre total de musiques: ${totalSongs}`;
-
-      const totalArtistParagraph = document.createElement("p");
-      totalArtistParagraph.textContent = `Nombre total d'artistes: ${totalArtists}`;
-
-      // Ajoutez les paragraphes aux divs correspondantes
-      averageYearDiv.appendChild(averageYearParagraph);
-      totalSongDiv.appendChild(totalSongParagraph);
-      totalSongDiv.appendChild(totalArtistParagraph);
-
-      let artistsDeselected = false; // Variable pour suivre l'état des artistes (sélectionnés ou déselectionnés)
-
-      // Ajoutez un gestionnaire d'événements pour le bouton "Décocher les artistes"
-      const deselectArtistsButton = document.getElementById('deselectArtistsButton');
-      deselectArtistsButton.addEventListener('click', () => {
-        // Basculer entre la sélection et la déselection des artistes
-        artistsDeselected = !artistsDeselected;
-
-        // Parcourez les datasets du graphique
-        datasets.forEach(dataset => {
-          if (dataset.label !== "Nombre total de chansons par année") {
-            dataset.hidden = artistsDeselected; // Sélectionnez ou décochez le dataset en fonction de l'état
-          }
-        });
-
-        chart.update(); // Mettez à jour le graphique pour refléter les changements
-      });
-
-      const toggleChartTypeButton = document.getElementById('toggleChartTypeButton');
-      toggleChartTypeButton.addEventListener('click', () => {
-        if (chart.config.type === 'line') {
-          chart.config.type = 'bar';
-        } else if (chart.config.type === 'bar') {
-          chart.config.type = 'line';
-        }
-        chart.update(); // Met à jour le graphique avec le nouveau type
-      });
-
-    </script>
+// Gestion des événements de souris pour les clics de souris
+chartContainer.addEventListener('mousedown', startNavigation);
+document.addEventListener('mousemove', performNavigation);
+document.addEventListener('mouseup', stopNavigation);
+        </script>
     <footer>
     </footer>
 </body>
