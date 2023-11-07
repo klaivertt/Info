@@ -267,6 +267,17 @@
                         },
                     ]
                 },
+                {
+                    "album": "Best of Le roi lion (Best of the Lion King) [Deluxe Edition]",
+                    "songs": [
+                        {
+                            "name": "hakuna matata",
+                            "year": "2003",
+                            "cover": "album/Best of Le roi lion (Best of the Lion King) [Deluxe Edition].webp",
+                            "artistes": ["Dimitri Rougeul","Emmanuel Curtil","Jean-Philippe Puymartin","Michel Elias"]
+                        },
+                    ]
+                },
 
                 //2005
                 {
@@ -971,7 +982,8 @@
                 "FOVOS": 'rgba(207, 81, 46, 0.8)',
                 "Andrea Santamaria": 'rgba(42, 200, 177, 0.8)',
                 "Damien Ferrette": 'rgba(53, 143, 83, 0.8)',
-                "Dro Kenji": 'rgba(157, 80, 155, 0.8)'
+                "Dro Kenji": 'rgba(157, 80, 155, 0.8)',
+                "Dimitri Rougeul":'rgba(57, 0, 15, 0.8)'
             };
 
             // Fonction pour générer le contenu HTML des albums et chansons
@@ -1000,6 +1012,7 @@
                         var albumTitle = document.createElement("h3");
                         albumTitle.textContent = albumName;
                         albumInfoDiv.appendChild(albumTitle);
+                        
 
                         // Bouton pour déplier les chansons
                         var toggleButton = document.createElement("button");
