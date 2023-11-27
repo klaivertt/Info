@@ -222,6 +222,7 @@
     }
     #jeutotk .progress {
         background-color: #49D59C; 
+        font-weight: bold;
     }
     #jeutotk h3:hover {
         color: #ffffff; 
@@ -239,6 +240,7 @@
     }
     #jeubotw .progress {
         background-color: #B99F65;
+        font-weight: bold;
     }
     #jeubotw h3:hover {
         color: #B99F65;
@@ -255,6 +257,7 @@
     }
     #jeutlou .progress {
         background-color: #bbbbbb;
+        font-weight: bold;
     }
     #jeutlou h3:hover {
         color: #bbbbbb;
@@ -271,6 +274,7 @@
     }
     #jeutlou2 .progress {
         background-color: #bbbbbb;
+        font-weight: bold;
     }
     #jeutlou2 h3:hover {
         color: #bbbbbb;
@@ -288,6 +292,7 @@
     }
     #jeuoritbf .progress {
         background-color: #F79E3F;
+        font-weight: bold;
     }
     #jeuoritbf h3:hover {
         color: #F79E3F;
@@ -304,6 +309,7 @@
     }
     #jeuMC .progress {
         background-color: #F79E3F;
+        font-weight: bold;
     }
     #jeuMC h3:hover {
         color: #39aadb;
@@ -320,6 +326,7 @@
     }
     #jeuFactorio .progress {
         background-color: #E27A22;
+        font-weight: bold;
     }
     #jeuFactorio h3:hover {
         color: #E27A22;
@@ -332,8 +339,11 @@
         color: #000000;
     }
     #jeuSpiderman .progress {
-        background-color: #ffffff;
+        background-color: #b3b3b3;
+        color: #ffffff;
+        font-weight: bold;
     }
+    
     #jeuSpiderman h3:hover {
         color: #ffffff;
         -webkit-text-stroke: 1px #ffffff
@@ -348,6 +358,7 @@
     }
     #jeupvz .progress {
         background-color: #7ED933;
+        font-weight: bold;
     }
     #jeupvz h3:hover {
         color: #7ED933;
@@ -363,6 +374,7 @@
     }
     #jeuMCSM .progress {
         background-color: #D0A757;
+        font-weight: bold;
     }
     #jeuMCSM h3:hover {
         color: #D0A757;
@@ -378,6 +390,7 @@
     }
     #jeuEarntodie .progress {
         background-color: #EA1E10;
+        font-weight: bold;
     }
     #jeuEarntodie h3:hover {
         color: #EA1E10;
@@ -393,6 +406,7 @@
     }
     #jeuEarntodie .progress {
         background-color: #EA1E10;
+        font-weight: bold;
     }
     #jeuEarntodie h3:hover {
         color: #EA1E10;
@@ -408,6 +422,7 @@
     }
     #SkylandersSA .progress {
         background-color: #66ccff;
+        font-weight: bold;
     }
     #SkylandersSA h3:hover {
         color: #66ccff;
@@ -424,6 +439,7 @@
     }
     #SkylandersSF .progress {
         background-color: #72bb35;
+        font-weight: bold;
     }
     #SkylandersSF h3:hover {
         color: #72bb35;
@@ -439,6 +455,7 @@
     }
     #Ageofwar .progress {
         background-color: #1e6a25;
+        font-weight: bold;
     }
     #Ageofwar h3:hover {
         color: #1e6a25;
@@ -454,6 +471,7 @@
     }
     #stickmanlegacy .progress {
         background-color: #ae191b;
+        font-weight: bold;
     }
     #stickmanlegacy h3:hover {
         color: #ae191b;
@@ -469,6 +487,7 @@
     }
     #Ratchetetclankoperationdestruction .progress {
         background-color: #b54a1d;
+        font-weight: bold;
     }
     #Ratchetetclankoperationdestruction h3:hover {
         color: #b54a1d;
@@ -484,6 +503,7 @@
     }
     #HorizonZeroDawn .progress {
         background-color: #37343d;
+        font-weight: bold;
     }
     #HorizonZeroDawn h3:hover {
         color: #37343d;
@@ -499,6 +519,7 @@
     }
     #sotc .progress {
         background-color: #37343d;
+        font-weight: bold;
     }
     #sotc h3:hover {
         color: #37343d;
@@ -514,6 +535,7 @@
     }
     #ratchetclankriftapart .progress {
         background-color: #b54a1d;
+        font-weight: bold;
     }
     #ratchetclankriftapart h3:hover {
         color: #b54a1d;
@@ -529,6 +551,7 @@
     }
     #gtav .progress {
         background-color: #578520;
+        font-weight: bold;
     }
     #gtav h3:hover {
         color: #578520;
@@ -544,6 +567,7 @@
     }
     #gow .progress {
         background-color: #9D181E;
+        font-weight: bold;
     }
     #gow h3:hover {
         color: #9D181E;
@@ -559,6 +583,7 @@
     }
     #splatoon2 .progress {
         background-color: #A8ED59;
+        font-weight: bold;
     }
     #splatoon2 h3:hover {
         color: #A8ED59;
@@ -574,6 +599,7 @@
     }
     #Killzone3 .progress {
         background-color: #FFA40A;
+        font-weight: bold;
     }
     #Killzone3 h3:hover {
         color: #FFA40A;
@@ -589,6 +615,7 @@
     }
     #uncharted2 .progress {
         background-color: #D0481C;
+        font-weight: bold;
     }
     #uncharted2 h3:hover {
         color: #D0481C;
@@ -604,13 +631,15 @@
     }
     #dead_island .progress {
         background-color: #AD1010;
+        font-weight: bold;
     }
     #dead_island h3:hover {
         color: #AD1010;
         -webkit-text-stroke: 1px #AD1010
     }
     #dead_island button:hover {
-        background-color: #6F0E0E;   
+        background-color: #6F0E0E;  
+        font-weight: bold; 
     }
 
     #Minecraftlegend button {
@@ -619,6 +648,7 @@
     }
     #Minecraftlegend .progress {
         background-color: #00CFE4;
+        font-weight: bold;
     }
     #Minecraftlegend h3:hover {
         color: #00CFE4;
