@@ -180,6 +180,17 @@
                         },
                     ]
                 },
+                {
+                    "album": "The Age of Plastic",
+                    "songs": [
+                        {
+                            "name": "Video Killed The Radio Star",
+                            "year": "1980",
+                            "cover": "album/The Age of Plastic.webp",
+                            "artistes": ["The Buggles"]
+                        },
+                    ]
+                },
 
                 //1981
                 {
@@ -357,7 +368,7 @@
                             "name": "hakuna matata",
                             "year": "2003",
                             "cover": "album/Best of Le roi lion (Best of the Lion King) [Deluxe Edition].webp",
-                            "artistes": ["Dimitri Rougeul","Emmanuel Curtil","Jean-Philippe Puymartin","Michel Elias"]
+                            "artistes": ["Dimitri Rougeul", "Emmanuel Curtil", "Jean-Philippe Puymartin", "Michel Elias"]
                         },
                     ]
                 },
@@ -443,7 +454,7 @@
                             "name": "Somebody That I Used To Know",
                             "year": "2011",
                             "cover": "album/Making Mirrors.webp",
-                            "artistes": ["Gotye","Kimbra"]
+                            "artistes": ["Gotye", "Kimbra"]
                         },
                     ]
                 },
@@ -753,6 +764,40 @@
                         },
                     ]
                 },
+
+                {
+                    "album": "Starboy",
+                    "songs": [
+                        {
+                            "name": "Starboy (feat. Daft Punk)",
+                            "year": "2016",
+                            "cover": "album/Starboy.webp",
+                            "artistes": ["The Weeknd", "Daft Punk"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Starboy",
+                    "songs": [
+                        {
+                            "name": "I Feel It Coming (feat. Daft Punk)",
+                            "year": "2016",
+                            "cover": "album/Starboy.webp",
+                            "artistes": ["The Weeknd", "Daft Punk"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Starboy",
+                    "songs": [
+                        {
+                            "name": "Die For You",
+                            "year": "2016",
+                            "cover": "album/Starboy.webp",
+                            "artistes": ["The Weeknd"]
+                        },
+                    ]
+                },
                 //2017
 
                 {
@@ -922,7 +967,7 @@
                             "name": "Images of Death",
                             "year": "2022",
                             "cover": "album/Images of Death - Single.webp",
-                            "artistes": ["Ethan Ross", "Luga" , "Prompto"]
+                            "artistes": ["Ethan Ross", "Luga", "Prompto"]
                         },
                     ]
                 },
@@ -1118,65 +1163,68 @@
             ];
 
             const artistesColors = {
-                'Queen': 'rgba(234, 51, 146, 0.8)',
-                'Kenya Grace': 'rgba(176, 128, 11, 0.8)',
-                'Depeche Mode': 'rgba(255, 255, 1, 0.8)',
-                'Daft Punk': 'rgba(99, 75, 206, 0.8)',
-                'AC/DC': 'rgba(245, 31, 155, 0.8)',
-                'Mika': 'rgba(17, 73, 204, 0.8)',
-                'Dua Lipa': 'rgba(49, 12, 84, 0.8)',
-                'Coldplay': 'rgba(112, 45, 153, 0.8)',
-                'Muse': 'rgba(190, 163, 189, 0.8)',
-                'Fifty Fifty': 'rgba(225, 61, 128, 0.8)',
-                'Tears for Fears': 'rgba(50, 176, 141, 0.8)',
-                'Walk the Moon': 'rgba(8, 177, 76, 0.8)',
-                'MGMT': 'rgba(90, 97, 14, 0.8)',
-                'Omi': 'rgba(205, 109, 76, 0.8)',
-                'Capital Cities': 'rgba(236, 19, 57, 0.8)',
-                'Charles Aznavour': 'rgba(126, 115, 204, 0.8)',
-                'Royal Blood': 'rgba(8, 166, 235, 0.8)',
-                'Red Hot Chili Peppers': 'rgba(117, 115, 95, 0.8)',
-                'Apel8': 'rgba(24, 235, 53, 0.8)',
-                'Run-DMC': 'rgba(197, 95, 159, 0.8)',
-                'Édith Piaf': 'rgba(193, 230, 86, 0.8)',
-                'The Cure': 'rgba(37, 24, 110, 0.8)',
-                'Jacques Higelin': 'rgba(150, 85, 112, 0.8)',
-                'JVKE': 'rgba(97, 161, 194, 0.8)',
-                "Mozart l'Opéra Rock": 'rgba(137, 11, 150, 0.8)',
-                "Stromae": 'rgba(62, 212, 145, 0.8)',
-                "Michael Bublé": 'rgba(117, 39, 212, 0.8)',
-                "Christopher Tin": 'rgba(46, 171, 162, 0.8)',
-                "Jeremy Soule": 'rgba(207, 131, 52, 0.8)',
-                "Au/Ra": 'rgba(224, 74, 163, 0.8)',
-                "Jakubi": 'rgba(55, 53, 66, 0.8)',
-                "Arden Jones": 'rgba(54, 96, 101, 0.8)',
-                "Tai Verdes": 'rgba(100, 163, 97, 0.8)',
-                "Mareux": 'rgba(91, 133, 166, 0.8)',
-                "FOVOS": 'rgba(207, 81, 46, 0.8)',
-                "Andrea Santamaria": 'rgba(42, 200, 177, 0.8)',
-                "Damien Ferrette": 'rgba(53, 143, 83, 0.8)',
-                "Dro Kenji": 'rgba(157, 80, 155, 0.8)',
-                "Dimitri Rougeul":'rgba(57, 0, 15, 0.8)',
-                "Ethan Ross": 'rgba(53, 143, 83, 0.8)',
-                "Luga": 'rgba(157, 80, 155, 0.8)',
-                "Prompto":'rgba(57, 0, 15, 0.8)',
-                "Little Big":'rgba(57, 0, 15, 0.8)',
-                "Hippie Sabotage":'rgba(57, 0, 15, 0.8)',                
-                "keshi":'rgba(57, 0, 15, 0.8)',
-                "League of Legends":'rgba(57, 0, 15, 0.8)',                
-                "Against The Current":'rgba(57, 0, 15, 0.8)',                
-                "Ayo & Teo":'rgba(57, 0, 15, 0.8)',                
-                "The Ronettes":'rgba(57, 0, 15, 0.8)',                
-                "Miley Cyrus":'rgba(57, 0, 15, 0.8)',                
-                "Mustard":'rgba(57, 0, 15, 0.8)',                
-                "Rockwell":'rgba(57, 0, 15, 0.8)',                
-                "Gotye":'rgba(57, 0, 15, 0.8)',                
-                "Kimbra":'rgba(57, 0, 15, 0.8)',                
-                "Starship":'rgba(57, 0, 15, 0.8)',                
-                "Boney M.":'rgba(57, 0, 15, 0.8)',                
-                "Bobby McFerrin":'rgba(57, 0, 15, 0.8)',                
-                "Michael Jackson":'rgba(57, 0, 15, 0.8)',                
-                "Wham!":'rgba(57, 0, 15, 0.8)'
+                'Queen': 'rgba(255, 0, 0, 0.8)',
+                'Kenya Grace': 'rgba(0, 255, 0, 0.8)',
+                'Depeche Mode': 'rgba(0, 0, 255, 0.8)',
+                'Daft Punk': 'rgba(255, 255, 0, 0.8)',
+                'AC/DC': 'rgba(255, 0, 255, 0.8)',
+                'Mika': 'rgba(0, 255, 255, 0.8)',
+                'Dua Lipa': 'rgba(128, 0, 128, 0.8)',
+                'Coldplay': 'rgba(128, 128, 0, 0.8)',
+                'Muse': 'rgba(255, 128, 0, 0.8)',
+                'Fifty Fifty': 'rgba(0, 128, 255, 0.8)',
+                'Tears for Fears': 'rgba(0, 255, 128, 0.8)',
+                'Walk the Moon': 'rgba(128, 0, 255, 0.8)',
+                'MGMT': 'rgba(255, 0, 128, 0.8)',
+                'Omi': 'rgba(128, 255, 0, 0.8)',
+                'Capital Cities': 'rgba(255, 128, 128, 0.8)',
+                'Charles Aznavour': 'rgba(0, 128, 128, 0.8)',
+                'Royal Blood': 'rgba(128, 128, 255, 0.8)',
+                'Red Hot Chili Peppers': 'rgba(255, 128, 255, 0.8)',
+                'Apel8': 'rgba(255, 255, 128, 0.8)',
+                'Run-DMC': 'rgba(128, 0, 0, 0.8)',
+                'Édith Piaf': 'rgba(0, 128, 0, 0.8)',
+                'The Cure': 'rgba(0, 0, 128, 0.8)',
+                'Jacques Higelin': 'rgba(128, 255, 128, 0.8)',
+                'JVKE': 'rgba(255, 128, 0, 0.8)',
+                "Mozart l'Opéra Rock": 'rgba(0, 128, 255, 0.8)',
+                "Stromae": 'rgba(255, 0, 255, 0.8)',
+                "Michael Bublé": 'rgba(128, 255, 255, 0.8)',
+                "Christopher Tin": 'rgba(255, 255, 0, 0.8)',
+                "Jeremy Soule": 'rgba(255, 0, 0, 0.8)',
+                "Au/Ra": 'rgba(0, 255, 0, 0.8)',
+                "Jakubi": 'rgba(0, 0, 255, 0.8)',
+                "Arden Jones": 'rgba(128, 0, 128, 0.8)',
+                "Tai Verdes": 'rgba(128, 128, 0, 0.8)',
+                "Mareux": 'rgba(255, 128, 0, 0.8)',
+                "FOVOS": 'rgba(0, 128, 255, 0.8)',
+                "Andrea Santamaria": 'rgba(255, 0, 255, 0.8)',
+                "Damien Ferrette": 'rgba(255, 255, 128, 0.8)',
+                "Dro Kenji": 'rgba(128, 255, 255, 0.8)',
+                "Dimitri Rougeul": 'rgba(255, 128, 128, 0.8)',
+                "Ethan Ross": 'rgba(0, 128, 128, 0.8)',
+                "Luga": 'rgba(128, 128, 255, 0.8)',
+                "Prompto": 'rgba(255, 128, 255, 0.8)',
+                "Little Big": 'rgba(255, 255, 128, 0.8)',
+                "Hippie Sabotage": 'rgba(128, 255, 0, 0.8)',
+                "keshi": 'rgba(0, 128, 255, 0.8)',
+                "League of Legends": 'rgba(255, 0, 0, 0.8)',
+                "Against The Current": 'rgba(0, 255, 0, 0.8)',
+                "Ayo & Teo": 'rgba(0, 0, 255, 0.8)',
+                "The Ronettes": 'rgba(128, 0, 128, 0.8)',
+                "Miley Cyrus": 'rgba(128, 128, 0, 0.8)',
+                "Mustard": 'rgba(255, 128, 0, 0.8)',
+                "Rockwell": 'rgba(0, 128, 255, 0.8)',
+                "Gotye": 'rgba(255, 0, 255, 0.8)',
+                "Kimbra": 'rgba(128, 255, 255, 0.8)',
+                "Starship": 'rgba(255, 255, 0, 0.8)',
+                "Boney M.": 'rgba(255, 0, 255, 0.8)',
+                "Bobby McFerrin": 'rgba(128, 255, 255, 0.8)',
+                "Michael Jackson": 'rgba(255, 255, 0, 0.8)',
+                "Wham!": 'rgba(0, 255, 0, 0.8)',
+                "The Buggles": 'rgba(0, 0, 255, 0.8)',
+                "The Weeknd": 'rgba(128, 0, 128, 0.8)',
+                "Daft Punk": 'rgba(255, 128, 0, 0.8)',
             };
 
             // Fonction pour générer le contenu HTML des albums et chansons
@@ -1205,7 +1253,7 @@
                         var albumTitle = document.createElement("h3");
                         albumTitle.textContent = albumName;
                         albumInfoDiv.appendChild(albumTitle);
-                        
+
 
                         // Bouton pour déplier les chansons
                         var toggleButton = document.createElement("button");
@@ -1466,55 +1514,55 @@
                 chart.resetZoom();
             }
 
-           // Ajouter un gestionnaire d'événements pour la navigation du graphique en maintenant le doigt (pour les écrans tactiles) ou en cliquant avec le bouton gauche de la souris
-const chartContainer = document.getElementById('chartContainer');
-let isDragging = false;
-let prevX = 0;
+            // Ajouter un gestionnaire d'événements pour la navigation du graphique en maintenant le doigt (pour les écrans tactiles) ou en cliquant avec le bouton gauche de la souris
+            const chartContainer = document.getElementById('chartContainer');
+            let isDragging = false;
+            let prevX = 0;
 
-const startNavigation = (e) => {
-    isDragging = true;
-    prevX = getEventX(e);
-};
+            const startNavigation = (e) => {
+                isDragging = true;
+                prevX = getEventX(e);
+            };
 
-const performNavigation = (e) => {
-    if (isDragging) {
-        const currentX = getEventX(e);
-        const deltaX = currentX - prevX;
-        prevX = currentX;
+            const performNavigation = (e) => {
+                if (isDragging) {
+                    const currentX = getEventX(e);
+                    const deltaX = currentX - prevX;
+                    prevX = currentX;
 
-        // Déplacer le graphique horizontalement en fonction du déplacement du doigt/souris
-        chart.pan({
-            enabled: true,
-            mode: 'x',
-            speed: 5,
-            onPanComplete: () => {},
-        });
-    }
-};
+                    // Déplacer le graphique horizontalement en fonction du déplacement du doigt/souris
+                    chart.pan({
+                        enabled: true,
+                        mode: 'x',
+                        speed: 5,
+                        onPanComplete: () => { },
+                    });
+                }
+            };
 
-const stopNavigation = () => {
-    isDragging = false;
-};
+            const stopNavigation = () => {
+                isDragging = false;
+            };
 
-// Utilitaire pour obtenir la position X de l'événement (gestion des écrans tactiles et des clics de souris)
-const getEventX = (e) => {
-    if (e.touches && e.touches[0]) {
-        return e.touches[0].clientX; // Pour les écrans tactiles
-    } else if (e.clientX) {
-        return e.clientX; // Pour les clics de souris
-    }
-    return 0;
-};
+            // Utilitaire pour obtenir la position X de l'événement (gestion des écrans tactiles et des clics de souris)
+            const getEventX = (e) => {
+                if (e.touches && e.touches[0]) {
+                    return e.touches[0].clientX; // Pour les écrans tactiles
+                } else if (e.clientX) {
+                    return e.clientX; // Pour les clics de souris
+                }
+                return 0;
+            };
 
-// Gestion des événements tactiles pour les écrans tactiles
-chartContainer.addEventListener('touchstart', startNavigation);
-document.addEventListener('touchmove', performNavigation);
-document.addEventListener('touchend', stopNavigation);
+            // Gestion des événements tactiles pour les écrans tactiles
+            chartContainer.addEventListener('touchstart', startNavigation);
+            document.addEventListener('touchmove', performNavigation);
+            document.addEventListener('touchend', stopNavigation);
 
-// Gestion des événements de souris pour les clics de souris
-chartContainer.addEventListener('mousedown', startNavigation);
-document.addEventListener('mousemove', performNavigation);
-document.addEventListener('mouseup', stopNavigation);
+            // Gestion des événements de souris pour les clics de souris
+            chartContainer.addEventListener('mousedown', startNavigation);
+            document.addEventListener('mousemove', performNavigation);
+            document.addEventListener('mouseup', stopNavigation);
         </script>
         <footer>
         </footer>
