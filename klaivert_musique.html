@@ -32,7 +32,10 @@
 
             <div class="chart-container">
 
-                <div id="averageYearDiv" class="average-year"></div>
+                <div id="averageYearDiv" class="average-year" title="Attention : Les années de sortie correspondent à celles des albums et ne sont pas représentatives à 100%.">
+                    <!-- Contenu de la div -->
+                </div>
+                
                 <h2>Graphique des Années de Sortie</h2>
                 <button id="toggleChartTypeButton">Toggle Chart Type</button>
                 <button id="deselectArtistsButton">Artists</button>
@@ -317,7 +320,7 @@
                         {
                             "name": "Somebody's Watching Me",
                             "year": "1984",
-                            "cover": "album/Somebody's Watching Me.webp",
+                            "cover": "album/Ladies & Gentlemen The Best of George Michael",
                             "artistes": ["Rockwell"]
                         },
                     ]
@@ -328,8 +331,19 @@
                         {
                             "name": "Careless Whisper",
                             "year": "1984",
-                            "cover": "album/Somebody's Watching Me.webp",
+                            "cover": "album/Ladies & Gentlemen The Best of George Michael.webp",
                             "artistes": ["George Michael"]
+                        },
+                    ]
+                },
+                {
+                    "album": "The Platinum Collection",
+                    "songs": [
+                        {
+                            "name": "I Want To Break Free",
+                            "year": "1984",
+                            "cover": "album/The Platinum Collection.webp",
+                            "artistes": ["Queen"]
                         },
                     ]
                 },
@@ -458,6 +472,17 @@
                     "songs": [
                         {
                             "name": "One More Time ",
+                            "year": "2001",
+                            "cover": "album/Discovery.webp",
+                            "artistes": ["Daft Punk"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Discovery",
+                    "songs": [
+                        {
+                            "name": "Harder Better Faster Stronger",
                             "year": "2001",
                             "cover": "album/Discovery.webp",
                             "artistes": ["Daft Punk"]
@@ -1006,6 +1031,17 @@
                             "year": "2015",
                             "cover": "album/Purpose (Deluxe).webp",
                             "artistes": ["Justin Bieber"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Tetris - Single",
+                    "songs": [
+                        {
+                            "name": "Tetris",
+                            "year": "2015",
+                            "cover": "album/Tetris - Single.webp",
+                            "artistes": ["Game Boys"]
                         },
                     ]
                 },
@@ -1662,8 +1698,19 @@
                         {
                             "name": "Royalty",
                             "year": "2021",
-                            "cover": "album/Royalty - Single",
+                            "cover": "album/Royalty - Single.webp",
                             "artistes": ["Egzod", "Maestro Chives", "Neoni"]
+                        },
+                    ]
+                },
+                {
+                    "album": "Ballads of Hyrule II",
+                    "songs": [
+                        {
+                            "name": "Breath Of The Wild",
+                            "year": "2021",
+                            "cover": "album/Ballads of Hyrule II.webp",
+                            "artistes": ["Rozen"]
                         },
                     ]
                 },
@@ -2045,6 +2092,17 @@
                         },
                     ]
                 },
+                {
+                    "album": "The Legend of Zelda: Tears of the Kingdom (Covers, Vol. 1)",
+                    "songs": [
+                        {
+                            "name": "Main Theme (From 'the Legend of Zelda: Tears of the Kingdom') [Cover]",
+                            "year": "2023",
+                            "cover": "album/The Legend of Zelda Tears of the Kingdom (Covers, Vol. 1).webp",
+                            "artistes": ["Masters of Sound"]
+                        },
+                    ]
+                },
             ];
 
             const artistesColors = {
@@ -2187,6 +2245,9 @@
                 "Julian Casablancas": 'rgba(25, 108, 120, 0.8)',
                 "Pharrell Williams": 'rgba(25, 108, 120, 0.8)',
                 "OneRepublic": 'rgba(25, 108, 120, 0.8)',
+                "Rozen": 'rgba(25, 108, 120, 0.8)',
+                "Masters of Sound": 'rgba(25, 108, 120, 0.8)',
+                "Game Boys": 'rgba(25, 108, 120, 0.8)',
             };
 
             // Fonction pour générer le contenu HTML des albums et chansons
