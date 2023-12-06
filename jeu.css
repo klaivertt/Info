@@ -657,6 +657,23 @@
     #Minecraftlegend button:hover {
         background-color: #1F3FAC;   
     }
+    
+    #astrosplayroom button {
+        background-color: #0082ff;
+        color: #ffffff;
+    }
+    #astrosplayroom .progress {
+        background-color: #0082ff;
+        font-weight: bold;
+    }
+    #astrosplayroom h3:hover {
+        color: #0082ff;
+        -webkit-text-stroke: 1px #0082ff
+    }
+    #astrosplayroom button:hover {
+        background-color: #ffffff; 
+        color: #0082ff,  
+    }
     /*fin du styles pour les jeux */
 
     footer {

@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "background/killzone3.png",
         "background/mclegend.png",
         "background/splatoon2.png",
-        "background/uncharted.png"
+        "background/uncharted.png",
+        "background/astroplayroom.png"
     ];
 
     const randomIndex = Math.floor(Math.random() * backgrounds.length);
