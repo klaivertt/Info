@@ -231,8 +231,8 @@ nav a:hover {
 }
 
 #chartContainer {
-    min-height: 70vh;
-    min-width: 30vh;
+    min-height: 90vh;
+    min-width: 40vh;
 }
 h1 {
     text-align: center;
