@@ -32,10 +32,11 @@
 
             <div class="chart-container">
 
-                <div id="averageYearDiv" class="average-year" title="Attention : Les années de sortie correspondent à celles des albums et ne sont pas représentatives à 100%.">
+                <div id="averageYearDiv" class="average-year"
+                    title="Attention : Les années de sortie correspondent à celles des albums et ne sont pas représentatives à 100%.">
                     <!-- Contenu de la div -->
                 </div>
-                
+
                 <h2>Graphique des Années de Sortie</h2>
                 <button id="toggleChartTypeButton">Toggle Chart Type</button>
                 <button id="deselectArtistsButton">Artists</button>
@@ -68,6 +69,18 @@
                         }
                     ]
                 },
+                //1961
+                {
+                    "album": "Don't Play That Song!",
+                    "songs": [
+                        {
+                            "name": "Stand By Me",
+                            "year": "1961",
+                            "cover": "album/Don't Play That Song!.webp",
+                            "artistes": ["Ben E. King"]
+                        }
+                    ]
+                },
                 //1962
                 {
                     "album": "Yellow Bird (Mono Version) - EP",
@@ -92,7 +105,18 @@
                         }
                     ]
                 },
-
+                //1964
+                {
+                    "album": "The Essential Roy Orbison",
+                    "songs": [
+                        {
+                            "name": "Oh, Pretty Woman",
+                            "year": "1964",
+                            "cover": "album/The Essential Roy Orbison.webp",
+                            "artistes": ["Roy Orbison"]
+                        }
+                    ]
+                },
                 //1965
                 {
                     "album": "Best of 40 Chansons",
@@ -112,8 +136,20 @@
                         {
                             "name": "Kung Fu Fighting",
                             "year": "1972",
-                            "cover": "album/Kung Fu Fighter.png",
+                            "cover": "album/Kung Fu Fighter.webp",
                             "artistes": ["Carl Douglas"]
+                        }
+                    ]
+                },
+                //1973
+                {
+                    "album": "Second Helping",
+                    "songs": [
+                        {
+                            "name": "Sweet Home Alabama",
+                            "year": "1973",
+                            "cover": "album/Sweet Home Alabama.webp",
+                            "artistes": ["Lynyrd Skynyrd"]
                         }
                     ]
                 },
@@ -551,7 +587,7 @@
                             "name": "Better Off Alone",
                             "year": "1998",
                             "cover": "album/Who Needs Guitars Anyway.png",
-                            "artistes": [" Alice Deejay"]
+                            "artistes": [" Alice Deejay"]
                         },
                     ]
                 },
@@ -730,7 +766,18 @@
                         },
                     ]
                 },
-
+                //2008
+                {
+                    "album": "Chou Ikimonobakari Tennen Kinen Members Best Selection",
+                    "songs": [
+                        {
+                            "name": "Blue Bird ",
+                            "year": "2008",
+                            "cover": "album/Chou Ikimonobakari Tennen Kinen Members Best Selection.png",
+                            "artistes": ["Ikimonogakari"]
+                        },
+                    ]
+                },
                 //2009
                 {
                     "album": "Mozart l'Opéra Rock",
@@ -887,7 +934,7 @@
                             "name": "Instant Crush",
                             "year": "2013",
                             "cover": "album/Random Access Memories.png",
-                            "artistes": ["Daft Punk","Julian Casablancas"]
+                            "artistes": ["Daft Punk", "Julian Casablancas"]
                         },
                     ]
                 },
@@ -898,7 +945,7 @@
                             "name": "Lose Yourself to Dance",
                             "year": "2013",
                             "cover": "album/Random Access Memories.png",
-                            "artistes": ["Daft Punk","Pharrell Williams"]
+                            "artistes": ["Daft Punk", "Pharrell Williams"]
                         },
                     ]
                 },
@@ -1501,7 +1548,7 @@
                             "name": "Dear God",
                             "year": "2018",
                             "cover": "album/One Kiss - Single.webp",
-                            "artistes": ["Calvin Harris","Dua Lipa"]
+                            "artistes": ["Calvin Harris", "Dua Lipa"]
                         },
                     ]
                 },
@@ -1800,7 +1847,7 @@
                             "name": "Born to Die (feat. Izaya)",
                             "year": "2020",
                             "cover": "album/Born to Die (feat. Izaya) - Single.webp",
-                            "artistes": ["Besomorph","Coopex"]
+                            "artistes": ["Besomorph", "Coopex"]
                         },
                     ]
                 },
@@ -1811,7 +1858,7 @@
                             "name": "Outerspace",
                             "year": "2020",
                             "cover": "album/Outerspace - Single.webp",
-                            "artistes": ["BEAUZ","Dallas"]
+                            "artistes": ["BEAUZ", "Dallas"]
                         },
                     ]
                 },
@@ -2177,7 +2224,7 @@
                             "name": "PiLOT",
                             "year": "2022",
                             "cover": "album/NOT TiGHT.webp",
-                            "artistes": ["DOMi & JD BECK", "Anderson .Paak","Busta Rhymes","Snoop Dogg"]
+                            "artistes": ["DOMi & JD BECK", "Anderson .Paak", "Busta Rhymes", "Snoop Dogg"]
                         },
                     ]
                 },
@@ -2556,104 +2603,110 @@
                 "Childish Gambino": 'rgba(50, 15 ,125, 0.8)',
                 "Maddie Zahm": 'rgba(88,44,44,0.8)',
                 "Macklemore": 'rgba(55,55,125,0.8)',
-                "Ryan Lewis": 'rgba(125,55,125,0.8)',
-                "Machine Gun Kelly": 'rgba(255, 180, 120, 0.8)',
-                "Rick Astley": 'rgba(88,44,179,0.8)',
-                "Ludwig Göransson": 'rgba(88,134,179,0.8)',
-                "Loomy": 'rgba(208,34,179,0.8)',
-                "LISA": 'rgba(25, 98, 55, 0.8)',
-                "Lipps, Inc.": 'rgba(25, 180, 120, 0.8)',
-                "Masego": 'rgba(25, 108, 120, 0.8)',
-                "FKJ": 'rgba(235, 188, 128, 0.8)',
-                "Lil Wayne": 'rgba(25, 108, 120, 0.8)',
-                "Wiz Khalifa": 'rgba(25, 108, 120, 0.8)',
-                "Imagine Dragons": 'rgba(25, 108, 120, 0.8)',
-                "Lil Nas X": 'rgba(25, 108, 120, 0.8)',
-                "Jack Harlow": 'rgba(25, 108, 120, 0.8)',
-                "Leyla Blue": 'rgba(25, 108, 120, 0.8)',
-                "Lawrence Welk and His Orchestra": 'rgba(25, 108, 120, 0.8)',
-                "KYLE": 'rgba(25, 108, 120, 0.8)',
-                "Kyle Exum": 'rgba(25, 108, 120, 0.8)',
-                "Kid Cudi": 'rgba(25, 108, 120, 0.8)',
-                "Justin Bieber": 'rgba(25, 108, 120, 0.8)',
-                "Julia Alexa": 'rgba(25, 108, 120, 0.8)',
-                "Belfa": 'rgba(25, 108, 120, 0.8)',
-                "JOYCA": 'rgba(25, 108, 120, 0.8)',
-                "Jake Daniels": 'rgba(25, 108, 120, 0.8)',
-                "Hoober": 'rgba(25, 108, 120, 0.8)',
-                "tofû": 'rgba(25, 108, 120, 0.8)',
-                "Hiboky": 'rgba(25, 108, 120, 0.8)',
-                "U2": 'rgba(25, 108, 120, 0.8)',
-                "Grover Washington, Jr.": 'rgba(25, 108, 120, 0.8)',
-                "graves": 'rgba(25, 108, 120, 0.8)',
-                "grandson": 'rgba(25, 108, 120, 0.8)',
-                "Glass Animals": 'rgba(25, 108, 120, 0.8)',
-                "Gilbert Montagné": 'rgba(25, 108, 120, 0.8)',
-                "George Michael": 'rgba(25, 108, 120, 0.8)',
-                "Francis Cabrel": 'rgba(25, 108, 120, 0.8)',
-                "Farruko": 'rgba(25, 108, 120, 0.8)',
-                "Fran Vasilić": 'rgba(25, 108, 120, 0.8)',
-                "Cradle of Filth": 'rgba(25, 108, 120, 0.8)',
-                "Fox Stevenson": 'rgba(25, 108, 120, 0.8)',
-                "Eminem": 'rgba(25, 108, 120, 0.8)',
-                "ElyOtto": 'rgba(25, 108, 120, 0.8)',
-                "Elijah Who": 'rgba(25, 108, 120, 0.8)',
-                "Elijah Moon": 'rgba(25, 108, 120, 0.8)',
-                "Solace": 'rgba(25, 108, 120, 0.8)',
-                "Egzod": 'rgba(25, 108, 120, 0.8)',
-                "Maestro Chives": 'rgba(25, 108, 120, 0.8)',
-                "Neoni": 'rgba(25, 108, 120, 0.8)',
-                "Echosmith": 'rgba(25, 108, 120, 0.8)',
-                "Dxrk ダーク": 'rgba(25, 108, 120, 0.8)',
-                "Dwilly": 'rgba(25, 108, 120, 0.8)',
-                "Brandyn Burnette": 'rgba(25, 108, 120, 0.8)',
-                "Duke & Jones": 'rgba(25, 108, 120, 0.8)',
-                "Louis Theroux": 'rgba(25, 108, 120, 0.8)',
-                "Drake": 'rgba(25, 108, 120, 0.8)',
-                "Sam Smith": 'rgba(25, 108, 120, 0.8)',
-                "Kim Petras": 'rgba(25, 108, 120, 0.8)',
-                "Billie Eilish": 'rgba(25, 108, 120, 0.8)',
-                "Khalid": 'rgba(25, 108, 120, 0.8)',
-                "DOMi & JD BECK": 'rgba(25, 108, 120, 0.8)',
-                "Anderson .Paak": 'rgba(25, 108, 120, 0.8)',
-                "Busta Rhymes": 'rgba(25, 108, 120, 0.8)',
-                "Snoop Dogg": 'rgba(25, 108, 120, 0.8)',
-                "Street Corner Renaissance": 'rgba(25, 108, 120, 0.8)',
-                "Julian Casablancas": 'rgba(25, 108, 120, 0.8)',
-                "Pharrell Williams": 'rgba(25, 108, 120, 0.8)',
-                "OneRepublic": 'rgba(25, 108, 120, 0.8)',
-                "Rozen": 'rgba(25, 108, 120, 0.8)',
-                "Masters of Sound": 'rgba(25, 108, 120, 0.8)',
-                "Game Boys": 'rgba(25, 108, 120, 0.8)',
-                "Arctic Monkeys": 'rgba(25, 108, 120, 0.8)',
-                "Varien": 'rgba(25, 108, 120, 0.8)',
-                "ABBA": 'rgba(25, 108, 120, 0.8)',
-                "Cyndi Lauper": 'rgba(25, 108, 120, 0.8)',
-                "Confetti": 'rgba(25, 108, 120, 0.8)',
-                "CKay": 'rgba(25, 108, 120, 0.8)',
-                "Chris Webby": 'rgba(25, 108, 120, 0.8)',
-                "Chase Atlantic": 'rgba(25, 108, 120, 0.8)',
-                "Charles": 'rgba(25, 108, 120, 0.8)',
-                "Chance Peña": 'rgba(25, 108, 120, 0.8)',
-                "The Chainsmokers": 'rgba(25, 108, 120, 0.8)',
-                "ILLENIUM": 'rgba(25, 108, 120, 0.8)',
-                "Calvin Harris": 'rgba(25, 108, 120, 0.8)',
-                "Bob Marley & The Wailers": 'rgba(25, 108, 120, 0.8)',
-                "Besomorph": 'rgba(25, 108, 120, 0.8)',
-                "Coopex": 'rgba(25, 108, 120, 0.8)',
-                "poetri": 'rgba(25, 108, 120, 0.8)',
-                "BEAUZ": 'rgba(25, 108, 120, 0.8)',
-                "Dallas": 'rgba(25, 108, 120, 0.8)',
-                "The Beatnuts": 'rgba(25, 108, 120, 0.8)',
-                "BabyJake": 'rgba(25, 108, 120, 0.8)',
-                "Arden Jones" : 'rgba(25, 108, 120, 0.8)',
-                "Alfie Templeman": 'rgba(25, 108, 120, 0.8)',
-                "Carl Douglas": 'rgba(25, 108, 120, 0.8)',
-                "brady" : 'rgba(25, 108, 120, 0.8)',
-                "Dwayne Johnson" :'rgba(25, 108, 120, 0.8)',
-                "ZAZ":'rgba(25, 108, 120, 0.8)',
-                "Nirvana":'rgba(25, 108, 120, 0.8)',
-                "Desireless":'rgba(25, 108, 120, 0.8)',
+
+                'Ryan Lewis': 'rgba(33, 45, 200, 0.8)',
+                'Machine Gun Kelly': 'rgba(200, 100, 55, 0.8)',
+                'Rick Astley': 'rgba(120, 20, 200, 0.8)',
+                'Ludwig Göransson': 'rgba(55, 120, 200, 0.8)',
+                'Loomy': 'rgba(200, 34, 179, 0.8)',
+                'LISA': 'rgba(15, 188, 100, 0.8)',
+                'Lipps, Inc.': 'rgba(155, 180, 220, 0.8)',
+                'Masego': 'rgba(80, 120, 100, 0.8)',
+                'FKJ': 'rgba(235, 188, 128, 0.8)',
+                'Lil Wayne': 'rgba(50, 108, 150, 0.8)',
+                'Wiz Khalifa': 'rgba(130, 200, 90, 0.8)',
+                'Imagine Dragons': 'rgba(90, 80, 120, 0.8)',
+                'Lil Nas X': 'rgba(160, 40, 80, 0.8)',
+                'Jack Harlow': 'rgba(90, 180, 70, 0.8)',
+                'Leyla Blue': 'rgba(200, 30, 90, 0.8)',
+                'Lawrence Welk and His Orchestra': 'rgba(15, 60, 220, 0.8)',
+                'KYLE': 'rgba(80, 120, 160, 0.8)',
+                'Kyle Exum': 'rgba(250, 70, 20, 0.8)',
+                'Kid Cudi': 'rgba(30, 90, 140, 0.8)',
+                'Justin Bieber': 'rgba(180, 80, 30, 0.8)',
+                'Julia Alexa': 'rgba(50, 200, 160, 0.8)',
+                'Belfa': 'rgba(110, 20, 130, 0.8)',
+                'JOYCA': 'rgba(190, 110, 30, 0.8)',
+                'Jake Daniels': 'rgba(70, 140, 120, 0.8)',
+                'Hoober': 'rgba(120, 190, 50, 0.8)',
+                'tofû': 'rgba(120, 40, 170, 0.8)',
+                'Hiboky': 'rgba(220, 180, 20, 0.8)',
+                'U2': 'rgba(60, 150, 180, 0.8)',
+                'Grover Washington, Jr.': 'rgba(120, 90, 40, 0.8)',
+                'graves': 'rgba(200, 30, 50, 0.8)',
+                'grandson': 'rgba(70, 90, 220, 0.8)',
+                'Glass Animals': 'rgba(160, 60, 30, 0.8)',
+                'Gilbert Montagné': 'rgba(180, 80, 120, 0.8)',
+                'George Michael': 'rgba(20, 150, 80, 0.8)',
+                'Francis Cabrel': 'rgba(100, 70, 160, 0.8)',
+                'Farruko': 'rgba(190, 90, 90, 0.8)',
+                'Fran Vasilić': 'rgba(150, 40, 30, 0.8)',
+                'Cradle of Filth': 'rgba(70, 120, 140, 0.8)',
+                'Fox Stevenson': 'rgba(250, 50, 180, 0.8)',
+                'Eminem': 'rgba(100, 80, 180, 0.8)',
+                'ElyOtto': 'rgba(220, 40, 150, 0.8)',
+                'Elijah Who': 'rgba(60, 90, 180, 0.8)',
+                'Elijah Moon': 'rgba(150, 60, 90, 0.8)',
+                'Solace': 'rgba(180, 100, 60, 0.8)',
+                'Egzod': 'rgba(200, 80, 120, 0.8)',
+                'Maestro Chives': 'rgba(90, 120, 200, 0.8)',
+                'Neoni': 'rgba(220, 60, 90, 0.8)',
+                'Echosmith': 'rgba(30, 120, 190, 0.8)',
+                'Dxrk ダーク': 'rgba(150, 80, 160, 0.8)',
+                'Dwilly': 'rgba(180, 60, 120, 0.8)',
+                'Brandyn Burnette': 'rgba(60, 150, 70, 0.8)',
+                'Duke & Jones': 'rgba(70, 180, 100, 0.8)',
+                'Louis Theroux': 'rgba(120, 60, 180, 0.8)',
+                'Drake': 'rgba(180, 120, 60, 0.8)',
+                'Sam Smith': 'rgba(120, 40, 200, 0.8)',
+                'Kim Petras': 'rgba(180, 20, 90, 0.8)',
+                'Billie Eilish': 'rgba(50, 170, 120, 0.8)',
+                'Khalid': 'rgba(240, 80, 160, 0.8)',
+                'DOMi & JD BECK': 'rgba(70, 130, 200, 0.8)',
+                'Anderson .Paak': 'rgba(30, 90, 180, 0.8)',
+                'Busta Rhymes': 'rgba(200, 60, 120, 0.8)',
+                'Snoop Dogg': 'rgba(140, 20, 100, 0.8)',
+                'Street Corner Renaissance': 'rgba(90, 160, 40, 0.8)',
+                'Julian Casablancas': 'rgba(100, 180, 70, 0.8)',
+                'Pharrell Williams': 'rgba(160, 40, 220, 0.8)',
+                'OneRepublic': 'rgba(80, 140, 200, 0.8)',
+                'Rozen': 'rgba(200, 100, 40, 0.8)',
+                'Masters of Sound': 'rgba(120, 60, 180, 0.8)',
+                'Game Boys': 'rgba(30, 150, 90, 0.8)',
+                'Arctic Monkeys': 'rgba(180, 80, 20, 0.8)',
+                'Varien': 'rgba(60, 120, 180, 0.8)',
+                'ABBA': 'rgba(240, 160, 20, 0.8)',
+                'Cyndi Lauper': 'rgba(90, 200, 60, 0.8)',
+                'Confetti': 'rgba(160, 40, 220, 0.8)',
+                'CKay': 'rgba(70, 140, 180, 0.8)',
+                'Chris Webby': 'rgba(130, 190, 20, 0.8)',
+                'Chase Atlantic': 'rgba(220, 120, 40, 0.8)',
+                'Charles': 'rgba(180, 60, 140, 0.8)',
+                'Chance Peña': 'rgba(40, 160, 200, 0.8)',
+                'The Chainsmokers': 'rgba(220, 80, 140, 0.8)',
+                'ILLENIUM': 'rgba(160, 60, 120, 0.8)',
+                'Calvin Harris': 'rgba(60, 120, 220, 0.8)',
+                'Bob Marley & The Wailers': 'rgba(160, 100, 20, 0.8)',
+                'Besomorph': 'rgba(20, 120, 160, 0.8)',
+                'Coopex': 'rgba(120, 220, 60, 0.8)',
+                'poetri': 'rgba(180, 80, 220, 0.8)',
+                'BEAUZ': 'rgba(100, 40, 200, 0.8)',
+                'Dallas': 'rgba(20, 160, 80, 0.8)',
+                'The Beatnuts': 'rgba(220, 40, 120, 0.8)',
+                'BabyJake': 'rgba(160, 80, 40, 0.8)',
+                'Arden Jones': 'rgba(180, 60, 100, 0.8)',
+                'Alfie Templeman': 'rgba(240, 120, 60, 0.8)',
+                'Carl Douglas': 'rgba(160, 100, 60, 0.8)',
+                'brady': 'rgba(60, 140, 200, 0.8)',
+                'Dwayne Johnson': 'rgba(120, 60, 180, 0.8)',
+                'ZAZ': 'rgba(100, 180, 20, 0.8)',
+                'Nirvana': 'rgba(60, 200, 100, 0.8)',
+                'Desireless': 'rgba(120, 20, 160, 0.8)',
+                'Lynyrd Skynyrd': 'rgba(220, 80, 140, 0.8)',
+                'Ikimonogakari': 'rgba(60, 140, 20, 0.8)',
+                'Roy Orbison': 'rgba(180, 20, 100, 0.8)',
+                'Ben E. King': 'rgba(100, 180, 20, 0.8)',
+
             };
 
             // Fonction pour générer le contenu HTML des albums et chansons
